@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Obsidian Studio | Diseño con intención</title>
+        <meta name="description" content="Obsidian Studio crea experiencias digitales sobrias, expresivas y memorables.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <div class="page-shell">
+            <!--  NAVBAR  -->
+            <aside class="sidebar" id="site-menu">
+
+                <!--  BRAND  -->
+                <a class="brand" href="/index.html" aria-label="lydianmode, inicio">
+                    <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span>lydianmode<span class="brand-dot">_fp</span></span>
+                </a>
+
+                
+                <div class="sidebar-rule"></div>
+
+                <!--  MENU  -->
+                <p class="menu-label">Módulos</p>
+                <nav class="main-nav" aria-label="Navegación principal">
+                    <a class="nav-link" href="/som.html"><span>01</span>Sistemas Operativos Monopuesto</a>
+                    <a class="nav-link" href="/webapps.html"><span>02</span>Aplicaciones Web</a>
+                    <a class="nav-link" href="/ssii.html"><span>03</span>Sistemas Informáticos</a>
+                    <a class="nav-link" href="/backend.html"><span>04</span>Desarrollo Web en Entorno Servidor</a>
+                </nav>
+            </aside>
+
+            <!--  MAIN CONTENT  -->
+            <main class="content" id="top">
+
+                <!--  MOBILE HEADER  -->
+                <header class="mobile-header">
+                    <a class="brand" href="/index.html" aria-label="lydianmode, inicio">
+                    <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span>lydianmode<span class="brand-dot">_fp</span></span>
+                </a>
+                    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+                        <span></span><span></span>
+                        <span class="sr-only">Abrir menú</span>
+                    </button>
+                </header>
+
+
+                <!-- CONTENT-->
+                <section class="hero" aria-labelledby="hero-title">
+                    <div class="hero-copy">
+                        <p class="eyebrow"><span></span>Dirección creativa · 2024—2025</p>
+                        <h1 id="hero-title">Diseño que<br><em>deja huella.</em></h1>
+                        <p class="hero-intro">Construimos identidades y experiencias digitales para marcas con algo importante que decir.</p>
+                        <a class="button button-primary" href="#proyectos">Ver nuestro trabajo <span aria-hidden="true">↗</span></a>
+                    </div>
+                    <div class="hero-art" aria-label="Composición abstracta en tonos púrpura" role="img">
+                        <div class="art-orbit orbit-one"></div>
+                        <div class="art-orbit orbit-two"></div>
+                        <div class="art-core"></div>
+                        <span class="art-caption">Forma / 001</span>
+                        <span class="art-index">01</span>
+                    </div>
+                </section>
+
+                <section class="project-preview" id="proyectos" aria-labelledby="project-title">
+                    <div class="section-heading">
+                        <p class="eyebrow"><span></span>Selección reciente</p>
+                        <a class="text-link" href="#contacto">Todos los proyectos <span aria-hidden="true">↗</span></a>
+                    </div>
+                    <div class="project-grid">
+                        <article class="project-card project-main">
+                            <div class="project-visual visual-a"><span>Alba</span><small>Identidad / 2024</small></div>
+                            <h2 id="project-title">Alba Casa</h2>
+                            <p>Una nueva calma para la vida cotidiana.</p>
+                        </article>
+                        <article class="project-card">
+                            <div class="project-visual visual-b"><span>n° 07</span><small>Digital / 2024</small></div>
+                            <h2>Materia Studio</h2>
+                            <p>Espacios digitales con carácter.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="studio-note" id="estudio" aria-labelledby="studio-title">
+                    <p class="eyebrow"><span></span>El estudio</p>
+                    <h2 id="studio-title">Menos ruido.<br><em>Más intención.</em></h2>
+                    <a class="text-link" href="#contacto">Conócenos <span aria-hidden="true">↗</span></a>
+                </section>
+
+                <footer class="site-footer" id="contacto">
+                    <p>¿Tienes una idea?</p>
+                    <a href="mailto:hola@obsidian.studio">hola@obsidian.studio <span aria-hidden="true">↗</span></a>
+                    <small>© 2025 Obsidian Studio</small>
+                </footer>
+            </main>
+        </div>
+
+        <script>
+            const menuToggle = document.querySelector('.menu-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            menuToggle.addEventListener('click', () => {
+                const isOpen = sidebar.classList.toggle('is-open');
+                menuToggle.setAttribute('aria-expanded', isOpen);
+            });
+
+            navLinks.forEach((link) => {
+                link.addEventListener('click', () => {
+                    navLinks.forEach((item) => item.classList.remove('active'));
+                    link.classList.add('active');
+                    sidebar.classList.remove('is-open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        </script>
+    </body>
+</html>
