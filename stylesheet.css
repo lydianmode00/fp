@@ -278,10 +278,12 @@ em { color: var(--purple-light); font-style: normal; font-weight: bold; }
 .menu-unidades-card:nth-child(8) .menu-unidades-visual { background: linear-gradient(145deg, #71352c, #d8733e 52%, #ffc78d); }
 .menu-unidades-card:nth-child(9) .menu-unidades-visual { background: linear-gradient(135deg, #382a66, #8065bd 52%, #d5c2ff); }
 
+
 .studio-note { padding-top: 125px; padding-bottom: 145px; border-top: 1px solid var(--line); }
 .studio-note h2 { font-size: clamp(38px, 5vw, 72px); line-height: .98; letter-spacing: -.07em; margin-bottom: 35px; }
-.studio-note h3 { font-size: clamp(12px, 3vw, 24px); text-decoration: underline wavy purple;}
-.studio-note table { width: 85%; border-collapse: collapse; margin-top: 35px; text-align: left; }
+.studio-note h3 { font-size: clamp(16px, 4vw, 30px); text-decoration: underline wavy purple;}
+.studio-note h4 { font-size: clamp(14px, 3vw, 22px); }
+.studio-note table { width: 85%; border-collapse: collapse; margin-top: 35px; text-align: left; margin-bottom: 20px; }
 .studio-note table tbody tr:hover { background: rgba(145, 28, 139, 0.384); }
 
 
