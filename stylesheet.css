@@ -193,8 +193,6 @@ a {
 .portada {
 	min-height: 690px;
 	padding: 115px 9vw 90px 10vw;
-	display: grid;
-	grid-template-columns: minmax(310px, .9fr) 1fr;
 	align-items: center;
 	gap: 5vw;
 	position: relative;
@@ -228,7 +226,7 @@ h1 {
 em { color: var(--purple-light); font-style: normal; font-weight: bold; }
 
 .portada-intro {
-	max-width: 700px;
+	max-width: 900px;
 	color: var(--muted);
 	font-size: 14px;
 	line-height: 1.8;
@@ -272,7 +270,7 @@ em { color: var(--purple-light); font-style: normal; font-weight: bold; }
 .menu-unidades-card:nth-child(2) .menu-unidades-visual { background: linear-gradient(145deg, #1b3031, #4f807d 32%, #a5d4c7); }
 .menu-unidades-card:nth-child(3) .menu-unidades-visual { background: linear-gradient(135deg, #6e253e, #d95f57 52%, #ffb38a); }
 .menu-unidades-card:nth-child(4) .menu-unidades-visual { background: linear-gradient(145deg, #24386f, #5288d9 50%, #b9ddff); }
-.menu-unidades-card:nth-child(5) .menu-unidades-visual { background: linear-gradient(135deg, #6d4d1d, #c79d39 52%, #f9e38a); }
+.menu-unidades-card:nth-child(5) .menu-unidades-visual { background: linear-gradient(135deg, #6d4d1d, #d1af5f 52%, #f9e38a); }
 .menu-unidades-card:nth-child(6) .menu-unidades-visual { background: linear-gradient(145deg, #63264c, #c64d79 52%, #ffb5c9); }
 .menu-unidades-card:nth-child(7) .menu-unidades-visual { background: linear-gradient(135deg, #234d42, #5d9b69 52%, #bfe5b0); }
 .menu-unidades-card:nth-child(8) .menu-unidades-visual { background: linear-gradient(145deg, #71352c, #d8733e 52%, #ffc78d); }
