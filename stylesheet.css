@@ -28,6 +28,13 @@ a {
 	text-decoration: none;
 }
 
+.in-text-link {
+	color: var(--purple);
+	font-size: 14px;
+	text-decoration: underline;
+
+}
+
 .page-shell {
 	min-height: 100vh;
 	display: flex;
@@ -276,12 +283,42 @@ em { color: var(--purple-light); font-style: normal; font-weight: bold; }
 .menu-unidades-card:nth-child(8) .menu-unidades-visual { background: linear-gradient(145deg, #71352c, #d8733e 52%, #ffc78d); }
 .menu-unidades-card:nth-child(9) .menu-unidades-visual { background: linear-gradient(135deg, #382a66, #8065bd 52%, #d5c2ff); }
 .menu-unidades-card:nth-child(10) .menu-unidades-visual { background: linear-gradient(145deg, #479c5c, #5e7fa6 52%, #9bb4e6); }
+.menu-unidades-card:nth-child(11) .menu-unidades-visual { background: linear-gradient(135deg, #666121, #e22bf3 52%, #f9e38a); }
 
 
 .studio-note { padding-top: 125px; padding-bottom: 145px; border-top: 1px solid var(--line); }
 .studio-note h2 { font-size: clamp(38px, 5vw, 72px); line-height: .98; letter-spacing: -.07em; margin-bottom: 35px; }
 .studio-note h3 { font-size: clamp(16px, 4vw, 30px); text-decoration: underline wavy purple;}
 .studio-note h4 { font-size: clamp(14px, 3vw, 22px); }
+.activity-panel {
+	margin: 28px 0;
+	padding: 24px 24px;
+	border-radius: 8px;
+	background: #322b35;
+	color: var(--light-purple);
+}
+.activity-panel summary {
+	color: var(--light-purple);
+	font-size: 18px;
+	font-weight: 800;
+	cursor: pointer;
+}
+.activity-panel summary:focus-visible { outline: 2px solid #765d8d; outline-offset: 4px; }
+.activity-panel ol { margin-bottom: 0; padding-left: 24px; }
+.activity-panel li { padding-left: 4px; }
+.code-block {
+	margin: 22px 22pX 22px 0px;
+	padding: 8px 32px;
+	border: 1px solid var(--purple);
+	border-radius: 8px;
+	background: #211b2a;
+	box-shadow: 0 0 18px rgba(201, 169, 255, .22);
+	color: var(--paper);
+	font-family: "DM Mono", monospace;
+	font-size: 13px;
+	line-height: 1.7;
+	overflow-x: auto;
+}
 .studio-note table { width: 85%; border-collapse: collapse; margin-top: 35px; text-align: left; margin-bottom: 20px; }
 .studio-note table tbody tr:hover { background: rgba(145, 28, 139, 0.384); }
 

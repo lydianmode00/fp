@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Lydia FP</title>
+        <title>Backend - Lydia FP</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +49,6 @@
                     </button>
                 </header>
 
-
                 <!-- INTRO -->
                 <section class="portada" aria-labelledby="portada-title">
                     <div>
@@ -59,11 +58,165 @@
                     </div>
                 </section>
 
+                <!-- MENÚ DE UNIDADES -->
+                <section class="menu-unidades-preview" id="top" aria-labelledby="menu-unidades-title">
+                    <div class="section-heading">
+                        <p class="eyebrow"><span></span>Unidades de trabajo</p>
+                    </div>
 
-                <!-- UT 1 -->
+                    <div class="menu-unidades-grid">
+                        <a class="menu-unidades-card menu-unidades-main" href="#introduccion" aria-label="Introducción">
+                            <div class="menu-unidades-visual visual-a"><span>Introducción</span><small>UT 0</small></div>
+                        </a>
+
+                        <a class="menu-unidades-card menu-unidades-main" href="#ut1" aria-label="Ir a Fundamentos del Backend">
+                            <div class="menu-unidades-visual visual-a"><span>Fundamentos del Backend</span><small>UT 1</small></div>
+                        </a>
+
+                        <a class="menu-unidades-card menu-unidades-main" href="#ut2" aria-label="Ir a Django">
+                            <div class="menu-unidades-visual visual-a"><span>Django</span><small>UT 2</small></div>
+                        </a>
+
+                        <a class="menu-unidades-card menu-unidades-main" href="#ut3" aria-label="Ir a URLs y Templates">
+                            <div class="menu-unidades-visual visual-a"><span>URLs y Templates</span><small>UT 3</small></div>
+                        </a>
+
+                        <a class="menu-unidades-card menu-unidades-main" href="#ut4" aria-label="Ir a Cálculos en el Backend">
+                            <div class="menu-unidades-visual visual-a"><span>Cálculos en el Backend</span><small>UT 4</small></div>
+                        </a>
+
+                        <a class="menu-unidades-card menu-unidades-main" href="#ut5" aria-label="Ir a Ususarios y caché">
+                            <div class="menu-unidades-visual visual-a"><span>Ususarios y caché</span><small>UT 5</small></div>
+                        </a>
+
+                        <a class="menu-unidades-card menu-unidades-main" href="#ut6" aria-label="Ir a Programación Orientada a Objetos y ORMs">
+                            <div class="menu-unidades-visual visual-a"><span>POO y ORMs</span><small>UT 6</small></div>
+                        </a>
+
+                        <a class="menu-unidades-card menu-unidades-main" href="#ut7" aria-label="Ir a Servicios Web y APIs">
+                            <div class="menu-unidades-visual visual-a"><span>Servicios Web y APIs</span><small>UT 7</small></div>
+                        </a>
+
+                        <a class="menu-unidades-card menu-unidades-main" href="#ut8" aria-label="Ir a Integración Frontend y Backend. Websockets.">
+                            <div class="menu-unidades-visual visual-a"><span>Integración Frontend y Backend. Websockets.</span><small>UT 8</small></div>
+                        </a>
+
+                        <a class="menu-unidades-card menu-unidades-main" href="#ut9" aria-label="Ir a Servicios Externos">
+                            <div class="menu-unidades-visual visual-a"><span>Servicios Externos</span><small>UT 9</small></div>
+                        </a>
+
+                        <a class="menu-unidades-card menu-unidades-main" href="#english" aria-label="Ir a Ejercicios Bilingües">
+                            <div class="menu-unidades-visual visual-a"><span>Ejercicios Bilingües</span><small>English Sheets</small></div>
+                        </a>
+                    </div>
+                </section>
+
+
+                <!-- UT 0 -->
+                 <section class="studio-note" id="ut0" aria-labelledby="studio-title">
+                    <p class="eyebrow"><span></span>UT 0</p>
+                    <h2 id="studio-title">Introducción al Desarrollo Web en <em>Entorno Servidor</em></h2>
+                    <p>En esta unidad nos prepararemos para el estudio y el trabajo. Haremos alguna revisión de conceptos que tenemos que tener claros y pondremos a punto nuestro entorno de trabajo.</p>
+                    <p>Asumiremos que todos los estudiantes tienen conocimientos básicos de programación y están familiarizados con los conceptos fundamentales de los sistemas informáticos. Haremos simplemente una revisión de los conceptos más importantes.</p>
+                    <h3><em>01.</em> HTML</h3>
+                    <p>HTML es un lenguaje de marcado que deberíamos tener muy claro a estas alturas. Si hubiera algún concepto que no recordamos con exactitud, podemos revisar cualquiera de las siguientes dos documentaciones:</p>
+                    <ul>
+                        <li><a class="in-text-link" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">Documentación de HTML en MDN</a> es la documentación más completa y actualizada de HTML. Es la recomendada para programadores de alto nivel.</li>
+                        <li><a class="in-text-link" href="https://www.w3schools.com/html/" target="_blank" rel="noopener noreferrer">Documentación de HTML en W3Schools</a> es una excelente recurso para principiantes. Si tenéis problemas para recordar los conceptos básicos deberíais empezar por aquí y recordar lo necesario. Si este es vuestro caso, deberíais poner un empeño especial en poneros al día antes de que sea tarde.</li>
+                    </ul>
+                    <h3><em>02.</em> CSS</h3>
+                    <p>CSS es el lenguaje de estilo por defecto para CSS. Aunque es cierto que podemos usar frameworks como Bootstrap, Tailwind o Foundation, es importante entender los conceptos básicos de CSS para poder utilizarlos de manera efectiva. Los enlaces a la documentación oficial de CSS son:</p>
+                    <ul>
+                        <li><a class="in-text-link" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">Documentación de CSS en MDN</a> es la documentación más completa y actualizada de CSS. Es la recomendada para programadores de alto nivel.</li>
+                        <li><a class="in-text-link" href="https://www.w3schools.com/css/" target="_blank" rel="noopener noreferrer">Documentación de CSS en W3Schools</a> es una excelente recurso para principiantes. Si tenéis problemas para recordar los conceptos básicos deberíais empezar por aquí y recordar lo necesario. Si este es vuestro caso, deberíais poner un empeño especial en poneros al día antes de que sea tarde.</li>
+                    </ul>
+                    <h3><em>03.</em> Python</h3>
+                    <p>Python es un lenguaje de programación interpretado de alto nivel. Nosotros lo utilizaremos para el desarrollo de aplicaciones web en el entorno servidor a través del framework Django. Aquí tenemos los enlaces a la documentación de W3Schools y de Django:</p>
+                    <ul>
+                        <li><a class="in-text-link" href="https://www.w3schools.com/python/" target="_blank" rel="noopener noreferrer">Documentación de Python en W3Schools:</a> Para dudas sobre el lenguaje</li>
+                        <li><a class="in-text-link" href="https://docs.djangoproject.com/" target="_blank" rel="noopener noreferrer">Documentación de Django:</a> Para dudas sobre el framework</li>
+                    </ul>
+                    <h3><em>04.</em> JSON</h3>
+                    <p>JSON es un formato de intercambio de datos ligero. Es ampliamente utilizado en aplicaciones web para el envío y recepción de datos entre el cliente y el servidor. Los enlaces a la documentación oficial de JSON son:</p>
+                    <ul>
+                        <li><a class="in-text-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank" rel="noopener noreferrer">Documentación de JSON en MDN</a> es la documentación más completa y actualizada de JSON.</li>
+                        <li><a class="in-text-link" href="https://www.w3schools.com/js/js_json_intro.asp" target="_blank" rel="noopener noreferrer">Documentación de JSON en W3Schools</a> siendo JSON un formato simple de utilizar, ambas documentaciones son útiles para diferentes niveles de experiencia.</li>
+                    </ul>
+                    <h3><em>05.</em> Git y GitHub</h3>
+                    <p>Git es un sistema de control de versiones distribuido. GitHub es una plataforma de hosting para proyectos Git. Antes de comenzar a trabajar con Git y GitHub, es importante entender los conceptos básicos de control de versiones y cómo utilizar estas herramientas para gestionar tu código de forma eficiente.</p>
+                    <ul>
+                        <li><em>Proyecto:</em> Conjunto de archivos y directorios que representan un trabajo de desarrollo.</li>
+                        <li><em>Repositorio:</em> Un proyecto que está siendo gestionado por Git. Contiene todos los archivos del proyecto y el historial de cambios.</li>
+                        <li><em>Commit:</em> Una instantánea del estado de los archivos en un momento dado. Cada commit tiene un identificador único y un mensaje descriptivo.</li>
+                        <li><em>Branch:</em> Una línea de desarrollo independiente dentro de un repositorio. Permite trabajar en nuevas características o correcciones de errores sin afectar la rama principal (main o master). Normalmente usaremos staging y development como ramas paralelas.</li>
+                        <li><em>Merge:</em> El proceso de combinar cambios desde una rama a otra. Se utiliza para integrar nuevas características o correcciones de errores en la rama principal. Nosotros haremos merges desde development a staging por cada tarea completada y desde staging a main al final de cada unidad.</li>
+                        <li><em>Local:</em> El espacio donde se almacenan los commits antes de ser enviados al repositorio remoto.</li>
+                        <li><em>Remote:</em> El repositorio alojado en un servidor remoto, como GitHub. Permite la colaboración entre varios desarrolladores y el acceso a los cambios desde diferentes ubicaciones. Subo cambios haciendo push a la rama remota, y los descargo haciendo pull.</li>
+                    </ul>
+                    <details class="activity-panel">
+                        <summary>Actividades</summary>
+                        <h4>Pasos previos</h4>
+                        <ol>
+                            <li>Descargamos e instalamos VSCode y Git en nuestro ordenador. Ejecutamos los siguientes comandos en la terminal, manteniendo las comillas, pero sustituyendo el nombre y el correo electrónico:</li>
+                            <div class="code-block">
+                                <pre><code>git --global set user.name "Tu nombre"
+git --global set user.email "tu.email@ejemplo.com"</code></pre>
+                            </div>
+                            <li>Creamos una cuenta en GitHub</li>
+                            <li>Dentro de la cuenta creamos un nuevo repositorio. No importa si es privado o público, pero si es privado asegúrate de añadirme como lectora/comentadora</li>
+                            <li>Nos aseguramos de tener tres ramas creadas (master, staging y development)</li>
+                        </ol>
+
+                        <h4>Configuración de VSCode</h4>
+                        <ol>
+                            <li>Dentro de VSCode, buscamos el </li>
+                            <li>Creamos una cuenta en GitHub</li>
+                            <li>Dentro de la cuenta creamos un nuevo repositorio. No importa si es privado o público, pero si es privado asegúrate de añadirme como lectora/comentadora</li>
+                            <li>Nos aseguramos de tener tres ramas creadas (master, staging y development)</li>
+                        </ol>
+                    </details>
+                </section>
+
+                 <!-- UT 1 -->
                  <section class="studio-note" id="ut1" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>WIP</p>
-                    <h2 id="studio-title">Este módulo está aún en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                    <p class="eyebrow"><span></span>UT 1</p>
+                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                </section>
+
+                 <!-- UT 2 -->
+                 <section class="studio-note" id="ut2" aria-labelledby="studio-title">
+                    <p class="eyebrow"><span></span>UT 2</p>
+                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                </section>
+
+                 <!-- UT 3 -->
+                 <section class="studio-note" id="ut3" aria-labelledby="studio-title">
+                    <p class="eyebrow"><span></span>UT 3</p>
+                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                </section>
+
+                 <!-- UT 4 -->
+                 <section class="studio-note" id="ut4" aria-labelledby="studio-title">
+                    <p class="eyebrow"><span></span>UT 4</p>
+                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                </section>
+
+                 <!-- UT 5 -->
+                 <section class="studio-note" id="ut5" aria-labelledby="studio-title">
+                    <p class="eyebrow"><span></span>UT 5</p>
+                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                </section>
+
+                 <!-- UT 6 -->
+                 <section class="studio-note" id="ut6" aria-labelledby="studio-title">
+                    <p class="eyebrow"><span></span>UT 6</p>
+                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                </section>
+
+                 <!-- UT 7 -->
+                 <section class="studio-note" id="ut7" aria-labelledby="studio-title">
+                    <p class="eyebrow"><span></span>UT 7</p>
+                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
                 </section>
 
                 <footer class="site-footer" id="contacto">
