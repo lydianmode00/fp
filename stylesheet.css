@@ -333,7 +333,7 @@ em { color: var(--purple-light); font-style: normal; font-weight: bold; }
 }
 .activity-panel summary:focus-visible { outline: 2px solid #765d8d; outline-offset: 4px; }
 .activity-panel ol { margin-bottom: 0; padding-left: 24px; }
-.activity-panel li { padding-left: 4px; }
+.activity-panel li { padding-left: 4px; margin-bottom: 6px; }
 .code-block {
 	margin: 22px 22pX 22px 0px;
 	padding: 8px 32px;
