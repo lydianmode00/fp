@@ -372,8 +372,44 @@
                     <p>Todas las redes tienen un rango de direcciones IP asignado para su uso interno. Este rango viene dado por la máscara de red. Aquí tienes un vídeo que enseña a hacer lo que denominamos "subnetting" o "subredes".</p>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/2yJiH5lV2NM?si=7rgmRNLPVg8kIPr8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     <h4>Topologías</h4>
+                    <p>Según la disposición física de los dispositivos en una red, podemos distinguir diferentes topologías:</p>
+                    <ul>
+                        <li><em>Topología en estrella:</em> Todos los dispositivos están conectados a un centro de conmutación (switch, hub o router).</li>
+                        <ul>
+                            <li>Ventajas: Fácil de instalar y administrar, permite agregar o quitar dispositivos sin afectar a la red.</li>
+                            <li>Desventajas: Si el centro de conmutación falla, toda la red se ve afectada. El ancho de banda depende de un único dispositivo.</li>
+                        </ul>
+                        <li><em>Topología en anillo:</em> Los dispositivos están conectados en un circuito cerrado, donde cada dispositivo envía datos al siguiente.</li>
+                        <ul>
+                            <li>Ventajas: Proporciona una comunicación bidireccional y es resistente a fallos individuales.</li>
+                            <li>Desventajas: Si un dispositivo falla, puede afectar a toda la red.</li>
+                        </ul>
+                        <li><em>Topología en bus:</em> Todos los dispositivos están conectados a un solo cable central (bus). Esta topología es menos común en redes modernas de ordenadores, pero es muy usada en redes de comunicación de vehículos.</li>
+                        <ul>
+                            <li>Ventajas: Fácil de implementar y económico.</li>
+                            <li>Desventajas: Si el cable central falla, toda la red se ve afectada. El ancho de banda depende de un único cable.</li>
+                        </ul>
+                        <li><em>Topología en malla:</em> Los dispositivos están conectados entre sí en una red de interconexión compleja, lo que proporciona redundancia, mejor rendimiento y una mayor tolerancia a fallos.</li>
+                        <ul>
+                            <li>Ventajas: Alta disponibilidad, mejor rendimiento y mayor tolerancia a fallos.</li>
+                            <li>Desventajas: Costosa y compleja de implementar y mantener.</li>
+                        </ul>
+
+                        <li><em>Topología híbrida:</em> Es una combinación de dos o más topologías simples, lo que permite aprovechar las ventajas de cada una y compensar sus desventajas.</li>
+                    </ul>
                     <h4>Modelo OSI</h4>
-                        <details class="activity-panel">
+                    <p>El modelo OSI (Open Systems Interconnection) es un modelo conceptual que describe cómo se comunican los dispositivos en una red. Este modelo divide la comunicación en siete capas, cada una con una función específica. Es un modelo de abstracción complicado de entender pero fundamental para el diseño y troubleshooting de redes. Las capas son:</p>
+                    <ol>
+                        <li><em>Capa física:</em> Se encarga de la transmisión de bits a través del medio físico (cables, fibra óptica, ondas de radio, etc.).</li>
+                        <li><em>Capa de enlace de datos:</em> Se encarga de la transmisión de tramas entre dispositivos en la misma red local mediante direcciones MAC. Controla el acceso al medio y detecta errores.</li>
+                        <li><em>Capa de red:</em> Se encarga del direccionamiento y encaminamiento de paquetes entre redes diferentes. Utiliza direcciones IP para identificar dispositivos.</li>
+                        <li><em>Capa de transporte:</em> Se encarga de la entrega confiable de datos entre aplicaciones en dispositivos diferentes. Utiliza protocolos como TCP y UDP.</li>
+                        <li><em>Capa de sesión:</em> Se encarga de establecer, mantener y finalizar sesiones de comunicación entre aplicaciones.</li>
+                        <li><em>Capa de presentación:</em> Se encarga de la representación y codificación de los datos para que puedan ser entendidos por las aplicaciones. Incluye funciones como compresión y cifrado.</li>
+                        <li><em>Capa de aplicación:</em> Es la capa más cercana al usuario y proporciona servicios y protocolos para aplicaciones específicas, como correo electrónico, navegación web o transferencia de archivos.</li>
+                    </ol>
+                    <p>Para entenderlo mejor: Cada vez que tengo que enviar un paquete de datos por una red, recorro las capas desde la 7 a la 1, añadiendo información adicional en cada capa.</p>
+                    <details class="activity-panel">
                         <summary>Actividades</summary>
                         <ol>
                             <li>Investiga. ¿Cómo logra un router conectar dos redes diferentes?</li>
@@ -387,7 +423,57 @@
                         </ol>
                         <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII - UT1 - Tarea 4">Enviar actividades por correo</a>
                     </details>
-                    <h3><em>05.</em> Prevención de Riesgos Laborales</h3>
+                    <h3><em>05.</em> Licencias y tipos de software</h3>
+                    <p>Cuando hablamos de software, hablamos de la parte lógica de un equipo informático, es decir, de todo aquello que no es físico y no se puede tocar.</p>
+                    <p>Las primeras palabras que se nos vienen a la mente cuand hablamos de software son "programas" o "aplicaciones".</p>
+                    <p>Un <em>programa</em> es un conjunto de instrucciones finito que pueden o no recibir datos y producen un resultado esperado.</p>
+                    <p>Para definir qué es una aplicación, tenemos que entender los diferentes niveles de complejidad de los programas informáticos. De menos a más complejos son:</p>
+                    <ol>
+                        <li><em>Instrucciones de procesador:</em> Son un conjunto pequeño de instrucciones que el procesador puede ejecutar directamente. Por ejemplo: "sumar dos valores", "guardar un valor en memoria", "leer un valor de memoria" o "comparar dos valores".</li>
+                        <li><em>Núcleo o kernel:</em> Es la parte central del sistema operativo que gestiona los recursos del sistema y proporciona una interfaz para interactuar con el hardware. Ofrece las bases para el funcionamiento del sistema y las directivas de seguridad.</li>
+                        <li><em>Sistema Operativo:</em> Es el software que gestiona los recursos del sistema y proporciona una interfaz para que el usuario interactúe con el software. Es el entorno en el que se ejecutan las aplicaciones. Ofrece funciones adicionales de seguridad.</li>
+                        <li><em>Aplicaciones:</em> Son programas diseñados para realizar tareas específicas para el usuario. Pueden ser de productividad, entretenimiento, comunicación, etc. Ofrecen funciones adicionales de seguridad.</li>
+                    </ol>
+                    <h3><em>06.</em> Prevención de Riesgos Laborales</h3>
+                    <p>Al trabajar con equipos y sistemas informáticos, asumimos riesgos intrínsecos a la profesión. Nuestro deber en tanto que profesionales, trabajadores y personas es reducir estos riesgos al mínimo posible. Por nuestra salud y por el buen desempeño de nuestras actividades.</p>
+                    <p>Cuando hablamos de PRL nos debemos acoger a la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales. En esta ley se establece los derechos y deberes de los trabajadores en materia de seguridad y salud en el trabajo, tanto para el empresario como para el trabajador.</p>
+                    <p>Si pudiéramos resumir la ley en tres sencillos pasos, serían:</p>
+                    <ol>
+                        <li>Identificar los riesgos.</li>
+                        <li>Evaluar su gravedad y probabilidad.</li>
+                        <li>Tomar medidas para prevenir o controlar los riesgos.</li>
+                    </ol>
+                    <p>En nuestro sector, la PRL se manifiesta en los siguientes ámbitos:</p>
+                    <ul>
+                        <li>Riesgos eléctricos: Descargas eléctricas, cortocircuitos, sobrecargas y fallos en el suministro eléctrico.</li>
+                        <li>Riesgos ergonómicos: Posturas inadecuadas al estar sentado, movimientos repetitivos y diseño inadecuado del puesto de trabajo.</li>
+                        <li>Riesgos psicosociales: Estrés laboral, acoso, presión por cumplir plazos, aislamiento y falta de comunicación.</li>
+                        <li>Riesgos químicos: Exposición a productos químicos peligrosos, como litio, plomo,disolventes, limpiadores y productos de mantenimiento.</li>
+                        <li>Riesgos biológicos: Exposición a microorganismos patógenos presentes en el ambiente de trabajo.</li>
+                        <li>Riesgos para la vista: Problemas de visión causados por la exposición a pantallas, iluminación inadecuada o falta de descanso visual.</li>
+                    </ul>
+                    <p>Podemos prevenirlos prestando atención a los siguientes elementos:</p>
+                    <ul>
+                        <li>Ergonomía del teclado y el ratón, que deben ser ajustables y diseñados para un uso intensivo.</li>
+                        <li>Iluminación adecuada del entorno de trabajo. La falta de luz o el exceso de ella pueden causar fatiga visual y malestar en el trabajo.</li>
+                        <li>Ventilación y control de temperatura. Para mantener un ambiente de trabajo cómodo y saludable.</li>
+                        <li>Equipos en buen estado. Para evitar fugas de productos químicos o la exposición a ellos y exposición directa a la corriente eléctrica.</li>
+                        <li>Limpieza regular del entorno de trabajo, para evitar acumulación de residuos y contaminantes.</li>
+                        <li>Entorno de trabajo social. Para fomentar la comunicación y el bienestar psicológico de los trabajadores.</li>
+                        <li>Posicionmiento adecuado de las pantallas. Que deben estar a unos 40 cm de distancia y situadas a la altura del horizonte visual.</li>
+                    </ul>
+                    <details class="activity-panel">
+                        <summary>Actividades</summary>
+                        <ol>
+                            <li>¿Qué es la regla 20/20/20?</li>
+                            <li>Busca en internet cuales son las principales enfermedades relacionadas de informáticos y programadores.</li>
+                            <li>En una oficina propiedad de la empresa, ¿debe la empresa proporcionarme un ratón y teclado especiales para la ergonomía si experimento malestar en el trabajo? ¿Y si teletrabajo desde casa? ¿Pasaría lo mismo con un el escritorio sobre el que trabajo?</li>
+                            <li>¿Crees que cuando estudias o juegas en casa cumples las recomendaciones de ergonomía?</li>
+                            <li>¿Qué es una pulsera antiestática?</li>
+                            <li>¿Qué componentes informáticos tienen productos químicos? ¿En qué casos podría entrar en contacto con ellos? ¿Es probable que pase y cause daños?</li>
+                        </ol>
+                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII - UT1 - Tarea 6">Enviar actividades por correo</a>
+                    </details>
                 </section>
 
                 <!-- UT2 -->

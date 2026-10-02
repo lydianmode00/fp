@@ -28,6 +28,10 @@ a {
 	text-decoration: none;
 }
 
+li {
+	margin-bottom: 6px;
+}
+
 .in-text-link {
 	color: var(--purple);
 	font-size: 14px;
