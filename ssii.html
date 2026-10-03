@@ -154,48 +154,50 @@
 
                     <h4>Memoria</h4>
                     <p>La <em>Memoria RAM</em> es el componente de hardware que almacena temporalmente los datos y las instrucciones que la CPU necesita procesar. La RAM es volátil, lo que significa que los datos se pierden cuando se apaga el equipo. Diferenciamos entre memorias SIMM, DIMM y SO-DIMM según su tamaño y tipo de conexión. La mayoría de los equipos modernos utilizan memorias DIMM o SO-DIMM. Las memorias DIMM se dividen en generaciones que aumentan su capacidad y velocidad. Estas son: DDR, DDR2, DDR3, DDR4 y DDR5.</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Generación</th>
-                                <th>Velocidad</th>
-                                <th>Capacidad</th>
-                                <th>Voltaje</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>DDR</td>
-                                <td>100-200 MHz</td>
-                                <td>128 MB - 1 GB</td>
-                                <td>2.5 V</td>
-                            </tr>
-                            <tr>
-                                <td>DDR2</td>
-                                <td>400-800 MHz</td>
-                                <td>1 GB - 4 GB</td>
-                                <td>1.8 V</td>
-                            </tr>
-                            <tr>
-                                <td>DDR3</td>
-                                <td>1066-2133 MHz</td>
-                                <td>4 GB - 16 GB</td>
-                                <td>1.5 V</td>
-                            </tr>
-                            <tr>
-                                <td>DDR4</td>
-                                <td>2133-3200 MHz</td>
-                                <td>8 GB - 32 GB</td>
-                                <td>1.2 V</td>
-                            </tr>
-                            <tr>
-                                <td>DDR5</td>
-                                <td>4800-5600 MHz</td>
-                                <td>16 GB - 64 GB</td>
-                                <td>1.1 V</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-scroll" role="region" aria-label="Tabla de generaciones de memoria RAM" tabindex="0">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Generación</th>
+                                    <th>Velocidad</th>
+                                    <th>Capacidad</th>
+                                    <th>Voltaje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>DDR</td>
+                                    <td>100-200 MHz</td>
+                                    <td>128 MB - 1 GB</td>
+                                    <td>2.5 V</td>
+                                </tr>
+                                <tr>
+                                    <td>DDR2</td>
+                                    <td>400-800 MHz</td>
+                                    <td>1 GB - 4 GB</td>
+                                    <td>1.8 V</td>
+                                </tr>
+                                <tr>
+                                    <td>DDR3</td>
+                                    <td>1066-2133 MHz</td>
+                                    <td>4 GB - 16 GB</td>
+                                    <td>1.5 V</td>
+                                </tr>
+                                <tr>
+                                    <td>DDR4</td>
+                                    <td>2133-3200 MHz</td>
+                                    <td>8 GB - 32 GB</td>
+                                    <td>1.2 V</td>
+                                </tr>
+                                <tr>
+                                    <td>DDR5</td>
+                                    <td>4800-5600 MHz</td>
+                                    <td>16 GB - 64 GB</td>
+                                    <td>1.1 V</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <p>Es importante considerar la velocidad de transferencia de datos al elegir la combinación de memoria RAM y placa base para no hacer cuello de botella.</p>
 
                     <h4>Periféricos de entrada/salida</h4>
@@ -206,81 +208,85 @@
                     <p>Los <em>dispositivos de almacenamiento</em> son medios físicos o lógicos donde se guardan los datos de forma permanente. Algunos ejemplos de dispositivos de almacenamiento son el disco duro HDD, el SSD, la memoria USB y el CD/DVD.</p>
                     <p>Desde un punto de vista técnico, los dispositivos de almacenamiento podrían ser clasificados como periféricos al no ser necesarios para el funcionamiento básico del sistema.</p>
                     <p>Los dispositivos de almacenamiento pueden dividirse en internos y externos, dependiendo de su ubicación y forma de conexión al sistema. Los dispositivos internos están integrados dentro del sistema, mientras que los externos se conectan a través de puertos o interfaces específicas. Los dispositvos de almacenamiento internos principales son el disco duro HDD, el SSD y el NVMe M.2</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Dispositvo</th>
-                                <th>Velocidades de transferencia</th>
-                                <th>Tamaño</th>
-                                <th>Pros</th>
-                                <th>Contras</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>HDD</td>
-                                <td>80 a 140 MB/s</td>
-                                <td>3.5 pulgadas para sobremesa y 2.5 pulgadas para portátiles</td>
-                                <td>Alto almacenamiento, bajo costo por Gb de almacenamiento</td>
-                                <td>Bajo rendimiento, alto consumo. Se degradan con las horas de uso. Sensible a golpes.</td>
-                            </tr>
-                            <tr>
-                                <td>SSD</td>
-                                <td>400 a 550 MB/s</td>
-                                <td>2.5 pulgadas</td>
-                                <td>Alta velocidad, bajo consumo. Costo por Gb ligeramente superior al HDD</td>
-                                <td>Relativamente sensible a golpes. Se degrada por ciclos de escritura.</td>
-                            </tr>
-                            <tr>
-                                <td>NVMe M.2 Gen3</td>
-                                <td>3000 a 3500 MB/s</td>
-                                <td>22mm de ancho y 30 a 110 mm de largo</td>
-                                <td>Velocidad altísima, bajo consumo. Dificil que sufra golpes.</td>
-                                <td>Costo por Gb significativamente superior a los demás tipos. Se degrada por ciclos de escritura.</td>
-                            </tr>
-                            <tr>
-                                <td>NVMe M.2 Gen4/5</td>
-                                <td>5000 a 7800 MB/s</td>
-                                <td>22mm de ancho y 30 a 110 mm de largo</td>
-                                <td>Extrema velocidad, bajo consumo. Dificil que sufra golpes.</td>
-                                <td>Costo por Gb significativamente superior a los demás tipos. Se degrada por ciclos de escritura.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-scroll" role="region" aria-label="Tabla de dispositivos de almacenamiento" tabindex="0">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Dispositvo</th>
+                                    <th>Velocidades de transferencia</th>
+                                    <th>Tamaño</th>
+                                    <th>Pros</th>
+                                    <th>Contras</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HDD</td>
+                                    <td>80 a 140 MB/s</td>
+                                    <td>3.5 pulgadas para sobremesa y 2.5 pulgadas para portátiles</td>
+                                    <td>Alto almacenamiento, bajo costo por Gb de almacenamiento</td>
+                                    <td>Bajo rendimiento, alto consumo. Se degradan con las horas de uso. Sensible a golpes.</td>
+                                </tr>
+                                <tr>
+                                    <td>SSD</td>
+                                    <td>400 a 550 MB/s</td>
+                                    <td>2.5 pulgadas</td>
+                                    <td>Alta velocidad, bajo consumo. Costo por Gb ligeramente superior al HDD</td>
+                                    <td>Relativamente sensible a golpes. Se degrada por ciclos de escritura.</td>
+                                </tr>
+                                <tr>
+                                    <td>NVMe M.2 Gen3</td>
+                                    <td>3000 a 3500 MB/s</td>
+                                    <td>22mm de ancho y 30 a 110 mm de largo</td>
+                                    <td>Velocidad altísima, bajo consumo. Dificil que sufra golpes.</td>
+                                    <td>Costo por Gb significativamente superior a los demás tipos. Se degrada por ciclos de escritura.</td>
+                                </tr>
+                                <tr>
+                                    <td>NVMe M.2 Gen4/5</td>
+                                    <td>5000 a 7800 MB/s</td>
+                                    <td>22mm de ancho y 30 a 110 mm de largo</td>
+                                    <td>Extrema velocidad, bajo consumo. Dificil que sufra golpes.</td>
+                                    <td>Costo por Gb significativamente superior a los demás tipos. Se degrada por ciclos de escritura.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h4>Placa Base</h4>
                     <p>La <em>Placa Base</em> es el componente de hardware principal que conecta todos los demás componentes de un Sistema Informático. Proporciona las conexiones eléctricas y de datos necesarias para que los componentes puedan comunicarse entre sí. La placa base contiene el chipset, que es el conjunto de circuitos integrados que gestionan la comunicación entre la CPU, la memoria y los periféricos. También incluye ranuras de expansión, puertos de entrada/salida y conectores de alimentación.</p>
                     <p>La placa base puede clasificarse según su tamaño y factor de forma. Los factores de forma más comunes son ATX, Micro-ATX y Mini-ITX. Cada factor de forma tiene diferentes dimensiones y características, lo que afecta la compatibilidad con otros componentes y la capacidad de expansión del sistema.</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Factor de forma</th>
-                                <th>Dimensiones</th>
-                                <th>Pros</th>
-                                <th>Contras</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>ATX</td>
-                                <td>305 x 244 mm</td>
-                                <td>Mayor capacidad de expansión, más ranuras de memoria y puertos de entrada/salida</td>
-                                <td>Mayor tamaño, menos compatibilidad con cajas pequeñas</td>
-                            </tr>
-                            <tr>
-                                <td>Micro-ATX</td>
-                                <td>244 x 244 mm</td>
-                                <td>Compatibilidad con cajas más pequeñas, buena capacidad de expansión</td>
-                                <td>Menor cantidad de ranuras de memoria y puertos de entrada/salida que ATX</td>
-                            </tr>
-                            <tr>
-                                <td>Mini-ITX</td>
-                                <td>170 x 170 mm</td>
-                                <td>Tamaño compacto, ideal para sistemas pequeños y portátiles</td>
-                                <td>Limitada capacidad de expansión, menos ranuras de memoria y puertos de entrada/salida</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-scroll" role="region" aria-label="Tabla de factores de forma de placas base" tabindex="0">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Factor de forma</th>
+                                    <th>Dimensiones</th>
+                                    <th>Pros</th>
+                                    <th>Contras</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ATX</td>
+                                    <td>305 x 244 mm</td>
+                                    <td>Mayor capacidad de expansión, más ranuras de memoria y puertos de entrada/salida</td>
+                                    <td>Mayor tamaño, menos compatibilidad con cajas pequeñas</td>
+                                </tr>
+                                <tr>
+                                    <td>Micro-ATX</td>
+                                    <td>244 x 244 mm</td>
+                                    <td>Compatibilidad con cajas más pequeñas, buena capacidad de expansión</td>
+                                    <td>Menor cantidad de ranuras de memoria y puertos de entrada/salida que ATX</td>
+                                </tr>
+                                <tr>
+                                    <td>Mini-ITX</td>
+                                    <td>170 x 170 mm</td>
+                                    <td>Tamaño compacto, ideal para sistemas pequeños y portátiles</td>
+                                    <td>Limitada capacidad de expansión, menos ranuras de memoria y puertos de entrada/salida</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <p>Para sistemas que requieren una configuración más compacta (como sistemas home cinema, servidores caseros o máquinas arcade), la placa base Mini-ITX es la opción ideal.</p>
                     <p>A la hora de elegir una placa base, es importante considerar el tamaño del sistema, la capacidad de expansión necesaria y la compatibilidad con los componentes que se van a utilizar.</p>
 
@@ -321,7 +327,9 @@
 
                     <h3><em>03.</em> Montaje y Mantenimiento</h3>
                     <p>Es común encontrar el caso de tener que montar un ordenador de sobremesa por piezas y más común aún es el de tener que mantenerlo en buen estado de funcionamiento. Vamos a ver rápidamente los pasos principales para realizar este tipo de trabajo con un vídeo.</p>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/C58WJ_1AKho?si=ayCpQKsMo8Lnh2Tw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="video-container">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/C58WJ_1AKho?si=ayCpQKsMo8Lnh2Tw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                     <p>Para realizar el mantenimiento físico del equipo abriremos la caja y verificaremos las siguientes cosas:</p>
                     <ul>
                         <li>Que no haya polvo acumulado en los ventiladores, disipadores de calor ni sobre la placa. Limpiaremos con aire comprimido si es el caso.</li>
@@ -330,7 +338,9 @@
                         <li>Que la pasta térmica del procesador esté en buen estado y no se haya secado. Una vez cada 1-2 años, debería reemplazarse.</li>
                     </ul>
                     <p>Aquí tienes un vídeo corto que nos ilustra el proceso completo:</p>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/BCnQGgctQ_Y?si=BGZsCaQzYrtSoDPW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="video-container">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/BCnQGgctQ_Y?si=BGZsCaQzYrtSoDPW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                     <details class="activity-panel">
                         <summary>Tarea 3</summary>
                         <ol>
@@ -378,8 +388,9 @@
                     <p>Las direcciones IP son identificadores únicos que permiten identificar dispositivos en una red. Cada dispositivo en una red debe tener una dirección IP única para poder comunicarse con otros dispositivos. </p>
                     <p>No es necesario que las direcciones IP sean únicas en el mundo de la misma forma que en el mundo existen diferentes "Calle Mayor", "Plaza de España" o "Plaza del Rey". Solo hace falta que sean únicas dentro de la misma red y que tengamos una forma de diferenciar las redes. De esta forma nosotros trabajaremos normalmente con IPs públicas e IPs privadas.</p>
                     <p>Todas las redes tienen un rango de direcciones IP asignado para su uso interno. Este rango viene dado por la máscara de red. Aquí tienes un vídeo que enseña a hacer lo que denominamos "subnetting" o "subredes".</p>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/2yJiH5lV2NM?si=7rgmRNLPVg8kIPr8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    
+                    <div class="video-container">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2yJiH5lV2NM?si=7rgmRNLPVg8kIPr8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                     <h4>Topologías</h4>
                     <p>Según la disposición física de los dispositivos en una red, podemos distinguir diferentes topologías:</p>
                     <ul>
@@ -606,25 +617,6 @@
         </div>
 
         <a class="back-to-top" href="#top" aria-label="Volver arriba" title="Volver arriba">↑</a>
-
-        <script>
-            const menuToggle = document.querySelector('.menu-toggle');
-            const sidebar = document.querySelector('.sidebar');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            menuToggle.addEventListener('click', () => {
-                const isOpen = sidebar.classList.toggle('is-open');
-                menuToggle.setAttribute('aria-expanded', isOpen);
-            });
-
-            navLinks.forEach((link) => {
-                link.addEventListener('click', () => {
-                    navLinks.forEach((item) => item.classList.remove('active'));
-                    link.classList.add('active');
-                    sidebar.classList.remove('is-open');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                });
-            });
-        </script>
     </body>
+    <script src="script.js"></script>
 </html>
