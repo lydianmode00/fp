@@ -180,13 +180,65 @@ git --global set user.email "tu.email@ejemplo.com"</code></pre>
                  <!-- UT 1 -->
                  <section class="studio-note" id="ut1" aria-labelledby="studio-title">
                     <p class="eyebrow"><span></span>UT 1</p>
-                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                    <h2 id="studio-title">Fundamentos del desarrollo en <br><em>Entorno Servidor</em></h2>
+                    <h3>Objetivos de la unidad:</h3>
+                    <ul>
+                        <li>Reconocer los componentes de un sistema informático. Hardware y software.</li>
+                        <li>Identificar los tipos de memorias y almacenamientos</li>
+                        <li>Poner en marcha equipos</li>
+                        <li>Clasificar periféricos</li>
+                        <li>Diferenciar topolgías y componentes de una red</li>
+                        <li>Respetar normas de seguridad y prevención de riesgos laborales</li>
+                    </ul>
+                    <h3><em>01.</em> Recorrido histórico del mundo web.</h3>
+                    <p>El paradigma de desarrollo en entornos servidor ha ido evolucionando con el tiempo, adaptándose a las necesidades cambiantes de los usuarios y las tecnologías disponibles. En cada época y contexto, los desarrolladores han tenido que adaptar sus enfoques y técnicas para satisfacer las demandas cambiantes del entorno tecnológico.</p>
+                    <p>Para entender correctamente la evolución del desarrollo web en entornos servidor, es importante conocer la historia de la web y cómo ha cambiado a lo largo del tiempo. Desde los primeros días de la web estática hasta la era actual de aplicaciones web interactivas y dinámicas, cada etapa ha traído consigo nuevos desafíos y oportunidades para los desarrolladores.</p>
+                    <h4>Internet primigenio</h4>
+                    <p>En 1969, la red de ordenadores más grande del mundo se conocía como ARPANET, la precursora de internet. Era una red de comunicación muy limitada, principalmente utilizada por instituciones académicas y gubernamentales y fundamentalmente para fines académicos, de investigación y bélicos.</p>
+                    <h4>La web 1.0, la web estática</h4>
+                    <p>Podemos decir que Internet como lo conocemos hoy en día comenzó con la WWW en 1989.La web 1.0 se caracterizó por ser principalmente estática, con páginas web que ofrecían información de manera unidireccional. Los usuarios eran principalmente consumidores de contenido, y la interacción con las páginas web era limitada. Los desarrolladores se centraban en crear páginas web informativas y en la optimización de la velocidad de carga y la accesibilidad.</p>
+                    <h4>La web 2.0, la web dinámica</h4>
+                    <p>La web 2.0, termino acuñado en 2004, marcó un cambio significativo en la forma en que los usuarios interactuaban con la web. Surgieron plataformas de redes sociales, blogs y aplicaciones interactivas que permitían a los usuarios generar contenido y participar activamente en la web. Los desarrolladores comenzaron a centrarse en la experiencia del usuario, la interactividad y la personalización del contenido. Se popularizó el uso de tecnologías como AJAX, que permitían la actualización dinámica de contenido sin necesidad de recargar la página completa.</p>
+                    <h4>La web 3.0, la web semántica</h4>
+                    <p>La web 3.0, también conocida como la web semántica, se centra en la comprensión y el análisis de los datos para ofrecer experiencias más inteligentes y personalizadas. Se entiende que en la web 3.0 se deben integrar tecnologías como la inteligencia artificial, el aprendizaje automático y la realidad aumentada para crear experiencias más inmersivas y contextualmente relevantes. Los desarrolladores deberán adaptarse a estas nuevas tecnologías y enfoques para crear aplicaciones web más avanzadas y sofisticadas.</p>
+                    <h4>La web 4.0, la web natural</h4>
+                    <p>La web 4.0, también conocida como la web ubicua o la web de las cosas, se centra en la integración de la web con el mundo físico y la interconexión de dispositivos y objetos a través de Internet. Se espera que la web 4.0 permita una mayor automatización, personalización y conectividad en la vida cotidiana de los usuarios. Esta evolución de la web de momento es teórica, pero se teoriza que estará fuertemente marcada por la ausencia de interfaces de usuario tradicionales "GUI", y se apuntará más a interfaces naturales "NUI", donde el usuario interactúa directamente con los objetos y dispositivos a través de interfaces intuitivas y naturales como la interacción por voz con un asistente virtual.</p>
+                    <h3><em>02.</em> Arquitectura cliente-servidor</h3>
+                    <p>La arquitectura cliente-servidor es un modelo de diseño de software que divide las responsabilidades entre dos componentes principales: el cliente y el servidor. El cliente es la parte de la aplicación que interactúa directamente con el usuario, mientras que el servidor es responsable de procesar las solicitudes del cliente y proporcionar los recursos necesarios. Esta arquitectura permite una mayor escalabilidad, flexibilidad y eficiencia en el desarrollo de aplicaciones web, ya que cada componente puede evolucionar de manera independiente y adaptarse a las necesidades cambiantes del entorno tecnológico.</p>
+                    <p>Es fundamental entender que la verdadera fortaleza de esta arquitectura radica en los siguientes puntos: </p>
+                    <ul>
+                        <li><em>Seguridad:</em> Cuando desarrollamos aplicaciones en entornos servidor, la seguridad es una preocupación crítica. El servidor debe proteger los datos sensibles y garantizar que solo los usuarios autorizados puedan acceder a recursos específicos. Por esto, todas las operaciones y datos se manejan en el servidor, lo que permite una mejor protección de la información.</li>
+                        <li><em>Escalabilidad:</em> La arquitectura cliente-servidor permite una mejor escalabilidad, ya que el servidor puede manejar múltiples solicitudes simultáneamente y distribuir la carga de trabajo de manera eficiente mediante servicios de balanceo de carga como nginx. Esto facilita la expansión de la aplicación a medida que crece la demanda de usuarios y recursos.</li>
+                        <li><em>Flexibilidad:</em> La arquitectura cliente-servidor permite una mayor flexibilidad en el desarrollo y mantenimiento de aplicaciones web, ya que los componentes pueden evolucionar de manera independiente y adaptarse a las necesidades cambiantes del entorno tecnológico. Dividiremos entonces nuestros servicios en componentes relativamente independientes que puedan escalar por separado.</li>
+                    </ul>
+                    <h3><em>03.</em> Tecnologías y lenguajes de programación</h3>
+                    <p>En el desarrollo web en entornos servidor, se utilizan diversas tecnologías y lenguajes de programación para crear aplicaciones web dinámicas y funcionales. Algunos de los lenguajes de programación más comunes incluyen PHP, Python, Ruby y JavaScript (Node.js). Cada lenguaje tiene sus propias características y ventajas, y los desarrolladores deben elegir el lenguaje más adecuado según los requisitos del proyecto y las preferencias del equipo de desarrollo. Además, se utilizan tecnologías como bases de datos, servidores web y frameworks para facilitar el desarrollo y la gestión de aplicaciones web en entornos servidor. Nosotros utiizaremos principalemte Python y su framework Django para el transcurso del módulo.</p>
+                    <h3><em>04.</em> Diseño basado en dominios (DDD)</h3>
+                    <p>El diseño basado en dominios (DDD) es una aproximación al desarrollo de software que se centra en el dominio del problema y en la modelización de los conceptos del negocio. Esta técnica ayuda a crear aplicaciones más mantenibles y escalables, ya que se enfoca en la comprensión profunda del problema que se está resolviendo y en la creación de un modelo conceptual que refleje fielmente el dominio del negocio.</p>
+                    <p>Al atacar el problema desde el dominio del negocio, se logra una mejor alineación entre la solución técnica y los requisitos del negocio, lo que resulta en aplicaciones más robustas y adaptables a los cambios en el entorno empresarial.</p>
+                    <p>El siguiente vídeo nos enseña rápidamente cómo implementar este enfoque en el desarrollo de aplicaciones web:</p>
+                    <div class="video-container">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UgEExav6CeE?si=nPMyYWBk3fG60r1n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <details class="activity-panel">
+                        <summary>Actividades UT1</summary>
+                        <ol>
+                            <li>Explica con tus palabras cuál es la función de un back-end. ¿Qué ventajas aporta? ¿Cuáles son sus mayores inconvenientes?</li>
+                            <li>¿Qué es un framework de desarrollo web? Menciona 2 ejemplos basados en diferentes lenguajes de programación. Haz una breve comparación entre ellos.</li>
+                            <li>¿Es lo mismo un servidor de aplicación que un servidor web? ¿Cuál es la principal diferencia entre ambos?</li>
+                            <li>¿Qué significa que una web se genere de forma dinámica?</li>
+                            <p><em>Análisis DDD</em></p>
+                            <li>Escoge un servicio web para estudiar su implementación basada en DDD. Puede ser el proyecto final del módulo.</li>
+                            <li>Escribe una lista de 20 eventos que puedas suceder en el servicio.</li>
+                            <li>Separa los eventos por dominios (principales y secundarios).</li>
+                            <li>Para cada dominio, escribe una lista de entidades y sus atributos.</li>
+                        </ol>>
                 </section>
 
                  <!-- UT 2 -->
                  <section class="studio-note" id="ut2" aria-labelledby="studio-title">
                     <p class="eyebrow"><span></span>UT 2</p>
-                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                    <h2 id="studio-title">Implementación de un framework:<br><em>Django</em></h2>
                 </section>
 
                  <!-- UT 3 -->
