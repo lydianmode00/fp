@@ -55,6 +55,7 @@
                         <p class="eyebrow"><span></span>Lydia Garcerán Amat · 2026—2027</p>
                         <h1 id="portada-title">Desarrollo Web en<br><em>Entorno Servidor</em></h1>
                         <p class="portada-intro">Contenido web teórico y práctico relativo al módulo de Desarrollo Web en Entorno Servidor de 2º DAW.</p>
+                        <a class="button button-primary" href="https://drive.google.com/file/d/1Dn6Bzzg8Cui7GR3zaQQ-kpY3CIfzZsiO/view?usp=drive_link">Presentación del módulo</a>
                     </div>
                 </section>
 
@@ -179,16 +180,14 @@ git --global set user.email "tu.email@ejemplo.com"</code></pre>
 
                  <!-- UT 1 -->
                  <section class="studio-note" id="ut1" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 1</p>
+                    <p class="eyebrow"><span></span>UT 1 - RA 1</p>
                     <h2 id="studio-title">Fundamentos del desarrollo en <br><em>Entorno Servidor</em></h2>
                     <h3>Objetivos de la unidad:</h3>
                     <ul>
-                        <li>Reconocer los componentes de un sistema informático. Hardware y software.</li>
-                        <li>Identificar los tipos de memorias y almacenamientos</li>
-                        <li>Poner en marcha equipos</li>
-                        <li>Clasificar periféricos</li>
-                        <li>Diferenciar topolgías y componentes de una red</li>
-                        <li>Respetar normas de seguridad y prevención de riesgos laborales</li>
+                        <li>Caracterizar los modelos de ejecución de código en frontend y backend</li>
+                        <li>Reconocer las ventajas de la generación dinámica de páginas</li>
+                        <li>Describir las funcionalidades de los servidores de aplicación y servidores web</li>
+                        <li>Identificar los principales lenguajes de programación y frameworks para el desarrollo backend</li>
                     </ul>
                     <h3><em>01.</em> Recorrido histórico del mundo web.</h3>
                     <p>El paradigma de desarrollo en entornos servidor ha ido evolucionando con el tiempo, adaptándose a las necesidades cambiantes de los usuarios y las tecnologías disponibles. En cada época y contexto, los desarrolladores han tenido que adaptar sus enfoques y técnicas para satisfacer las demandas cambiantes del entorno tecnológico.</p>
@@ -211,6 +210,7 @@ git --global set user.email "tu.email@ejemplo.com"</code></pre>
                         <li><em>Escalabilidad:</em> La arquitectura cliente-servidor permite una mejor escalabilidad, ya que el servidor puede manejar múltiples solicitudes simultáneamente y distribuir la carga de trabajo de manera eficiente mediante servicios de balanceo de carga como nginx. Esto facilita la expansión de la aplicación a medida que crece la demanda de usuarios y recursos.</li>
                         <li><em>Flexibilidad:</em> La arquitectura cliente-servidor permite una mayor flexibilidad en el desarrollo y mantenimiento de aplicaciones web, ya que los componentes pueden evolucionar de manera independiente y adaptarse a las necesidades cambiantes del entorno tecnológico. Dividiremos entonces nuestros servicios en componentes relativamente independientes que puedan escalar por separado.</li>
                     </ul>
+                    <p>De esta forma, el cliente ejecutará su parte del código, normalmente JavaScript, relacionado con la presentación de la web, la navegación o aspectos poco relevantes como la pre-validación de un formulario (como mínimo, los formularios deben validarse siempre en el backend, pero podemos hacer una pre-validación en el frontend para que el usuario tenga un feedback inmediato). Del mismo modo el backend ejecutará el grueso del código, relacionado con la seguridad, la validación de operaciones, accesos a la base de datos y generación de contenido.</p>
                     <h3><em>03.</em> Tecnologías y lenguajes de programación</h3>
                     <p>En el desarrollo web en entornos servidor, se utilizan diversas tecnologías y lenguajes de programación para crear aplicaciones web dinámicas y funcionales. Algunos de los lenguajes de programación más comunes incluyen PHP, Python, Ruby y JavaScript (Node.js). Cada lenguaje tiene sus propias características y ventajas, y los desarrolladores deben elegir el lenguaje más adecuado según los requisitos del proyecto y las preferencias del equipo de desarrollo. Además, se utilizan tecnologías como bases de datos, servidores web y frameworks para facilitar el desarrollo y la gestión de aplicaciones web en entornos servidor. Nosotros utiizaremos principalemte Python y su framework Django para el transcurso del módulo.</p>
                     <h3><em>04.</em> Diseño basado en dominios (DDD)</h3>
@@ -227,7 +227,7 @@ git --global set user.email "tu.email@ejemplo.com"</code></pre>
                             <li>¿Qué es un framework de desarrollo web? Menciona 2 ejemplos basados en diferentes lenguajes de programación. Haz una breve comparación entre ellos.</li>
                             <li>¿Es lo mismo un servidor de aplicación que un servidor web? ¿Cuál es la principal diferencia entre ambos?</li>
                             <li>¿Qué significa que una web se genere de forma dinámica?</li>
-                            <p><em>Análisis DDD</em></p>
+                            <em>Análisis DDD</em>
                             <li>Escoge un servicio web para estudiar su implementación basada en DDD. Puede ser el proyecto final del módulo.</li>
                             <li>Escribe una lista de 20 eventos que puedas suceder en el servicio.</li>
                             <li>Separa los eventos por dominios (principales y secundarios).</li>
