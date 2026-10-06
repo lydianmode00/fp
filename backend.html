@@ -237,44 +237,396 @@ git --global set user.email "tu.email@ejemplo.com"</code></pre>
 
                  <!-- UT 2 -->
                  <section class="studio-note" id="ut2" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 2</p>
+                    <p class="eyebrow"><span></span>UT 2 - RA 5</p>
                     <h2 id="studio-title">Implementación de un framework:<br><em>Django</em></h2>
+                    <h3>Objetivos de la unidad:</h3>
+                    <ul>
+                    </ul>
+                    <details class="activity-panel">
+                        <summary>Tarea 1 - Creando un Proyecto</summary>
+                        <h4>Requisitos Previos</h4>
+                        <p style="font-style: italic;">Nota: La mayoría de comandos están escritos para ejecutarse en un entorno Linux ya que es lo más cercano a un entorno de desarrollo real. No debería costar demasiado entender lo que hacen y traducirlos a Windows si es necesario. IMPORTANTE: Verifica siempre que lees un paso completamente antes de pasar al siguiente, que respetas la jerarquía de directorios y que los comandos se ejecutan en el entorno virtual correcto.</p>
+                        <ol>
+                            <li>Antes de empezar, vamos a asegurarnos de tener instalados Python y VSCode en nuestro ordenador</li>
+                            <li>Vamos a crear una carpeta llamada Backend para alojar el código de nuestro proyecto. Puedes crear la carpeta donde quieras. Abre la carpeta con VSCode.</li>
+                            <li>Dentro de VSCode instalamos los siguientes plugins:</li>
+                            <ul>
+                                <li>Python</li>
+                                <li>Python Environments</li>
+                                <li>Pylance</li>
+                                <li>Python Debugger</li>
+                                <li>HTML CSS Support</li>
+                                <li>Django (Baptiste Darthenay)</li>
+                            </ul>
+                            <li>Dentro de VSCode y con la carpeta del proyecto abierta, abrimos la terminal de VSCode e instalamos el siguiente paquete de python.</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">terminal</p>
+                                <hr>
+                                <pre><code>sudo apt install pipenv</code></pre>
+                            </div>
+                            <li>Pipenv es un entorno virtual para desarrollo de aplicaciones de Python. Podemos crear un entorno virtual de la siguiente forma:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">terminal</p>
+                                <hr>
+                                <pre><code>mkdir .venv
+pipenv install
+pipenv shell</code></pre>
+                            </div>
+                        </ol>
+                        <h4>DJANGO</h4>
+                        <ol>
+                            <li>Instalamos Django en nuestro entorno virtual</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">terminal</p>
+                                <hr>
+                                <pre><code>pip install django
+django-admin --version
+                                </code></pre>
+                            </div>
+                            <li>Si todo ha ido bien, deberíamos ver la versión de Django instalada.</li>
+                            <li>Ahora ejecutamos el siguiente comando para crear un nuevo proyecto Django:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">terminal</p>
+                                <hr>
+                                <pre><code>django-admin startproject $NOMBRE_DEL_PROYECTO</code></pre>
+                            </div>
+                            <li>Si todo ha ido bien deberíamos tener la siguiente jerarquía de ficheros y directorios:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">directorios</p>
+                                <hr>
+                                <pre><code>Backend/
+├── .venv/
+├── $NOMBRE_DEL_PROYECTO/
+    ├── manage.py
+    └── $NOMBRE_DEL_PROYECTO/
+        ├── __init__.py
+        ├── asgi.py
+        ├── settings.py
+        ├── urls.py
+        └── wsgi.py</code></pre></div>
+                            <li>Ahora podemos ejecutar el servidor de desarrollo con el siguiente comando:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">terminal</p>
+                                <hr>
+                                <pre><code>cd $NOMBRE_DEL_PROYECTO
+python manage.py runserver</code></pre></div>
+<li>Intenta conectarte a localhost:8000. ¿Puedes verlo todo bien?</li>
+                        </ol>
+
+                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT2-TAREA1">Enviar actividades por correo</a>
+                    </details>
+
+                    <details class="activity-panel">
+                        <summary>Tarea 2 - Aplicaciones de un Proyecto Django</summary>
+                        <h4>Nueva Homepage</h4>
+                        <ol>
+                            <li>Nuestra servidor actualmente solo tiene la página por defecto de Django. Vamos a intentar entender cómo cambiarlo. Dentro de nuestra carpeta de proyecto crea un archivo <i>views.py</i> con un contenido como el siguiente:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">directorios</p>
+                                <hr>
+                                <pre><code>Backend/
+├── .venv/
+├── $NOMBRE_DEL_PROYECTO/
+    ├── manage.py
+    └── $NOMBRE_DEL_PROYECTO/
+        ├── __init__.py
+        ├── asgi.py
+        ├── settings.py
+        ├── urls.py
+        ├── views.py
+        └── wsgi.py</code></pre>
+                                <hr style="height:4px; background-color: #8d4df4; border: none;">
+                                <p style="font-weight: bold;">views.py</p>
+                                <hr>
+                                <pre><code>from django.http import HttpResponse
+
+def homepage(request):
+    return HttpResponse("Hello World!")</code></pre>
+                            </div>
+                            <li>Ahora vamos a modificar el archivo <i>urls.py</i> para que apunte a nuestra nueva vista. Añade la siguiente línea al final del archivo:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">urls.py</p>
+                                <hr>
+                                <pre><code>from django.urls import path
+from . import views
+from django.contrib import admin
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.homepage, name='homepage'),
+]</code></pre>
+                            </div>
+                            <li>Prueba el resultado. ¿Puedes ver el mensaje "Hello World!" en tu navegador? Si todo ha ido bien, podemos pasar al siguiente punto</li>
+                            <li>Vamos a crear un directorio <i>templates</i> y un fichero <i>home.html</i> como sigue:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">directorios</p>
+                                <hr>
+                                <pre><code>Backend/
+├── .venv/
+├── $NOMBRE_DEL_PROYECTO/
+    ├── manage.py
+    ├── $NOMBRE_DEL_PROYECTO/
+    └── templates/
+        └── home.html</code></pre></div>
+                            <li>Ahora vamos a modificar nuestra vista para que devuelva el contenido de nuestro template. Modifica el archivo <i>views.py</i> como sigue:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">views.py</p>
+                                <hr>
+                                <pre><code>from django.shortcuts import render
+
+def homepage(request):
+    return render(request, 'home.html')
+</code></pre></div>
+                            <p style="font-style: italic;">Ten en cuenta que habrá líneas de views.py que debas borrar, otras que debas conservar y otras que debas modificar</p>
+                            <li>Ahora tenemos que decirle a Django que puede buscar plantillas dentro de esa carpeta. Eso lo hacemos desde los ajustes de Django. Buscamos la variable TEMPLATES y añadimos las siguentes líneas:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">settings.py</p>
+                                <hr>
+                                <pre><code>import os
+
+TEMPLATES = [
+    {
+        [...]
+        'DIRS': [
+            os.path.join(BASE_DIR, "templates"),
+        ],
+        [...]
+    },
+]
+</code></pre>
+                            </div>
+                            <li>Ya podemos usar nuestro template en la vista.</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">views.py</p>
+                                <hr>
+                                <pre><code>from django.shortcuts import render
+
+def homepage(request):
+    return render(request, 'home.html')
+</code></pre>
+                            </div>
+                            <li>Comprueba que puedas ver tu html. Si es así puedes continuar.</li>
+                            <li>Ahora vamos a añadir assets estáticos a nuestra aplicación.</li>
+                            <li>Dentro de la carpeta del proyecto, crea un directorio llamado <i>static</i> con una carpeta para cada tipo de archivo estático (img, js, css):</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">directorios</p>
+                                <hr>
+                                <pre><code>Backend/
+├── .venv/
+├── $NOMBRE_DEL_PROYECTO/
+    ├── manage.py
+    ├── $NOMBRE_DEL_PROYECTO/
+    ├── templates/
+    └── static/
+        ├── img/
+        ├── js/
+        └── css/
+                            </code></pre></div>
+                            <li>Ahora modificamos el archivo <i>settings.py</i> para indicarle a Django dónde buscar los archivos estáticos. Añadimos las siguientes líneas al final del archivo:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">settings.py</p>
+                                <hr>
+                                <pre><code>STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]</code></pre>
+                            </div>
+                            <li>Ahora podemos usar los archivos estáticos en nuestro template. Por ejemplo, para añadir un archivo CSS, podemos hacer lo siguiente:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">home.html</p>
+                                <hr>
+                                <pre><code>
+&lt!DOCTYPE html>
+&lthtml lang="en">
+{% load static %}
+&lthead>
+    &ltmeta charset="UTF-8">
+    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+    &ltlink rel="stylesheet" href="{% static 'css/style.css' %}">
+    &ltlink rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    &ltscript src="{% static 'js/script.js' %}">&lt/script>
+    &lttitle>Home&lt/title>
+&lt/head>
+&lt/html></code></pre>
+                            </div>
+                            <li>Comprueba que puedas ver tu html con los assets estáticos. Si es así puedes continuar.</li>
+                    </ol>
+                    <h4>Aplicaciones</h4>
+                    <li>Vamos a crear una aplicación de Django, recuerda que grosso modo, una aplicación corresponde a un dominio del DDD es un módulo que contiene lógica específica para una funcionalidad determinada. Para crear aplicaciones en Django, utilizamos el comando:</li>
+                    <div class="code-block">
+                        <p style="font-weight: bold;">terminal</p>
+                        <hr>
+                        <pre><code>python manage.py startapp $NOMBRE_DE_LA_APP</code></pre>
+                    </div>
+                    <li>Se creará un directorio con el nombre de la aplicación y los archivos necesarios para su funcionamiento. Dentro de este directorio crearemos un <i>templates</i> nuevo y dentro de él otra carpeta con el nombre de la aplicación tal que así:</li>
+                    <div class="code-block">
+                        <p style="font-weight: bold;">directorios</p>
+                        <hr>
+                        <pre><code>Backend/
+├── .venv/
+├── $NOMBRE_DEL_PROYECTO/
+    ├── manage.py
+    ├── $NOMBRE_DEL_PROYECTO/
+    ├── templates/
+    ├── static/
+    └── $NOMBRE_DE_LA_APP/
+        ├── __init__.py
+        ├── admin.py
+        ├── apps.py
+        ├── migrations/
+        ├── models.py
+        ├── tests.py
+        ├── views.py
+        └── templates/
+            └── $NOMBRE_DE_LA_APP/
+                └── $NOMBRE_DEL_ARCHIVO.html
+                </code></pre></div>
+                <li>Ahora podemos editar los <i>views.py</i> y <i>urls.py</i> de la aplicación de la siguiente manera:</li>
+                <div class="code-block">
+                    <p style="font-weight: bold;">$NOMBRE_DE_LA_APP/views.py</p>
+                    <hr>
+                    <pre><code>from django.shortcuts import render
+
+def $NOMBRE_DE_LA_FUNCION(request):
+    return render(request, '$NOMBRE_DE_LA_APP/$NOMBRE_DEL_ARCHIVO.html')</code></pre>
+    <hr style="height:4px; background-color: #8d4df4; border: none;">
+                    <p style="font-weight: bold;">$NOMBRE_DE_LA_APP/urls.py</p>
+                    <hr>
+                    <pre><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.$NOMBRE_DE_LA_FUNCION, name='$NOMBRE_DE_LA_FUNCION'),
+]</code></pre>
+                    <hr style="height:4px; background-color: #8d4df4; border: none;">
+                    <p style="font-weight: bold;">urls.py</p>
+                    <hr>
+                    <pre><code>from django.urls import path, include
+
+urlpatterns = [
+    [...]
+    path('$NOMBRE_DE_LA_APP/', include('$NOMBRE_DE_LA_APP.urls')),
+]
+]</code></pre></div>
+                    <li>Comprueba que todo funncione correctamente y añade hipervínculos para poder saltar de una página a otra</li>
+                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT2-TAREA2">Enviar actividades por correo</a>
+                    </details>
                 </section>
 
                  <!-- UT 3 -->
                  <section class="studio-note" id="ut3" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 3</p>
-                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                    <p class="eyebrow"><span></span>UT 3 - RA 2</p>
+                    <h2 id="studio-title">URLS y <em>Templates</em></h2>
+                    <h3>Objetivos de la unidad:</h3>
+                    <ul>
+                    </ul>
                 </section>
 
                  <!-- UT 4 -->
                  <section class="studio-note" id="ut4" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 4</p>
-                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                    <p class="eyebrow"><span></span>UT 4 - RA 3</p>
+                    <h2 id="studio-title">Cálculos en el<br><em>backend</em></h2>
+                    <h3>Objetivos de la unidad:</h3>
                 </section>
 
                  <!-- UT 5 -->
                  <section class="studio-note" id="ut5" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 5</p>
-                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                    <p class="eyebrow"><span></span>UT 5 - RA 4</p>
+                    <h2 id="studio-title">Usuarios y<br><em>cachés</em></h2>
+                    <h3>Objetivos de la unidad:</h3>
                 </section>
 
                  <!-- UT 6 -->
                  <section class="studio-note" id="ut6" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 6</p>
-                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                    <p class="eyebrow"><span></span>UT 6 - RA 6</p>
+                    <h2 id="studio-title">POO y <em>ORMs</em></h2>
+                    <h3>Objetivos de la unidad:</h3>
                 </section>
 
                  <!-- UT 7 -->
                  <section class="studio-note" id="ut7" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 7</p>
-                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                    <p class="eyebrow"><span></span>UT 7 - RA 7</p>
+                    <h2 id="studio-title">Servicios web y <em>APIs</em></h2>
+                    <h3>Objetivos de la unidad:</h3>
+                </section>
+
+                <!-- UT 8 -->
+                 <section class="studio-note" id="ut8" aria-labelledby="studio-title">
+                    <p class="eyebrow"><span></span>UT 8 - RA 8</p>
+                    <h2 id="studio-title">Integración frontend y backend<br><em>Protocolo Websocket</em></h2>
+                    <h3>Objetivos de la unidad:</h3>
+                </section>
+
+                <!-- UT 9 -->
+                 <section class="studio-note" id="ut9" aria-labelledby="studio-title">
+                    <p class="eyebrow"><span></span>UT 9 - RA 9</p>
+                    <h2 id="studio-title">Bibliotecas <em>Externas</em></h2>
+                    <h3>Objetivos de la unidad:</h3>
+                </section>
+
+                <!-- ENGLISH -->
+                 <section class="studio-note" id="english" aria-labelledby="studio-title">
+                    <p class="eyebrow"><span></span>Ejercicios Bilingües</p>
+                    <h2 id="studio-title">English <em>Sheets</em></h2>
+                    <h3><em>UNIT </em> 1</h3>
+                    <h4>Vocabulary</h4>
+                    <ul>
+                        <li><em>Back-end:</em> Part of an online product that runs in a server. To be considered a full back-end it should, at least: respond to <u>requests</u> (such as HTTP), change its <u>behavior</u> and store data in a permanent <u>storage</u>.</li>
+                        <li><em>Web server:</em> Software that responds to HTTP requests. It also runs in a server.</li>
+                        <li><em>App server:</em> Software that responds to HTTP requests and changes its behavior. It could be considered some kind of back-end.</li>
+                        <li><em>Framework:</em> Set of libraries with previously written code that <u>streamlines</u> the <u>workflow</u>.</li>
+                        <li><em>HTTP:</em> One of the many internet protocols that exist. It's a client/server text protocol with a very short <u>lifespan.</u></li>
+                        <li><em>Module:</em> Piece of code that works independently and is <u>able</u> to communicate with other modules.</li>
+                        <li><em>Interface:</em> Piece of code that connects two different parts of an application.</li>
+                        <li><em>Scalability:</em> Property of an application that <u>measures</u> how easily can a project be expanded in size or in functionalities.</li>
+                        <li><em>Flexibility:</em> Property of an application that measures how easily can we modify an existing functionality.</li>
+                    </ul>
+                    <details class="activity-panel">
+                        <summary>English Sheet 1</summary>
+                        <h4>Exercises</h4>
+                        <ol>
+                                <li>Draw an HTTP request/response cycle that shows: A users logs in to Amazon and then searches “laptop computer”. Include requests to the database if necessary.</li>
+                                <li>In your own words: When is a back-end necessary?</li>
+                                <li>Watch this <a href="https://www.youtube.com/watch?v=4r6WdaY3SOA" target="_blank">video</a>. What are the HTTP methods? What are they for?</li>
+                        </ol>
+                        <h4>Writing</h4>
+                        <p>Make a short comparison (around 200 words) between two backend frameworks of your choice. What are they for? Where do they excel? Which languages are they written in?What is their main advantage? What are their market share?</p>
+                
+                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT1-ENGLISH%20SHEET">Enviar actividades por correo</a>
+                    </details>
+
+                    <h3><em>UNIT </em> 2</h3>
+                    <h4>Vocabulary</h4>
+                    <ul>
+                        <li><em>Environment variable:</em> A dynamic value that affects the way running processes will behave on a computer. It is usually stored in the system's memory.</li>
+                        <li><em>Library:</em> A collection of pre-compiled or pre-written code that can be reused in multiple programs.</li>
+                        <li><em>Settings:</em> A collection of values that control the behavior of a program or system.</li>
+                        <li><em>URL:</em> Uniform Resource Locator, a reference to a web resource that specifies its location on a computer network and the mechanism for retrieving it.</li>
+                        <li><em>Protocol:</em>  In computer science, a protocol is an established, standardized set of rules that governs how electronic devices or software programs format, transmit, receive, and interpret data</li>
+                        <li><em>Import:</em> To include a module or library in your code so you can use its functions, classes and variables.</li>
+                        <li><em>Error traceback:</em> A report generated by a programming language when an error occurs, showing the sequence of function calls that led to the error.</li>
+                    </ul>
+                    <details class="activity-panel">
+                        <summary>English Sheet 2</summary>
+                        <h4>Exercises</h4>
+                        <ol>
+                            <li>What's a virtual environment in python? Why is it useful?</li>
+                            <li>We used a couple of different commands to create and activate a virtual environment. What do they do?</li>
+                            <li>How do you run a Python script? (such as manage.py)</li>
+                            <li>How do you install a Python package in Linux? And in Windows?</li>
+                            <li>How do you make sure you are working within a virtual environment?</li>
+                        </ol>
+                        <h4>Writing</h4>
+                        <p>The MVC (Model-View-Controller) pattern is a software architectural pattern that separates an application into three main components: the model (data and business logic), the view (user interface), and the controller (handles user input and updates the model and view accordingly). In your own words (200 words), explain the three different languages/technologies that Django uses in this pattern and how they interact.</p>
+                
+                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT2-ENGLISH%20SHEET">Enviar actividades por correo</a>
+                    </details>
+                    
                 </section>
 
                 <footer class="site-footer" id="contacto">
                     <p>¿Tienes alguna duda?</p>
                     <a href="mailto:lydia.garceran@colegiomiralmonte.com">lydia.garceran@colegiomiralmonte.com <span aria-hidden="true">↗</span></a>
-                    <small><a href="https://lydianmode.github.io/fp/">Apuntes FP</a> © 2026 by <a href="https://example.com">Lydia Garcerán</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></small>
+                    <small><a href="https://lydianmode.github.io/fp/">Apuntes FP</a> © 2026 by Lydia Garcerán is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></small>
                 </footer>
             </main>
         </div>

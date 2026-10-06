@@ -343,7 +343,7 @@ em { color: var(--purple-light); font-style: normal; font-weight: bold; }
 	border: 1px solid var(--purple);
 	border-radius: 8px;
 	background: #211b2a;
-	box-shadow: 0 0 18px rgba(201, 169, 255, .22);
+	box-shadow: 0 0 18px rgba(201, 169, 255, 0.219);
 	color: var(--paper);
 	font-family: "DM Mono", monospace;
 	font-size: 13px;
