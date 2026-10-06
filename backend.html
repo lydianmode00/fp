@@ -353,7 +353,7 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.homepage, name='homepage'),
+    path('', views.homepage),
 ]</code></pre>
                             </div>
                             <li>Prueba el resultado. ¿Puedes ver el mensaje "Hello World!" en tu navegador? Si todo ha ido bien, podemos pasar al siguiente punto</li>
@@ -496,7 +496,7 @@ def homepage(request):
     from . import views
 
     urlpatterns = [
-        path('', views.$NOMBRE_DE_LA_FUNCION, name='$NOMBRE_DE_LA_FUNCION'),
+        path('', views.$NOMBRE_DE_LA_FUNCION),
     ]</code></pre>
                         <hr style="height:4px; background-color: #8d4df4; border: none;">
                         <p style="font-weight: bold;">urls.py</p>
