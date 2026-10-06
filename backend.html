@@ -451,63 +451,65 @@ def homepage(request):
                             <li>Comprueba que puedas ver tu html con los assets estáticos. Si es así puedes continuar.</li>
                     </ol>
                     <h4>Aplicaciones</h4>
-                    <li>Vamos a crear una aplicación de Django, recuerda que grosso modo, una aplicación corresponde a un dominio del DDD es un módulo que contiene lógica específica para una funcionalidad determinada. Para crear aplicaciones en Django, utilizamos el comando:</li>
+                    <ol>
+                        <li>Vamos a crear una aplicación de Django, recuerda que grosso modo, una aplicación corresponde a un dominio del DDD es un módulo que contiene lógica específica para una funcionalidad determinada. Para crear aplicaciones en Django, utilizamos el comando:</li>
+                        <div class="code-block">
+                            <p style="font-weight: bold;">terminal</p>
+                            <hr>
+                            <pre><code>python manage.py startapp $NOMBRE_DE_LA_APP</code></pre>
+                        </div>
+                        <li>Se creará un directorio con el nombre de la aplicación y los archivos necesarios para su funcionamiento. Dentro de este directorio crearemos un <i>templates</i> nuevo y dentro de él otra carpeta con el nombre de la aplicación tal que así:</li>
+                        <div class="code-block">
+                            <p style="font-weight: bold;">directorios</p>
+                            <hr>
+                            <pre><code>Backend/
+    ├── .venv/
+    └──  $NOMBRE_DEL_PROYECTO/
+        ├── manage.py
+        ├── $NOMBRE_DEL_PROYECTO/
+        ├── templates/
+        ├── static/
+        └── $NOMBRE_DE_LA_APP/
+            ├── __init__.py
+            ├── admin.py
+            ├── apps.py
+            ├── migrations/
+            ├── models.py
+            ├── tests.py
+            ├── views.py
+            └── templates/
+                └── $NOMBRE_DE_LA_APP/
+                    └── $NOMBRE_DEL_ARCHIVO.html
+                    </code></pre></div>
+                    <li>Ahora podemos editar los <i>views.py</i> y <i>urls.py</i> de la aplicación de la siguiente manera:</li>
                     <div class="code-block">
-                        <p style="font-weight: bold;">terminal</p>
+                        <p style="font-weight: bold;">$NOMBRE_DE_LA_APP/views.py</p>
                         <hr>
-                        <pre><code>python manage.py startapp $NOMBRE_DE_LA_APP</code></pre>
-                    </div>
-                    <li>Se creará un directorio con el nombre de la aplicación y los archivos necesarios para su funcionamiento. Dentro de este directorio crearemos un <i>templates</i> nuevo y dentro de él otra carpeta con el nombre de la aplicación tal que así:</li>
-                    <div class="code-block">
-                        <p style="font-weight: bold;">directorios</p>
+                        <pre><code>from django.shortcuts import render
+
+    def $NOMBRE_DE_LA_FUNCION(request):
+        return render(request, '$NOMBRE_DE_LA_APP/$NOMBRE_DEL_ARCHIVO.html')</code></pre>
+        <hr style="height:4px; background-color: #8d4df4; border: none;">
+                        <p style="font-weight: bold;">$NOMBRE_DE_LA_APP/urls.py</p>
                         <hr>
-                        <pre><code>Backend/
-├── .venv/
-├── $NOMBRE_DEL_PROYECTO/
-    ├── manage.py
-    ├── $NOMBRE_DEL_PROYECTO/
-    ├── templates/
-    ├── static/
-    └── $NOMBRE_DE_LA_APP/
-        ├── __init__.py
-        ├── admin.py
-        ├── apps.py
-        ├── migrations/
-        ├── models.py
-        ├── tests.py
-        ├── views.py
-        └── templates/
-            └── $NOMBRE_DE_LA_APP/
-                └── $NOMBRE_DEL_ARCHIVO.html
-                </code></pre></div>
-                <li>Ahora podemos editar los <i>views.py</i> y <i>urls.py</i> de la aplicación de la siguiente manera:</li>
-                <div class="code-block">
-                    <p style="font-weight: bold;">$NOMBRE_DE_LA_APP/views.py</p>
-                    <hr>
-                    <pre><code>from django.shortcuts import render
+                        <pre><code>from django.urls import path
+    from . import views
 
-def $NOMBRE_DE_LA_FUNCION(request):
-    return render(request, '$NOMBRE_DE_LA_APP/$NOMBRE_DEL_ARCHIVO.html')</code></pre>
-    <hr style="height:4px; background-color: #8d4df4; border: none;">
-                    <p style="font-weight: bold;">$NOMBRE_DE_LA_APP/urls.py</p>
-                    <hr>
-                    <pre><code>from django.urls import path
-from . import views
+    urlpatterns = [
+        path('', views.$NOMBRE_DE_LA_FUNCION, name='$NOMBRE_DE_LA_FUNCION'),
+    ]</code></pre>
+                        <hr style="height:4px; background-color: #8d4df4; border: none;">
+                        <p style="font-weight: bold;">urls.py</p>
+                        <hr>
+                        <pre><code>from django.urls import path, include
 
-urlpatterns = [
-    path('', views.$NOMBRE_DE_LA_FUNCION, name='$NOMBRE_DE_LA_FUNCION'),
-]</code></pre>
-                    <hr style="height:4px; background-color: #8d4df4; border: none;">
-                    <p style="font-weight: bold;">urls.py</p>
-                    <hr>
-                    <pre><code>from django.urls import path, include
-
-urlpatterns = [
-    [...]
-    path('$NOMBRE_DE_LA_APP/', include('$NOMBRE_DE_LA_APP.urls')),
-]
-]</code></pre></div>
-                    <li>Comprueba que todo funncione correctamente y añade hipervínculos para poder saltar de una página a otra</li>
+    urlpatterns = [
+        [...]
+        path('$NOMBRE_DE_LA_APP/', include('$NOMBRE_DE_LA_APP.urls')),
+    ]
+    ]</code></pre></div>
+                        <li>Comprueba que todo funncione correctamente y añade hipervínculos para poder saltar de una página a otra</li>
+                    </ol>
                         <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT2-TAREA2">Enviar actividades por correo</a>
                     </details>
                 </section>
