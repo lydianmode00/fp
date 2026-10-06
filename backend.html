@@ -457,6 +457,13 @@ def homepage(request):
                             <p style="font-weight: bold;">terminal</p>
                             <hr>
                             <pre><code>python manage.py startapp $NOMBRE_DE_LA_APP</code></pre>
+                            <hr style="height:4px; background-color: #8d4df4; border: none;">
+                            <p style="font-weight: bold;">settings.py</p>
+                            <hr>
+                            <pre><code>INSTALLED_APPS = [
+    [...]
+    '$NOMBRE_DE_LA_APP',
+]</code></pre>
                         </div>
                         <li>Se creará un directorio con el nombre de la aplicación y los archivos necesarios para su funcionamiento. Dentro de este directorio crearemos un <i>templates</i> nuevo y dentro de él otra carpeta con el nombre de la aplicación tal que así:</li>
                         <div class="code-block">
