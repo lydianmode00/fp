@@ -1,158 +1,1008 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SOM - Lydia FP</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="stylesheet.css">
-    </head>
-    <body>
-        <div class="page-shell">
-            <!--  NAVBAR  -->
-            <aside class="sidebar" id="site-menu">
 
-                <!--  BRAND  -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SOM - Lydia FP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <div class="page-shell">
+        <!--  NAVBAR  -->
+        <aside class="sidebar" id="site-menu">
+
+            <!--  BRAND  -->
+            <a class="brand" href="./index.html" aria-label="lydianmode, inicio">
+                <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span>lydianmode<span class="brand-dot">_fp</span></span>
+            </a>
+
+
+            <div class="sidebar-rule"></div>
+
+            <!--  MENU  -->
+            <p class="menu-label">Módulos</p>
+            <nav class="main-nav" aria-label="Navegación principal">
+                <a class="nav-link active" href="./som.html"><span>01</span>Sistemas Operativos Monopuesto</a>
+                <a class="nav-link" href="./webapps.html"><span>02</span>Aplicaciones Web</a>
+                <a class="nav-link" href="./ssii.html"><span>03</span>Sistemas Informáticos</a>
+                <a class="nav-link" href="./backend.html"><span>04</span>Desarrollo Web en Entorno Servidor</a>
+            </nav>
+        </aside>
+
+        <!--  MAIN CONTENT  -->
+        <main class="content" id="top">
+
+            <!--  MOBILE HEADER  -->
+            <header class="mobile-header">
                 <a class="brand" href="./index.html" aria-label="lydianmode, inicio">
                     <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
                     <span>lydianmode<span class="brand-dot">_fp</span></span>
                 </a>
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+                    <span></span><span></span>
+                    <span class="sr-only">Abrir menú</span>
+                </button>
+            </header>
 
-                
-                <div class="sidebar-rule"></div>
+            <!-- INTRO -->
+            <section class="portada" aria-labelledby="portada-title">
+                <div>
+                    <p class="eyebrow"><span></span>Lydia Garcerán Amat · 2026—2027</p>
+                    <h1 id="portada-title">Sistemas Operativos<br><em>Monopuesto</em></h1>
+                    <p class="portada-intro">Contenido web teórico y práctico relativo al módulo de Sistemas Operativos
+                        Monopuesto de 1º SMR.</p>
+                    <a class="button button-primary"
+                        href="https://drive.google.com/file/d/1tofl6Z8ihtO_e_fwDUYsv2Pf3OImdZVw/view?usp=drive_link">Presentación
+                        del módulo</a>
+                </div>
+            </section>
 
-                <!--  MENU  -->
-                <p class="menu-label">Módulos</p>
-                <nav class="main-nav" aria-label="Navegación principal">
-                    <a class="nav-link active" href="./som.html"><span>01</span>Sistemas Operativos Monopuesto</a>
-                    <a class="nav-link" href="./webapps.html"><span>02</span>Aplicaciones Web</a>
-                    <a class="nav-link" href="./ssii.html"><span>03</span>Sistemas Informáticos</a>
-                    <a class="nav-link" href="./backend.html"><span>04</span>Desarrollo Web en Entorno Servidor</a>
-                </nav>
-            </aside>
+            <!-- MENÚ DE UNIDADES -->
+            <section class="menu-unidades-preview" id="top" aria-labelledby="menu-unidades-title">
+                <div class="section-heading">
+                    <p class="eyebrow"><span></span>Unidades de trabajo</p>
+                </div>
 
-            <!--  MAIN CONTENT  -->
-            <main class="content" id="top">
-
-                <!--  MOBILE HEADER  -->
-                <header class="mobile-header">
-                    <a class="brand" href="./index.html" aria-label="lydianmode, inicio">
-                        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-                        <span>lydianmode<span class="brand-dot">_fp</span></span>
+                <div class="menu-unidades-grid">
+                    <a class="menu-unidades-card menu-unidades-main" href="#ut1"
+                        aria-label="Ir a Fundamentos de los SS.OO.">
+                        <div class="menu-unidades-visual visual-a"><span>Fundamentos de los SS.OO.</span><small>UT
+                                1</small></div>
                     </a>
-                    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-                        <span></span><span></span>
-                        <span class="sr-only">Abrir menú</span>
-                    </button>
-                </header>
 
-                <!-- INTRO -->
-                <section class="portada" aria-labelledby="portada-title">
-                    <div>
-                        <p class="eyebrow"><span></span>Lydia Garcerán Amat · 2026—2027</p>
-                        <h1 id="portada-title">Sistemas Operativos<br><em>Monopuesto</em></h1>
-                        <p class="portada-intro">Contenido web teórico y práctico relativo al módulo de Sistemas Operativos Monopuesto de 1º SMR.</p>
-                        <a class="button button-primary" href="https://drive.google.com/file/d/1tofl6Z8ihtO_e_fwDUYsv2Pf3OImdZVw/view?usp=drive_link">Presentación del módulo</a>
-                    </div>
-                </section>
+                    <a class="menu-unidades-card menu-unidades-main" href="#ut2" aria-label="Ir a Máquinas Virtuales">
+                        <div class="menu-unidades-visual visual-a"><span>Máquinas Virtualess</span><small>UT 2</small>
+                        </div>
+                    </a>
+
+                    <a class="menu-unidades-card menu-unidades-main" href="#ut3"
+                        aria-label="Ir a Instalación de Sistemas Operativos">
+                        <div class="menu-unidades-visual visual-a"><span>Instalación de Sistemas
+                                Operativos</span><small>UT 3</small></div>
+                    </a>
+
+                    <a class="menu-unidades-card menu-unidades-main" href="#ut4"
+                        aria-label="Ir a Configuración de Sistemas Operativos">
+                        <div class="menu-unidades-visual visual-a"><span>Configuración de Sistemas
+                                Operativos</span><small>UT 4</small></div>
+                    </a>
+
+                    <a class="menu-unidades-card menu-unidades-main" href="#ut5"
+                        aria-label="Ir a Administración de Sistemas Operativos">
+                        <div class="menu-unidades-visual visual-a"><span>Administración de Sistemas
+                                Operativos</span><small>UT 5</small></div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- UT 1 -->
+            <section class="studio-note" id="ut1" aria-labelledby="Unidad  1">
+                <p class="eyebrow"><span></span>UT 1 - RA 1</p>
+                <h2 id="studio-title">Fundamentos de los<br><em>Sistemas Operativos</em></h2>
+                <h3>Objetivos de la unidad:</h3>
+                <ul>
+                    <li>Describir los elementos fundamentales de los sistemas informáticos</li>
+                    <li>Codificar la información en diferentes sistemas de representación</li>
+                    <li>Identificar los procesos y sus estados</li>
+                    <li>Describir la estructura y organización del sistema de archivos</li>
+                    <li>Diferenciar los atributos y permisos de un archivo y un directorio</li>
+                    <li>Explicar los sistemas transaccionales de archivos</li>
+                </ul>
+                <h3><em>01. </em>Elementos fundamentales</h3>
+                <p>Entendemos por <em>Sistema Informático</em> cualquier máquina capaz de recibir información,
+                    procesarla según un programa y producir una respuesta acorde. Entran dentro de esta definición
+                    ordenadores, teléfonos móviles, routers, aparatos inteligentes e incluso sistemas SCADA.</p>
+                <p>Aunque hay unas pocas excepciones, podemos decir que todos los Sistemas Informáticos tienen las
+                    siguientes características:</p>
+                <ul>
+                    <li>Necesitan electricidad para funcionar</li>
+                    <li>Tienen un <em>microprocesador</em></li>
+                    <li>Trabajan representando la información en <em>binario</em></li>
+                </ul>
+                <p>Con el paso del tiempo el uso que se le ha ido dando a los Sistemas Informáticos ha ido evolucionando
+                    y adaptándose a las nuevas necesidades que la misma tecnología iba creando.</p>
+                <p>Hemos mencionado que los Sistemas Informáticos representan la información en binario, pero ¿qué
+                    significa esto? El sistema binario, compuesto de 0 y 1, se utiliza para representar información de
+                    todo tipo. Juntando suficientes ceros y unos podemos llegar a contar hasta cualquier número,
+                    representar los colores de una imágen o las ondas de sonido de nuestra canción favorita.</p>
+                <p>Cada 0 o 1 se denomina bit. 8 bits forman un byte, que es la unidad básica de información en los
+                    sistemas informáticos. A partir de estos dos conceptos se pueden construir sistemas más complejos.
+                </p>
+
+                <h3><em>02. </em>Hardware</h3>
+                <h4>Unidad Central de Procesamiento (CPU)</h4>
+                <p>La <em>CPU</em> (por sus siglas en inglés, Central Processing Unit) es el componente de hardware
+                    principal que actúa como el "cerebro" de un Sistema Informático. Interpreta y ejecuta las
+                    instrucciones de los programas y del sistema operativo. Realiza cálculos matemáticos y operaciones
+                    lógicas a gran velocidad. Coordina al resto de componentes del equipo (como la memoria RAM o la
+                    tarjeta gráfica) para que todo funcione de forma correcta.</p>
+                <p>Para comparar CPUs, se utilizan diferentes criterios como la frecuencia de reloj (La cantidad de
+                    operaciones que puede realizar por segundo, se mide en GHz), el número de núcleos (la cantidad de
+                    procesadores independientes dentro de la CPU), la arquitectura (el diseño y estructura interna de la
+                    CPU) y el socket (el conector físico que permite la instalación de la CPU en la placa base).</p>
+
+                <h4>Memoria</h4>
+                <p>La <em>Memoria RAM</em> es el componente de hardware que almacena temporalmente los datos y las
+                    instrucciones que la CPU necesita procesar. La RAM es volátil, lo que significa que los datos se
+                    pierden cuando se apaga el equipo. Diferenciamos entre memorias SIMM, DIMM y SO-DIMM según su tamaño
+                    y tipo de conexión. La mayoría de los equipos modernos utilizan memorias DIMM o SO-DIMM. Las
+                    memorias DIMM se dividen en generaciones que aumentan su capacidad y velocidad. Estas son: DDR,
+                    DDR2, DDR3, DDR4 y DDR5.</p>
+                <div class="table-scroll" role="region" aria-label="Tabla de generaciones de memoria RAM" tabindex="0">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Generación</th>
+                                <th>Velocidad</th>
+                                <th>Capacidad</th>
+                                <th>Voltaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>DDR</td>
+                                <td>100-200 MHz</td>
+                                <td>128 MB - 1 GB</td>
+                                <td>2.5 V</td>
+                            </tr>
+                            <tr>
+                                <td>DDR2</td>
+                                <td>400-800 MHz</td>
+                                <td>1 GB - 4 GB</td>
+                                <td>1.8 V</td>
+                            </tr>
+                            <tr>
+                                <td>DDR3</td>
+                                <td>1066-2133 MHz</td>
+                                <td>4 GB - 16 GB</td>
+                                <td>1.5 V</td>
+                            </tr>
+                            <tr>
+                                <td>DDR4</td>
+                                <td>2133-3200 MHz</td>
+                                <td>8 GB - 32 GB</td>
+                                <td>1.2 V</td>
+                            </tr>
+                            <tr>
+                                <td>DDR5</td>
+                                <td>4800-5600 MHz</td>
+                                <td>16 GB - 64 GB</td>
+                                <td>1.1 V</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Es importante considerar la velocidad de transferencia de datos al elegir la combinación de memoria
+                    RAM y placa base para no hacer cuello de botella.</p>
+
+                <h4>Periféricos de entrada/salida</h4>
+                <p>Los <em>periféricos de entrada/salida</em> son dispositivos que permiten la interacción entre el
+                    usuario y el Sistema Informático. Los periféricos de entrada permiten al usuario enviar información
+                    al sistema, mientras que los periféricos de salida permiten al sistema mostrar información al
+                    usuario. Algunos ejemplos de periféricos de entrada son el teclado, el ratón, el escáner y la cámara
+                    web. Algunos ejemplos de periféricos de salida son el monitor, la impresora y los altavoces.</p>
+                <p>Con frecuencia, los periféricos de entrada y salida se combinan en un solo dispositivo, como por
+                    ejemplo, los auriculares que actúan como periférico de salida y entrada. También existirán algunos
+                    periféricos que requieran instalar <em>controladores específicos</em>, como impresoras o escáners,
+                    cascos con tecnologías de audio envolvente o periféricos dedicados a sectores específicos como mesas
+                    de mezclas para producción musical o capturadoras de vídeo.</p>
+
+                <h4>Dispositivos de almacenamiento</h4>
+                <p>Los <em>dispositivos de almacenamiento</em> son medios físicos o lógicos donde se guardan los datos
+                    de forma permanente. Algunos ejemplos de dispositivos de almacenamiento son el disco duro HDD, el
+                    SSD, la memoria USB y el CD/DVD.</p>
+                <p>Desde un punto de vista técnico, los dispositivos de almacenamiento podrían ser clasificados como
+                    periféricos al no ser necesarios para el funcionamiento básico del sistema.</p>
+                <p>Los dispositivos de almacenamiento pueden dividirse en internos y externos, dependiendo de su
+                    ubicación y forma de conexión al sistema. Los dispositivos internos están integrados dentro del
+                    sistema, mientras que los externos se conectan a través de puertos o interfaces específicas. Los
+                    dispositvos de almacenamiento internos principales son el disco duro HDD, el SSD y el NVMe M.2</p>
+                <div class="table-scroll" role="region" aria-label="Tabla de dispositivos de almacenamiento"
+                    tabindex="0">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dispositvo</th>
+                                <th>Velocidades de transferencia</th>
+                                <th>Tamaño</th>
+                                <th>Pros</th>
+                                <th>Contras</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>HDD</td>
+                                <td>80 a 140 MB/s</td>
+                                <td>3.5 pulgadas para sobremesa y 2.5 pulgadas para portátiles</td>
+                                <td>Alto almacenamiento, bajo costo por Gb de almacenamiento</td>
+                                <td>Bajo rendimiento, alto consumo. Se degradan con las horas de uso. Sensible a golpes.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SSD</td>
+                                <td>400 a 550 MB/s</td>
+                                <td>2.5 pulgadas</td>
+                                <td>Alta velocidad, bajo consumo. Costo por Gb ligeramente superior al HDD</td>
+                                <td>Relativamente sensible a golpes. Se degrada por ciclos de escritura.</td>
+                            </tr>
+                            <tr>
+                                <td>NVMe M.2 Gen3</td>
+                                <td>3000 a 3500 MB/s</td>
+                                <td>22mm de ancho y 30 a 110 mm de largo</td>
+                                <td>Velocidad altísima, bajo consumo. Dificil que sufra golpes.</td>
+                                <td>Costo por Gb significativamente superior a los demás tipos. Se degrada por ciclos de
+                                    escritura.</td>
+                            </tr>
+                            <tr>
+                                <td>NVMe M.2 Gen4/5</td>
+                                <td>5000 a 7800 MB/s</td>
+                                <td>22mm de ancho y 30 a 110 mm de largo</td>
+                                <td>Extrema velocidad, bajo consumo. Dificil que sufra golpes.</td>
+                                <td>Costo por Gb significativamente superior a los demás tipos. Se degrada por ciclos de
+                                    escritura.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Placa Base</h4>
+                <p>La <em>Placa Base</em> es el componente de hardware principal que conecta todos los demás componentes
+                    de un Sistema Informático. Proporciona las conexiones eléctricas y de datos necesarias para que los
+                    componentes puedan comunicarse entre sí. La placa base contiene el chipset, que es el conjunto de
+                    circuitos integrados que gestionan la comunicación entre la CPU, la memoria y los periféricos.
+                    También incluye ranuras de expansión, puertos de entrada/salida y conectores de alimentación.</p>
+                <p>La placa base puede clasificarse según su tamaño y factor de forma. Los factores de forma más comunes
+                    son ATX, Micro-ATX y Mini-ITX. Cada factor de forma tiene diferentes dimensiones y características,
+                    lo que afecta la compatibilidad con otros componentes y la capacidad de expansión del sistema.</p>
+                <div class="table-scroll" role="region" aria-label="Tabla de factores de forma de placas base"
+                    tabindex="0">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Factor de forma</th>
+                                <th>Dimensiones</th>
+                                <th>Pros</th>
+                                <th>Contras</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ATX</td>
+                                <td>305 x 244 mm</td>
+                                <td>Mayor capacidad de expansión, más ranuras de memoria y puertos de entrada/salida
+                                </td>
+                                <td>Mayor tamaño, menos compatibilidad con cajas pequeñas</td>
+                            </tr>
+                            <tr>
+                                <td>Micro-ATX</td>
+                                <td>244 x 244 mm</td>
+                                <td>Compatibilidad con cajas más pequeñas, buena capacidad de expansión</td>
+                                <td>Menor cantidad de ranuras de memoria y puertos de entrada/salida que ATX</td>
+                            </tr>
+                            <tr>
+                                <td>Mini-ITX</td>
+                                <td>170 x 170 mm</td>
+                                <td>Tamaño compacto, ideal para sistemas pequeños y portátiles</td>
+                                <td>Limitada capacidad de expansión, menos ranuras de memoria y puertos de
+                                    entrada/salida</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Para sistemas que requieren una configuración más compacta (como sistemas home cinema, servidores
+                    caseros o máquinas arcade), la placa base Mini-ITX es la opción ideal.</p>
+                <p>A la hora de elegir una placa base, es importante considerar el tamaño del sistema, la capacidad de
+                    expansión necesaria y la compatibilidad con los componentes que se van a utilizar.</p>
+
+                <h4>Tarjeta Gráfica</h4>
+                <p>La <em>Tarjeta Gráfica</em> es el componente de hardware que se encarga de procesar y generar las
+                    imágenes que se muestran en el monitor. Puede ser integrada en la CPU o en la placa base, o bien ser
+                    una tarjeta dedicada que se conecta a través de un puerto de expansión. La tarjeta gráfica contiene
+                    su propio procesador (GPU) y memoria dedicada (VRAM) para manejar los gráficos de manera eficiente.
+                    El procesador gráfico (GPU) es responsable de renderizar imágenes, videos y gráficos 3D de manera
+                    rápida y eficiente. Está especializada en la manipulación de gráficos y la generación de imágenes en
+                    tiempo real.</p>
+                <p>La VRAM (Video Random Access Memory) es la memoria dedicada a almacenar datos gráficos, imágenes y
+                    vídeos. Su capacidad afecta directamente el rendimiento gráfico del sistema.</p>
+                <p>Las tarjetas gráficas son, en general, muy complicadas de comparar entre sí debido a las diferencias
+                    en sus especificaciones, arquitecturas, funciones específicas y el rendimiento que ofrecen en
+                    diferentes tareas. La mejor opción para compararlas es consultar análisis de benchmarking y
+                    comparativas para la tarea específica.</p>
+
+                <h4>Fuente de Alimentación (PSU)</h4>
+                <p>La <em>Fuente de Alimentación</em> es el componente de hardware que convierte la corriente alterna
+                    (AC) de la red eléctrica en corriente continua (DC) que los componentes del Sistema Informático
+                    pueden utilizar. Proporciona la energía necesaria para que todos los componentes funcionen
+                    correctamente. La fuente de alimentación tiene diferentes potencias, que se miden en vatios (W). La
+                    potencia necesaria depende de los componentes del sistema y su consumo energético. Es importante
+                    elegir una fuente de alimentación con suficiente potencia para evitar problemas de estabilidad y
+                    rendimiento.</p>
+                <p>La eficiencia de la fuente de alimentación se refiere a la cantidad de energía que se convierte en
+                    energía útil para los componentes del sistema en comparación con la energía que se pierde en forma
+                    de calor. Las fuentes de alimentación con certificación 80 PLUS son más eficientes y consumen menos
+                    energía, lo que se traduce en un menor consumo eléctrico y una mayor durabilidad de los componentes.
+                    Las diferentes calidades de 80 PLUS indican el nivel de eficiencia energética de la fuente de
+                    alimentación.</p>
+                <ul>
+                    <li>80 PLUS White: ~80% de eficiencia</li>
+                    <li>80 PLUS Bronze: ~82% de eficiencia</li>
+                    <li>80 PLUS Silver: ~85% de eficiencia</li>
+                    <li>80 PLUS Gold: ~87% de eficiencia</li>
+                    <li>80 PLUS Platinum: ~90% de eficiencia</li>
+                    <li>80 PLUS Titanium: ~92% de eficiencia</li>
+                </ul>
+                <p>Se recomienda elegir una fuente de alimentación con certificación 80 PLUS para obtener una mejor
+                    garantía de eficiencia energética. El consumo total del equipo deberá estar siempre razonablemente
+                    por debajo de la potencia máxima efectiva de la fuente de la PSU. La potencia máxima efectiva se
+                    calcula multiplicando la potencia nominal por el factor de eficiencia. Por ejemplo, una fuente de
+                    alimentación con certificación 80 PLUS Gold y una potencia nominal de 600W tendrá una potencia
+                    máxima efectiva de aproximadamente 516W.</p>
 
 
-                <!-- UT 1 -->
-                <section class="studio-note" id="ut1" aria-labelledby="Unidad  1">
-                    <p class="eyebrow"><span></span>UT 1 - RA 1</p>
-                    <h2 id="studio-title">Este módulo está aún en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
+                <h4>Buses</h4>
+                <p>Son <em>buses</em> todos aquellos elementos del sistema que permiten la comunicación entre los
+                    componentes hardware. Cables, circuitos y conectores que facilitan la transferencia de datos y
+                    señales entre los distintos componentes del sistema entran dentro de esta categoría.</p>
+
+                <h3><em>03. </em>Software</h3>
+                <p>Cuando hablamos de software, hablamos de la parte lógica de un equipo informático, es decir, de todo
+                    aquello que no es físico y no se puede tocar.</p>
+                <p>Las primeras palabras que se nos vienen a la mente cuand hablamos de software son "programas" o
+                    "aplicaciones".</p>
+                <p>Un <em>programa</em> es un conjunto de instrucciones finito que pueden o no recibir datos y producen
+                    un resultado esperado.</p>
+                <p>Para definir qué es una aplicación, tenemos que entender los diferentes niveles de complejidad de los
+                    programas informáticos. De menos a más complejos son:</p>
+                <ol>
+                    <li><em>Instrucciones de procesador:</em> Son un conjunto pequeño de instrucciones que el procesador
+                        puede ejecutar directamente. Por ejemplo: "sumar dos valores", "guardar un valor en memoria",
+                        "leer un valor de memoria" o "comparar dos valores".</li>
+                    <li><em>Núcleo o kernel:</em> Es la parte central del sistema operativo que gestiona los recursos
+                        del sistema y proporciona una interfaz para interactuar con el hardware. Ofrece las bases para
+                        el funcionamiento del sistema y las directivas de seguridad.</li>
+                    <li><em>Sistema Operativo:</em> Es el software que gestiona los recursos del sistema y proporciona
+                        una interfaz para que el usuario interactúe con el software. Es el entorno en el que se ejecutan
+                        las aplicaciones. Ofrece funciones adicionales de seguridad.</li>
+                    <li><em>Aplicaciones:</em> Son programas diseñados para realizar tareas específicas para el usuario.
+                        Pueden ser de productividad, entretenimiento, comunicación, etc. Ofrecen funciones adicionales
+                        de seguridad.</li>
+                </ol>
+                <p>El software, al fin y al cabo, es un tipo de propiedad intelectual que está protegido por derechos de
+                    autor y licencias. Dependiendo del software las licencias pueden ser unas u otras. Vamos a pasar a
+                    estudiar las licencias de software más comunes:</p>
+                <ul>
+                    <li><em>Software propietario:</em> Es software que está protegido por derechos de autor y no puede
+                        ser copiado, distribuido o modificado sin permiso del titular de los derechos. Diferenciamos:
+                    </li>
                     <ul>
-                        <li>Describir los elementos fundamentales de los sistemas informáticos</li>
-                        <li>Codificar la información en diferentes sistemas de representación</li>
-                        <li>Identificar los procesos y sus estados</li>
-                        <li>Describir la estructura y organización del sistema de archivos</li>
-                        <li>Diferenciar los atributos y permisos de un archivo y un directorio</li>
-                        <li>Explicar los sistemas transaccionales de archivos</li>
+                        <li>Software de uso privativo: Es software que solo puede ser utilizado por el titular de los
+                            derechos.</li>
+                        <li>Software de uso comercial: Es software que puede ser vendido o utilizado con fines
+                            comerciales.</li>
+                        <li>Shareware: Es software que se puede probar gratuitamente durante un período limitado,
+                            después del cual se requiere una licencia para continuar utilizando.</li>
+                        <li>Freeware: Es software que puede ser usado sin costo alguno, pero no necesariamente permite
+                            el acceso al código fuente ni la modificación del mismo.</li>
                     </ul>
-                    <h3></h3>
-                </section>
-
-                <!-- UT 2 -->
-                <section class="studio-note" id="ut2" aria-labelledby="Unidad  2">
-                    <p class="eyebrow"><span></span>UT 2 - RA 5</p>
-                    <h2 id="studio-title">Máquinas<em>Virtuales</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
+                    <li><em>Software libre:</em> Es software que puede ser usado, estudiado, modificado y/o distribuido
+                        libremente bajo ciertas condiciones. Dentro de este tipo de software se encuentran:</li>
                     <ul>
-                        <li>Diferenciar entre máquinas virtuales y físicas</li>
-                        <li>Establecer ventajas e inconvenientes de las máquinas virtuales</li>
-                        <li>Identificar diferentes tipos de máquinas virtuales</li>
-                        <li>Instalar hipervisores libres y propietarios</li>
-                        <li>Crear máquinas virtuales con sistemas operativos libres y propietarios</li>
-                        <li>Configurar máquinas virtuales</li>
-                        <li>Comunicar máquinas virtuales y anfitrionas</li>
-                        <li>Analalizar el rendimiento del sistema</li>
+                        <li><em>Software de código abierto:</em> Es software cuyo código fuente está disponible para que
+                            cualquiera pueda estudiarlo, modificarlo y distribuirlo. Se distribuye bajo licencias que
+                            permiten su uso, modificación y distribución.</li>
+                        <li><em>Software gratuito:</em> Es software que puede ser usado sin costo alguno, pero no
+                            necesariamente permite el acceso al código fuente ni la modificación del mismo.</li>
+                        <li><em>Software de dominio público:</em> Es software que no está protegido por derechos de
+                            autor y puede ser usado, modificado y distribuido libremente por cualquier persona.</li>
                     </ul>
-                    <h3></h3>
-                </section>
+                </ul>
 
-                <!-- UT 3 -->
-                <section class="studio-note" id="ut3" aria-labelledby="Unidad  3">
-                    <p class="eyebrow"><span></span>UT 3 - RA 2</p>
-                    <h2 id="studio-title">Instalación de<br><em>Sistemas Operativos</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                    <ul>
-                        <li>Analizar las funciones de los sistemas operativos</li>
-                        <li>Describir la arquitectura de los sistemas operativos</li>
-                        <li>Verificar la idoneidad del hardware</li>
-                        <li>Seleccionar sistemas operativos y elaborar un plan de instalación adecuado</li>
-                        <li>Configurar parámetros básicos de instalación</li>
-                        <li>Configurar un gestor de arranque</li>
-                        <li>Actualizar el sistema operativo</li>
-                    </ul>
-                    <h3></h3>
-                </section>
-
-                <!-- UT 4 -->
-                <section class="studio-note" id="ut4" aria-labelledby="Unidad 4">
-                    <p class="eyebrow"><span></span>UT 4 - RA 3</p>
-                    <h2 id="studio-title">Configuración de<br><em>Sistemas Operativos</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                    <ul>
-                        <li>Diferenciar interfaces de usuario y propiedades</li>
-                        <li>Configurar el entorno de usuario</li>
-                        <li>Gestionar sistemas de archivos</li>
-                        <li>Configurar actualizaciones del sistema</li>
-                        <li>Instalar y desinstalar software</li>
-                        <li>Automatizar tareas del sistema</li>
-                    </ul>
-                    <h3></h3>
-                </section>
-
-                <!-- UT 5 -->
-                <section class="studio-note" id="ut5" aria-labelledby="Unidad 5">
-                    <p class="eyebrow"><span></span>UT 5 - RA 4</p>
-                    <h2 id="studio-title">Administración de<br><em>Sistemas Operativos</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                    <ul>
-                        <li>Configurar usuarios y grupos</li>
-                        <li>Describir la organización de archivos del sistema</li>
-                        <li>Actuar sobre servicios y procesos del sistema</li>
-                        <li>Optimizar el rendimiento del sistema</li>
-                        <li>Analizar el rendimiento del sistema</li>
-                        <li>Configurar rescursos compartidos</li>
-                    </ul>
-                    <h3></h3>
-                </section>
+                <h3><em>04. </em>Representación de la información</h3>
+                <p>Como hemos dicho. Los ordenadores trabajan con información representada en forma binaria, es decir,
+                    utilizando solo dos valores: 0 y 1. Cada 0 o 1 se denomina bit. Cada 8 bits forman un byte u octeto,
+                    la unidad básica de almacenamiento en los sistemas informáticos.</p>
+                <p>Como los ordenadores solo pueden trabajar con 0 y 1, toda la información que procesan debe ser
+                    convertida a este formato para que un ordenador la procese correctamente.</p>
+                <h4>Conversión de números decimales a binarios:</h4>
+                <p>Aquí tenéis un pequeño vídeo que explica cómo convertir información de decimal a binario:</p>
+                <div class="video-container">
+                    <iframe width="100%" height="100%"
+                        src="https://www.youtube.com/embed/Hri9MiprKgs?si=YFD8WPvOFgrvsdC0" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p>Esta explicación es una simplificación del método usual de "Divisiones sucesivas por la base" para
+                    convertir números decimales a binarios. Puedes usarlo en tu día a día y en el examen, pero si
+                    quieres un método más "profesional", puedes ver este Short</p>
+                <a class="button button-primary" href="https://www.youtube.com/shorts/I0OP-I7UR-Q"
+                    target="_blank" rel="noopener noreferrer">Short: Cómo convertir números decimales a binarios</a>
+                <h4>Conversión de números binarios a decimales:</h4>
+                <p>De la misma forma que convertimos información a binario para que pueda ser procesada por un ordenador, también podemos convertir números binarios a decimales usando el siguiente método:</p>
+                <div class="video-container">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jCWfMlWSXrM?si=Wnh9BPj-gXDA9Q6g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p>También tienes un Short explicándolo en la pizarra:</p>
+                <a class="button button-primary" href="https://www.youtube.com/shorts/1ZE42xwlTaI"
+                    target="_blank" rel="noopener noreferrer">Short: Cómo convertir números binarios a decimales</a>
                 
+                <h4>Conversión de números decimales a hexadecimales:</h4>
+                <p>Como te habrás dado cuenta, los números binarios acaban ocupando muchísimo más espacio que los números decimales. Son más largos y pesados de escribir. Por eso utilizamos sistemas de numeración más eficientes como el hexadecimal. El hexadecimal es un sistema de numeración que utiliza 16 símbolos: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.</p>
+                <p>Como cada dígito en el sistema hexadecimal representa un valor entre 0 y 15, podemos usarlo para representar números de manera más compacta que en binario. Concretamente cada dígito en hexadecimales corresponde a 4 bits en binario, o lo que es lo mismo 2 cifras hexadecimales corresponden a 1 byte.</p>
+                <p>Para aprender a convertir números decimales a hexadecimales, puedes ver este vídeo explicativo:</p>
+                <div class="video-container">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/e2Z1isg5BSU?si=xJxSehutRXKLwKMR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p>Como puedes ver, el método es muy parecido al de convertir decimales a binarios, pero en lugar de dividir por 2, dividimos por 16. </p>
+                <h4>Conversión de números hexadecimales a decimales:</h4>
+                <p>Para convertir números hexadecimales a decimales, debes multiplicar cada dígito por la potencia correspondiente de 16 y sumar los resultados, como en binario, pero cambiando el 2 por un 16. Aquí tenéis un pequeño vídeo que explica cómo hacerlo:</p>
+                <div class="video-container">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/hKoijpEao8A?si=ojUQEAovF971zsIp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h4>Conversión de números binarios a hexadecimales y viceversa:</h4>
+                <p>Para convertir números binarios a hexadecimales, existen dos métodos convencionales. El primero consiste en pasar el número de la base de origen a decimal y luego convertir a la base de destino. Es un método lento, pero efectivo. Si queréis un truco para hacerlo más rápido, puedes usar la tabla de conversión entre binario y hexadecimal:</p>
+                <div class="video-container">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jOuQ27o5mCQ?si=LMKak9zkqO6S9tU2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h4>Representación de texto:</h4>
+                <p>Ahora que hemos aprendido a representar números en diferentes bases, podemos pasar a ver cómo se representa el texto en una computadora. Para ello usaremos el código ASCII, pero ten en cuenta que los ordenadores modernos utilizan otros códigos como Unicode, que es una versión ampliada y más compleja de ASCII.</p>
+                <details>
+                    <summary><em style="font-size: 1.6em;">Tabla de ASCII</em></summary>
+                    <div class="table-scroll" role="region" aria-label="Tabla de ASCII" tabindex="0">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Carácter</th>
+                                    <th>Posición dentro de la tabla ASCII</th>
+                                    <th>Representación en binario</th>
+                                    <th>Representación en hexadecimal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Espacio</td>
+                                    <td>32</td>
+                                    <td>00100000</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>48</td>
+                                    <td>00110000</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>49</td>
+                                    <td>00110001</td>
+                                    <td>31</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>50</td>
+                                    <td>00110010</td>
+                                    <td>32</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>51</td>
+                                    <td>00110011</td>
+                                    <td>33</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>52</td>
+                                    <td>00110100</td>
+                                    <td>34</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>53</td>
+                                    <td>00110101</td>
+                                    <td>35</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>54</td>
+                                    <td>00110110</td>
+                                    <td>36</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>55</td>
+                                    <td>00110111</td>
+                                    <td>37</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>56</td>
+                                    <td>00111000</td>
+                                    <td>38</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>57</td>
+                                    <td>00111001</td>
+                                    <td>39</td>
+                                </tr>
+                                <tr>
+                                    <td>A</td>
+                                    <td>65</td>
+                                    <td>01000001</td>
+                                    <td>41</td>
+                                </tr>
+                                <tr>
+                                    <td>B</td>
+                                    <td>66</td>
+                                    <td>01000010</td>
+                                    <td>42</td>
+                                </tr>
+                                <tr>
+                                    <td>C</td>
+                                    <td>67</td>
+                                    <td>01000011</td>
+                                    <td>43</td>
+                                </tr>
+                                <tr>
+                                    <td>D</td>
+                                    <td>68</td>
+                                    <td>01000100</td>
+                                    <td>44</td>
+                                </tr>
+                                <tr>
+                                    <td>E</td>
+                                    <td>69</td>
+                                    <td>01000101</td>
+                                    <td>45</td>
+                                </tr>
+                                <tr>
+                                    <td>F</td>
+                                    <td>70</td>
+                                    <td>01000110</td>
+                                    <td>46</td>
+                                </tr>
+                                <tr>
+                                    <td>G</td>
+                                    <td>71</td>
+                                    <td>01000111</td>
+                                    <td>47</td>
+                                </tr>
+                                <tr>
+                                    <td>H</td>
+                                    <td>72</td>
+                                    <td>01001000</td>
+                                    <td>48</td>
+                                </tr>
+                                <tr>
+                                    <td>I</td>
+                                    <td>73</td>
+                                    <td>01000101</td>
+                                    <td>45</td>
+                                </tr>
+                                <tr>
+                                    <td>J</td>
+                                    <td>74</td>
+                                    <td>01001010</td>
+                                    <td>4A</td>
+                                </tr>
+                                <tr>
+                                    <td>K</td>
+                                    <td>75</td>
+                                    <td>01001011</td>
+                                    <td>4B</td>
+                                </tr>
+                                <tr>
+                                    <td>L</td>
+                                    <td>76</td>
+                                    <td>01001100</td>
+                                    <td>4C</td>
+                                </tr>
+                                <tr>
+                                    <td>M</td>
+                                    <td>77</td>
+                                    <td>01001101</td>
+                                    <td>4D</td>
+                                </tr>
+                                <tr>
+                                    <td>N</td>
+                                    <td>78</td>
+                                    <td>01001110</td>
+                                    <td>4E</td>
+                                </tr>
+                                <tr>
+                                    <td>O</td>
+                                    <td>79</td>
+                                    <td>01001111</td>
+                                    <td>4F</td>
+                                </tr>
+                                <tr>
+                                    <td>P</td>
+                                    <td>80</td>
+                                    <td>01010000</td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Q</td>
+                                    <td>81</td>
+                                    <td>01010001</td>
+                                    <td>51</td>
+                                </tr>
+                                <tr>
+                                    <td>R</td>
+                                    <td>82</td>
+                                    <td>01010010</td>
+                                    <td>52</td>
+                                </tr>
+                                <tr>
+                                    <td>S</td>
+                                    <td>83</td>
+                                    <td>01010011</td>
+                                    <td>53</td>
+                                </tr>
+                                <tr>
+                                    <td>T</td>
+                                    <td>84</td>
+                                    <td>01010100</td>
+                                    <td>54</td>
+                                </tr>
+                                <tr>
+                                    <td>U</td>
+                                    <td>85</td>
+                                    <td>01010101</td>
+                                    <td>55</td>
+                                </tr>
+                                <tr>
+                                    <td>V</td>
+                                    <td>86</td>
+                                    <td>01010110</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>W</td>
+                                    <td>87</td>
+                                    <td>01010111</td>
+                                    <td>57</td>
+                                </tr>
+                                <tr>
+                                    <td>X</td>
+                                    <td>88</td>
+                                    <td>01011000</td>
+                                    <td>58</td>
+                                </tr>
+                                <tr>
+                                    <td>Y</td>
+                                    <td>89</td>
+                                    <td>01011001</td>
+                                    <td>59</td>
+                                </tr>
+                                <tr>
+                                    <td>Z</td>
+                                    <td>90</td>
+                                    <td>01011010</td>
+                                    <td>5A</td>
+                                </tr>
+                                <tr>
+                                    <td>a</td>
+                                    <td>97</td>
+                                    <td>01100001</td>
+                                    <td>61</td>
+                                </tr>
+                                <tr>
+                                    <td>b</td>
+                                    <td>98</td>
+                                    <td>01100010</td>
+                                    <td>62</td>
+                                </tr>
+                                <tr>
+                                    <td>c</td>
+                                    <td>99</td>
+                                    <td>01100011</td>
+                                    <td>63</td>
+                                </tr>
+                                <tr>
+                                    <td>d</td>
+                                    <td>100</td>
+                                    <td>01100100</td>
+                                    <td>64</td>
+                                </tr>
+                                <tr>
+                                    <td>e</td>
+                                    <td>101</td>
+                                    <td>01100101</td>
+                                    <td>65</td>
+                                </tr>
+                                <tr>
+                                    <td>f</td>
+                                    <td>102</td>
+                                    <td>01100110</td>
+                                    <td>66</td>
+                                </tr>
+                                <tr>
+                                    <td>g</td>
+                                    <td>103</td>
+                                    <td>01100111</td>
+                                    <td>67</td>
+                                </tr>
+                                <tr>
+                                    <td>h</td>
+                                    <td>104</td>
+                                    <td>01101000</td>
+                                    <td>68</td>
+                                </tr>
+                                <tr>
+                                    <td>i</td>
+                                    <td>105</td>
+                                    <td>01101001</td>
+                                    <td>69</td>
+                                </tr>
+                                <tr>
+                                    <td>j</td>
+                                    <td>106</td>
+                                    <td>01101010</td>
+                                    <td>6A</td>
+                                </tr>
+                                <tr>
+                                    <td>k</td>
+                                    <td>107</td>
+                                    <td>01101011</td>
+                                    <td>6B</td>
+                                </tr>
+                                <tr>
+                                    <td>l</td>
+                                    <td>108</td>
+                                    <td>01101100</td>
+                                    <td>6C</td>
+                                </tr>
+                                <tr>
+                                    <td>m</td>
+                                    <td>109</td>
+                                    <td>01101101</td>
+                                    <td>6D</td>
+                                </tr>
+                                <tr>
+                                    <td>n</td>
+                                    <td>110</td>
+                                    <td>01101110</td>
+                                    <td>6E</td>
+                                </tr>
+                                <tr>
+                                    <td>o</td>
+                                    <td>111</td>
+                                    <td>01101111</td>
+                                    <td>6F</td>
+                                </tr>
+                                <tr>
+                                    <td>p</td>
+                                    <td>112</td>
+                                    <td>01110000</td>
+                                    <td>70</td>
+                                </tr>
+                                <tr>
+                                    <td>q</td>
+                                    <td>113</td>
+                                    <td>01110001</td>
+                                    <td>71</td>
+                                </tr>
+                                <tr>
+                                    <td>r</td>
+                                    <td>114</td>
+                                    <td>01110010</td>
+                                    <td>72</td>
+                                </tr>
+                                <tr>
+                                    <td>s</td>
+                                    <td>115</td>
+                                    <td>01110011</td>
+                                    <td>73</td>
+                                </tr>
+                                <tr>
+                                    <td>t</td>
+                                    <td>116</td>
+                                    <td>01110100</td>
+                                    <td>74</td>
+                                </tr>
+                                <tr>
+                                    <td>u</td>
+                                    <td>117</td>
+                                    <td>01110101</td>
+                                    <td>75</td>
+                                </tr>
+                                <tr>
+                                    <td>v</td>
+                                    <td>118</td>
+                                    <td>01110110</td>
+                                    <td>76</td>
+                                </tr>
+                                <tr>
+                                    <td>w</td>
+                                    <td>119</td>
+                                    <td>01110111</td>
+                                    <td>77</td>
+                                </tr>
+                                <tr>
+                                    <td>x</td>
+                                    <td>120</td>
+                                    <td>01111000</td>
+                                    <td>78</td>
+                                </tr>
+                                <tr>
+                                    <td>y</td>
+                                    <td>121</td>
+                                    <td>01111001</td>
+                                    <td>79</td>
+                                </tr>
+                                <tr>
+                                    <td>z</td>
+                                    <td>122</td>
+                                    <td>01111010</td>
+                                    <td>7A</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+                <p>Esta tabla puede llegar a intimidar mucho al tener tantos valores diferentes y tantas representaciones, pero en realidad, solo tenemos que aprender los siguientes cuatro valores para reconstruir la tabla:</p>
+                <details>
+                    <summary><em style="font-size: 1.6em;">Tabla de ASCII Resumida</em></summary>
+                    <div class="table-scroll" role="region" aria-label="Tabla de ASCII" tabindex="0">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Carácter</th>
+                                    <th>Representación en hexadecimal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Espacio</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>A</td>
+                                    <td>41</td>
+                                </tr>
+                                <tr>
+                                    <td>a</td>
+                                    <td>61</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+                <p>A partir de estos cuatro valores, podemos reconstruir la tabla completa de ASCII y cálcular el resto de números haciendo sumas sencillas.</p>
+                <i>Nota: Hablamos de texto natural cuando está escrito en lenguaje humano y de representacón ASCII cuando se expresa en su forma hexadecimal.</i>
+                <h5>Ejemplo:</h5>
+                <p>Si yo quisiera convertir el texto natural "Tengo 16 años" a su representación en ASCII hexadecimal, haría lo siguiente:</p>
+                <ol>
+                    <li>Busco en la tabla el valor hexadecimal correspondiente a cada carácter.</li>
+                    <i>T->54, e->65, n->6E, g->67, o->6F,  ->20, 1->31, 6->36,  ->20, a->61, ñ->F1, o->6F, s->73</i>
+                    <li>Ordeno los valores hexadecimal para obtener la representación final.</li>
+                    <i>54 65 6E 67 6F 20 31 36 20 61 F1 6F 73</i>
+                </ol>
+                <p>El proceso es el mismo, pero al revés para convertir ASCII hexadecimal a texto natural que una persona pueda leer.</p>
+            </section>
 
-                <footer class="site-footer" id="contacto">
-                    <p>¿Tienes alguna duda?</p>
-                    <a href="mailto:lydia.garceran@colegiomiralmonte.com">lydia.garceran@colegiomiralmonte.com <span aria-hidden="true">↗</span></a>
-                    <small><a href="https://lydianmode.github.io/fp/">Apuntes FP</a> © 2026 by Lydia Garcerán is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></small>
-                </footer>
-            </main>
-        </div>
+            <!-- UT 2 -->
+            <section class="studio-note" id="ut2" aria-labelledby="Unidad  2">
+                <p class="eyebrow"><span></span>UT 2 - RA 5</p>
+                <h2 id="studio-title">Máquinas<em>Virtuales</em></h2>
+                <h3>Objetivos de la unidad:</h3>
+                <ul>
+                    <li>Diferenciar entre máquinas virtuales y físicas</li>
+                    <li>Establecer ventajas e inconvenientes de las máquinas virtuales</li>
+                    <li>Identificar diferentes tipos de máquinas virtuales</li>
+                    <li>Instalar hipervisores libres y propietarios</li>
+                    <li>Crear máquinas virtuales con sistemas operativos libres y propietarios</li>
+                    <li>Configurar máquinas virtuales</li>
+                    <li>Comunicar máquinas virtuales y anfitrionas</li>
+                    <li>Analalizar el rendimiento del sistema</li>
+                </ul>
+                <h3></h3>
+            </section>
 
-        <a class="back-to-top" href="#top" aria-label="Volver arriba" title="Volver arriba">↑</a>
-    </body>
-    <script src="script.js"></script>
+            <!-- UT 3 -->
+            <section class="studio-note" id="ut3" aria-labelledby="Unidad  3">
+                <p class="eyebrow"><span></span>UT 3 - RA 2</p>
+                <h2 id="studio-title">Instalación de<br><em>Sistemas Operativos</em></h2>
+                <h3>Objetivos de la unidad:</h3>
+                <ul>
+                    <li>Analizar las funciones de los sistemas operativos</li>
+                    <li>Describir la arquitectura de los sistemas operativos</li>
+                    <li>Verificar la idoneidad del hardware</li>
+                    <li>Seleccionar sistemas operativos y elaborar un plan de instalación adecuado</li>
+                    <li>Configurar parámetros básicos de instalación</li>
+                    <li>Configurar un gestor de arranque</li>
+                    <li>Actualizar el sistema operativo</li>
+                </ul>
+                <h3></h3>
+            </section>
+
+            <!-- UT 4 -->
+            <section class="studio-note" id="ut4" aria-labelledby="Unidad 4">
+                <p class="eyebrow"><span></span>UT 4 - RA 3</p>
+                <h2 id="studio-title">Configuración de<br><em>Sistemas Operativos</em></h2>
+                <h3>Objetivos de la unidad:</h3>
+                <ul>
+                    <li>Diferenciar interfaces de usuario y propiedades</li>
+                    <li>Configurar el entorno de usuario</li>
+                    <li>Gestionar sistemas de archivos</li>
+                    <li>Configurar actualizaciones del sistema</li>
+                    <li>Instalar y desinstalar software</li>
+                    <li>Automatizar tareas del sistema</li>
+                </ul>
+                <h3></h3>
+            </section>
+
+            <!-- UT 5 -->
+            <section class="studio-note" id="ut5" aria-labelledby="Unidad 5">
+                <p class="eyebrow"><span></span>UT 5 - RA 4</p>
+                <h2 id="studio-title">Administración de<br><em>Sistemas Operativos</em></h2>
+                <h3>Objetivos de la unidad:</h3>
+                <ul>
+                    <li>Configurar usuarios y grupos</li>
+                    <li>Describir la organización de archivos del sistema</li>
+                    <li>Actuar sobre servicios y procesos del sistema</li>
+                    <li>Optimizar el rendimiento del sistema</li>
+                    <li>Analizar el rendimiento del sistema</li>
+                    <li>Configurar rescursos compartidos</li>
+                </ul>
+                <h3></h3>
+            </section>
+
+
+            <footer class="site-footer" id="contacto">
+                <p>¿Tienes alguna duda?</p>
+                <a href="mailto:lydia.garceran@colegiomiralmonte.com">lydia.garceran@colegiomiralmonte.com <span
+                        aria-hidden="true">↗</span></a>
+                <small><a href="https://lydianmode.github.io/fp/">Apuntes FP</a> © 2026 by Lydia Garcerán is licensed
+                    under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt=""
+                        style="max-width: 1em;max-height:1em;margin-left: .2em;"><img
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt=""
+                        style="max-width: 1em;max-height:1em;margin-left: .2em;"><img
+                        src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt=""
+                        style="max-width: 1em;max-height:1em;margin-left: .2em;"><img
+                        src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt=""
+                        style="max-width: 1em;max-height:1em;margin-left: .2em;"></small>
+            </footer>
+        </main>
+    </div>
+
+    <a class="back-to-top" href="#top" aria-label="Volver arriba" title="Volver arriba">↑</a>
+</body>
+<script src="script.js"></script>
+
 </html>
