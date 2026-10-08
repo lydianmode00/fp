@@ -32,6 +32,10 @@ li {
 	margin-bottom: 6px;
 }
 
+details {
+	margin-bottom: 20px;
+}
+
 .in-text-link {
 	color: var(--purple);
 	font-size: 14px;
