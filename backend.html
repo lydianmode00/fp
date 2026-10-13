@@ -527,7 +527,69 @@ def homepage(request):
                     <h2 id="studio-title">URLS y <em>Templates</em></h2>
                     <h3>Objetivos de la unidad:</h3>
                     <ul>
+                        <li>Insertar código dentro de HTML para generar webs</li>
+                        <li>Utilizar etiquetas de inclusión de código</li>
+                        <li>Escribir sentencias simples</li>
+                        <li>Utilizar variables y operadores en el lenguaje de marcas</li>
+                        <li>Estandarizar el uso de URLs</li>
                     </ul>
+                    <h3><em>01. </em>Templates</h3>
+                    <p>Como vimos en la unidad anterior, el contenido de un HTML se puede modificar gracias a las utilidades de Django. Hasta ahora lo único que hemos hecho es insertar URLs de forma dinámica, pero como te puedes imaginar no terminan ahí las utilidades.</p>
+                    <p>Django propone diferentes herramientas que usan un sistema de marcas propio de Django como: <i>{% ejemplo %}</i>. Las marcas más simples son el uso de bloques reemplazables desde una plantilla.</p>
+                    <p>Es decir, podemos crear una plantilla con el esqueleto de nuestra página web (hoja de estilos, pie de página, encabezados, menús...) y solo cambiar el contenido de la siguiente manera</p>
+                    <div class="code-block">
+                                <p style="font-weight: bold;">template.html</p>
+                                <hr>
+<pre><code>&lt!DOCTYPE html>
+&lthtml lang="en">
+{% load static %}
+&lthead>
+    &ltmeta charset="UTF-8">
+    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+    &ltlink rel="stylesheet" href="{% static 'css/style.css' %}">
+    &ltlink rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    &ltscript src="{% static 'js/script.js' %}">&lt/script>
+    &lttitle>Home&lt/title>
+&lt/head>
+
+&ltbody>
+    &ltp>Este párrafo está fuera del bloque y no se puede modificar&lt/p>
+    {% block $NOMBRE_DEL_BLOQUE %}
+        &ltp>Este es un contenido de ejemplo dentro del bloque y sí se puede modificar&lt/p>
+    {% endblock $NOMBRE_DEL_BLOQUE%}
+&lt/body>
+&lt/html>
+</code>
+</pre></div>
+                    <p>En otro archivo podemos definir una herencia, exactamente igual que una Clase de cualquier lenguaje de programación y redefinimos solo aquerllo que queremos cambiar. Un HTML de ejemplo se podría quedar tal que así:</p>
+                    <div class="code-block">
+                                <p style="font-weight: bold;">index.html</p>
+                                <hr>
+                    <pre><code>{% extends 'template.html' %}
+
+{% block $NOMBRE_DEL_BLOQUE %}
+    &lth1>Este titulo reemplaza el contenido por defecto dentro del bloque&lt/h1>
+{% endblock $NOMBRE_DEL_BLOQUE%}
+</code>
+</pre></div>
+                    <details class="activity-panel">
+                        <summary>Tarea 1</summary>
+                        <ol>
+                            <li>Crea una plantilla parecida a la del ejemplo  que contenga toda la estructura báśica de la web. Incluye bloques para lo que consideres necesario, pero especialmente:</li>
+                            <ul>
+                                <li>Título de la página</li>
+                                <li>Contenido principal (sin incluir menú de navegación ni pie de página)</li>
+                            </ul>
+                            <li>Crea las siguientes webs que hereden de tu plantilla con <i>{& extends '...' &}</i></li>
+                            <ul>
+                                <li>Página web principal de acogida</li>
+                                <li>Página de la aplicación que creaste en la tarea anterior</li>
+                                <li>Página web de contacto con un formulario HTML sencillo</li>
+                            </ul>
+                            <li>Verifica que los estilos se mantienen de forma homogenea</li>
+                        </ol>
+                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT3-TAREA1">Enviar actividades por correo</a>
+                    </details>
                 </section>
 
                  <!-- UT 4 -->
