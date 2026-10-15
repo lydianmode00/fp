@@ -672,7 +672,7 @@ def calendario(request, fecha):
 urlpatterns = [
 
     #Con esta línea creamos una url genérica que va a hacer coincidencia con todas las URLs que cumplan esa forma. Por seguridad y buen funcionamiento, cuanto más genérica sea el patrón más cerca del fondo de la lista urlpatterns debería encontrarse.
-    path('%ltstr:fecha>', views.calendario, name='calendario'),
+    path('&ltstr:fecha>', views.calendario, name='calendario'),
 ]
 </code>
 </pre>                          <hr style="height:4px; background-color: #8d4df4; border: none;">
