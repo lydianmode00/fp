@@ -590,6 +590,102 @@ def homepage(request):
                         </ol>
                         <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT3-TAREA1">Enviar actividades por correo</a>
                     </details>
+
+                    <h3><em>02. </em>URLs y modularidad</h3>
+                    <p>Una URL (Uniform Resource Locator) es la dirección única que identifica a un recurso en internet, como una página web, una imagen, un archivo o un video. Se compone de dos partes, el host y la ruta. Por ejemplo www.youtube.com/feed/playlists/ se compone de www.youtube.com (el host) y /feed/playlists es la ruta.</p>
+                    <p>Tradicionalmente las rutas apuntaban a un fichero en el host y ese fichero es el que se mostraba. Hoy en día la mayoría de rutas son simbólicas y no reflejan la arquitectura de ficheros y directorios real. Las rutas modernas simbolizan la jerarquía de servicios. Por ejemplo /feed/playlists indica que quiero que me muestren contenido (feed), concretamente playlists.</p>
+                    <p>Con frecuencia me puedo encontrar parámetros en la URL después de un signo de interrogación. Por ejemplo: en https://www.youtube.com/watch?v=LkIJfAds4 estamos dentro de /watch y tenemos un parámetro v=LkIJfAds4, lo que le dice a youtube que el vídeo que queremos ver tiene el UID LkIJfAds4</p>
+                    <details class="activity-panel">
+                        <summary>Tarea 2</summary>
+                        <ol>
+                            <li>Vamos a empezar por crear namespaces para nuestras URLs, es decir, nombres cortos y fáciles de escribir, fácilmente reconocibles para los desarrolladores y que permitan identificar al servicio al que hago referencia</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">urls.py</p>
+                                <hr>
+<pre><code>
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.homepage, <b>name='homepage'</b>),
+    path('reservas/, include(reservas.urls)'),
+]
+</code>
+</pre></div>
+                            <li>Añadir un argumento name a la función path le asigna un nombre que debería ser único dentro del proyecto, de tal forma que yo podría hacer lo siguiente dentro de mis HTMLs</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">index.html</p>
+                                <hr>
+<pre><code>
+    &lta href="{% url 'homepage' %}">Home&lt/a>
+</code>
+</pre></div>
+                            <p>Django se encargará de sustituir {% url 'homepage' %} por la dirección correcta.</p>
+                            <li>La mejor forma de proceder, para asegurar que los nombres son realmente únicos, es crear unos namespaces organizados</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">$APP/urls.py</p>
+                                <hr>
+<pre><code>
+app_name = “$APP”
+
+urlpatterns = [
+    path('', views.app_homepage, name='homepage'),
+]
+</code>
+</pre></div>
+                            <li>Al hacer esto, para una aplicación que se llame Reservas yo podría hacer algo así como:</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">index.html</p>
+                                <hr>
+<pre><code>
+    &lta href="{% url 'reservas:homepage' %}">Reservas&lt/a>
+</code>
+</pre></div>
+                            <li>A este proceso se le llama normalizar. Asegurate de que todas tus URLs estén normalizadas antes de seguir (tanto en los htmls como en el código)</li>
+                            <li>Vamos a hacer una pequeña página de prueba en nuestro proyecto para hacer una demostración de parámetros. Un ejemplo bastante sencillo puede ser un calendario. Crea una aplicación calendario dentro de tu web (es probable que no te interese conservarla para tu proyecto final).</li>
+                            <li>Vamos a crear una página que muestre unos pocos detalles sobre la fecha que el usuario nos pase en parámetro.</li>
+                            <div class="code-block">
+                                <p style="font-weight: bold;">calendario/views.py</p>
+                                <hr>
+<pre><code>
+'''
+    Esta función toma como parámetro, además del request habitual, un parámetro fecha que tendrá que introducir el usuario en el formato "DD-MM-AAAA". La función está incompleta, intenta terminarla con las diferentes utilidades de python para tratar texto y fechas.
+
+    Además, la función render puede tomar como parámetro un diccionario con datos para copiar dentro del html (luego veremos cómo)
+'''
+def calendario(request, fecha):
+    
+    [...]
+
+    mi_dia = [...]
+    mi_mes = [...]
+    mi_ano = [...]
+    mensaje = [...]
+
+    return render(request, 'calendario/fecha.html', {'dia': mi_dia, 'mes': mi_mes, 'ano': mi_ano, 'mensaje': mensaje})
+
+</code>
+</pre>
+                                <hr style="height:4px; background-color: #8d4df4; border: none;">
+                                <p style="font-weight: bold;">calendario/urls.py</p>
+                                <hr>
+<pre><code>
+
+urlpatterns = [
+
+    #Con esta línea creamos una url genérica que va a hacer coincidencia con todas las URLs que cumplan esa forma. Por seguridad y buen funcionamiento, cuanto más genérica sea el patrón más cerca del fondo de la lista urlpatterns debería encontrarse.
+    path('%ltstr:fecha>', views.calendario, name='calendario'),
+]
+</code>
+</pre>                          <hr style="height:4px; background-color: #8d4df4; border: none;">
+                                <p style="font-weight: bold;">calendario/fecha.html</p>
+                                <hr>
+<pre><code>
+&ltp> Hoy es {{ dia }} del {{ mes }} del año {{ ano }}. {{ mensaje }}.&lt/p>
+</code>
+</pre></div>
+                        <li>Es posible que el usuario introduzca mal el formato de fecha, prepara una página de error que mostrar si se da el caso y modifica la función de calendario para que muestre uno u otro en función de si hay un error o no.</li>
+                        </ol>
+                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT3-TAREA2">Enviar actividades por correo</a>
+                    </details>
                 </section>
 
                  <!-- UT 4 -->
