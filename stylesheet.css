@@ -4,6 +4,7 @@
 	--muted: #8e8995;
 	--purple: #8d4df4;
 	--purple-light: #c9a9ff;
+	--purple-light-transparent: #c9a9ff4d;
 	--line: rgba(240, 237, 242, 0.13);
 }
 
@@ -361,6 +362,11 @@ em { color: var(--purple-light); font-style: normal; font-weight: bold; }
 }
 .table-scroll:focus-visible { outline: 2px solid var(--purple-light); outline-offset: 3px; }
 .studio-note table { width: 85%; border-collapse: collapse; margin-top: 35px; text-align: left; margin-bottom: 20px; }
+.studio-note .gantt-table { width: 100%; min-width: 68rem; table-layout: fixed; }
+.studio-note .gantt-table th,
+.studio-note .gantt-table td { border: 1px solid rgba(255, 255, 255, 0.12); }
+.exe { background: var(--purple-light-transparent);}
+.gantt-table caption {font-weight: bold; text-decoration: underline; margin-bottom: 6px; font-size: 20px;}
 .studio-note table tbody tr:hover { background: rgba(145, 28, 139, 0.384); }
 
 

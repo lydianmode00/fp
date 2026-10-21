@@ -694,7 +694,7 @@
                                     <td>57</td>
                                 </tr>
                                 <tr>
-                                    <td>X</td>
+                                    <td class="exe">X</td>
                                     <td>88</td>
                                     <td>01011000</td>
                                     <td>58</td>
@@ -914,6 +914,634 @@
                     <i>54 65 6E 67 6F 20 31 36 20 61 F1 6F 73</i>
                 </ol>
                 <p>El proceso es el mismo, pero al revés para convertir ASCII hexadecimal a texto natural que una persona pueda leer.</p>
+                <h3><em>05. </em>Procesos y estados</h3>
+                <p>Un <em>proceso</em> es un programa en ejecución. No es solo el conjunto de instrucciones del programa: también incluye su estado actual, los datos con los que trabaja y los recursos que el sistema operativo le ha asignado. El sistema operativo registra esta información en una estructura de control del proceso, que le permite pausarlo y reanudarlo.</p>
+                <h4>Interacción con el procesador y la memoria</h4>
+                <p>Para ejecutarse, un proceso necesita tiempo de procesador y espacio de memoria. El procesador ejecuta sus instrucciones; si hay varios procesos preparados, el sistema operativo decide cuál puede utilizarlo. Aunque un programa parezca ejecutarse continuamente, el procesador puede repartir su tiempo entre muchos procesos, alternándolos rápidamente.</p>
+                <p>El sistema operativo asigna a cada proceso un espacio de memoria para sus instrucciones y datos, y mantiene separados los espacios de los distintos procesos para evitar interferencias. Si un proceso necesita esperar a una operación de entrada/salida, como leer un archivo, puede quedar bloqueado; mientras tanto, el procesador puede atender a otro proceso. Al terminar la espera, vuelve a estar preparado para ejecutarse.</p>
+                <p>De forma simplificada, un proceso puede pasar por estos estados:</p>
+                <ul>
+                    <li><em>Nuevo:</em> se está creando.</li>
+                    <li><em>Preparado:</em> puede ejecutarse y espera su turno para obtener el procesador.</li>
+                    <li><em>En ejecución:</em> sus instrucciones se están ejecutando en el procesador.</li>
+                    <li><em>Bloqueado o en espera:</em> espera un evento, normalmente la finalización de una operación de entrada/salida o que otro proceso termine su ejecución.</li>
+                    <li><em>Terminado:</em> ha finalizado y el sistema operativo puede liberar sus recursos.</li>
+                </ul>
+                <h4>Planificación del procesador</h4>
+                <p>El <em>planificador</em> del sistema operativo elige qué proceso preparado se ejecutará a continuación. Los métodos de planificación buscan repartir el procesador y reducir los tiempos de espera; cada método se comporta de forma distinta:</p>
+                <ul>
+                    <li><em>FIFO (First In, First Out), o FCFS:</em> atiende los procesos preparados en el orden en que llegaron. Es sencillo y respeta el orden de llegada, pero un proceso largo al principio puede hacer esperar mucho a los que vienen detrás.</li>
+                    <li><em>SJF (Shortest Job First):</em> selecciona primero el proceso que necesita menos tiempo de procesador. Puede reducir el tiempo medio de espera, pero hay que estimar cuánto durará cada proceso y los procesos largos podrían esperar indefinidamente si siguen llegando procesos cortos. Puede aplicarse de forma no expropiativa o expropiativa.</li>
+                    <li><em>SJF-A (Shortest Job First, con Apropiación):</em> funciona de forma muy similar al anterior, pero con la particularidad de que podemos interrumpir una tarea y dejarla a mitad si aparece una nueva tarea más corta.</li>
+                    <li><em>Round Robin:</em> asigna a cada proceso preparado un intervalo breve de tiempo, llamado <em>quantum</em> o cuanto. Si no termina al agotarse ese intervalo, vuelve al final de la cola y se atiende al siguiente. Reparte el procesador de forma equitativa, aunque un quantum demasiado pequeño aumenta el coste de los cambios de contexto.</li>
+                    <li><em>Round Robin con prioridad:</em> funciona de forma muy similar al anterior, pero con la particularidad de que ahora los procesos tienen diferentes niveles de prioridad y su orden en la cola dependerá de su prioridad. En clase numeraremos a las prioridades con números enteros y el número más bajo será el más prioritario.</li>
+                </ul>
+                <h4>Diagrama de Gantt: ejemplo FIFO</h4>
+                <p>En este ejemplo, los cuatro procesos llegan al mismo tiempo y se atienden en orden FIFO (A, B, X y D). La duración de los procesos son A = 3, B = 4, C = 5 y D = 3 unidades de tiempo.</p>
+                <div class="table-scroll" role="region" aria-label="Diagrama de Gantt FIFO para cuatro procesos y quince unidades de tiempo" tabindex="0">
+                    <table class="gantt-table"><caption>FIFO</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Tiempo</th>
+                                <th scope="col">0</th>
+                                <th scope="col">1</th>
+                                <th scope="col">2</th>
+                                <th scope="col">3</th>
+                                <th scope="col">4</th>
+                                <th scope="col">5</th>
+                                <th scope="col">6</th>
+                                <th scope="col">7</th>
+                                <th scope="col">8</th>
+                                <th scope="col">9</th>
+                                <th scope="col">10</th>
+                                <th scope="col">11</th>
+                                <th scope="col">12</th>
+                                <th scope="col">13</th>
+                                <th scope="col">14</th>
+                                <th scope="col">15</th>
+                                <th scope="col">16</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">A</th>
+                                <td>&darr;</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">B</th>
+                                <td>&darr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">C</th>
+                                <td>&darr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">D</th>
+                                <td>&darr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Diagrama de Gantt: ejemplo SJF</h4>
+                <p>Usaremos los siguientes procesos para este ejemplo.</p>
+                <div class="table-scroll" role="region" aria-label="Tiempos de llegada y duración de los procesos" tabindex="0">
+                    <table style="width:400px;"><caption>Datos de los procesos</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Proceso</th>
+                                <th scope="col">Llegada</th>
+                                <th scope="col">Duración</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">A</th>
+                                <td>0</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">B</th>
+                                <td>0</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">C</th>
+                                <td>2</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">D</th>
+                                <td>4</td>
+                                <td>3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-scroll" role="region" aria-label="Diagrama de Gantt SJF con cuatro procesos y quince unidades de tiempo" tabindex="0">
+                    <table class="gantt-table"><caption>SJF</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Tiempo</th>
+                                <th scope="col">0</th>
+                                <th scope="col">1</th>
+                                <th scope="col">2</th>
+                                <th scope="col">3</th>
+                                <th scope="col">4</th>
+                                <th scope="col">5</th>
+                                <th scope="col">6</th>
+                                <th scope="col">7</th>
+                                <th scope="col">8</th>
+                                <th scope="col">9</th>
+                                <th scope="col">10</th>
+                                <th scope="col">11</th>
+                                <th scope="col">12</th>
+                                <th scope="col">13</th>
+                                <th scope="col">14</th>
+                                <th scope="col">15</th>
+                                <th scope="col">16</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">A</th>
+                                <td>&darr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">B</th>
+                                <td>&darr;</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">C</th>
+                                <td></td>
+                                <td>&darr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">D</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>&darr;</td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Diagrama de Gantt: ejemplo SJF-A</h4>
+                <p>Usaremos los mismos procesos que en el ejemplo anterior para este ejemplo:</p>
+                <div class="table-scroll" role="region" aria-label="Tiempos de llegada y duración de los procesos" tabindex="0">
+                    <table style="width:400px;"><caption>Datos de los procesos</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Proceso</th>
+                                <th scope="col">Llegada</th>
+                                <th scope="col">Duración</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">A</th>
+                                <td>0</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">B</th>
+                                <td>0</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">C</th>
+                                <td>2</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">D</th>
+                                <td>4</td>
+                                <td>3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-scroll" role="region" aria-label="Diagrama de Gantt SJF con cuatro procesos y quince unidades de tiempo" tabindex="0">
+                    <table class="gantt-table"><caption>SJF-A</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Tiempo</th>
+                                <th scope="col">0</th>
+                                <th scope="col">1</th>
+                                <th scope="col">2</th>
+                                <th scope="col">3</th>
+                                <th scope="col">4</th>
+                                <th scope="col">5</th>
+                                <th scope="col">6</th>
+                                <th scope="col">7</th>
+                                <th scope="col">8</th>
+                                <th scope="col">9</th>
+                                <th scope="col">10</th>
+                                <th scope="col">11</th>
+                                <th scope="col">12</th>
+                                <th scope="col">13</th>
+                                <th scope="col">14</th>
+                                <th scope="col">15</th>
+                                <th scope="col">16</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">A</th>
+                                <td>&darr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">B</th>
+                                <td>&darr;</td>
+                                <td class="exe">X</td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">C</th>
+                                <td></td>
+                                <td>&darr;</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">D</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>&darr;</td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Como ves, el proceso B se ha interrumpido en mitad de su ejecución para dejar paso al proceso C.</p>
+                <h4>Diagrama de Gantt: ejemplo Round Robin</h4>
+                <p>Recuerda que en Round Robin daremos prioridad siempre a los procesos que más tiempo lleven esperando. Usaremos los mismos procesos que en el ejemplo anterior para este ejemplo:</p>
+                <div class="table-scroll" role="region" aria-label="Tiempos de llegada y duración de los procesos" tabindex="0">
+                    <table style="width:400px;">
+                        <caption>Datos de los procesos</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Proceso</th>
+                                <th scope="col">Llegada</th>
+                                <th scope="col">Duración</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">A</th>
+                                <td>0</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">B</th>
+                                <td>0</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">C</th>
+                                <td>2</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">D</th>
+                                <td>4</td>
+                                <td>3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-scroll" role="region" aria-label="Diagrama de Gantt SJF con cuatro procesos y quince unidades de tiempo" tabindex="0">
+                    <table class="gantt-table">
+                        <caption>RR (q=2)</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Tiempo</th>
+                                <th scope="col">0</th>
+                                <th scope="col">1</th>
+                                <th scope="col">2</th>
+                                <th scope="col">3</th>
+                                <th scope="col">4</th>
+                                <th scope="col">5</th>
+                                <th scope="col">6</th>
+                                <th scope="col">7</th>
+                                <th scope="col">8</th>
+                                <th scope="col">9</th>
+                                <th scope="col">10</th>
+                                <th scope="col">11</th>
+                                <th scope="col">12</th>
+                                <th scope="col">13</th>
+                                <th scope="col">14</th>
+                                <th scope="col">15</th>
+                                <th scope="col">16</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">A</th>
+                                <td>&darr;</td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">B</th>
+                                <td>&darr;</td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">C</th>
+                                <td></td>
+                                <td>&darr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">D</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>&darr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td class="exe">X</td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X</td>
+                                <td>&uarr;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <details class="activity-panel">
+                    <summary>Tarea: ejercicios de planificación de procesos</summary>
+                    <p>Para cada ejercicio, dibuja un diagrama de Gantt y resuelve la planificación con FIFO, SJF, SJF-A y Round Robin. En todos los ejercicios, utiliza Round Robin con un quantum de 2 unidades de tiempo.</p>
+                    <ol>
+                        <li>
+                            <p><em>Ejercicio 1:</em> completa los diagramas para estos procesos.</p>
+                            <div class="table-scroll" role="region" aria-label="Datos de procesos del ejercicio 1" tabindex="0">
+                                <table style="width:400px;">
+                                    <thead><tr><th scope="col">Proceso</th><th scope="col">Llegada</th><th scope="col">Duración</th></tr></thead>
+                                    <tbody>
+                                        <tr><th scope="row">A</th><td>0</td><td>5</td></tr>
+                                        <tr><th scope="row">B</th><td>1</td><td>3</td></tr>
+                                        <tr><th scope="row">C</th><td>2</td><td>1</td></tr>
+                                        <tr><th scope="row">D</th><td>4</td><td>2</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <li>
+                            <p><em>Ejercicio 2:</em> completa los diagramas para estos procesos.</p>
+                            <div class="table-scroll" role="region" aria-label="Datos de procesos del ejercicio 2" tabindex="0">
+                                <table style="width:400px;">
+                                    <thead><tr><th scope="col">Proceso</th><th scope="col">Llegada</th><th scope="col">Duración</th></tr></thead>
+                                    <tbody>
+                                        <tr><th scope="row">A</th><td>0</td><td>2</td></tr>
+                                        <tr><th scope="row">B</th><td>0</td><td>5</td></tr>
+                                        <tr><th scope="row">C</th><td>3</td><td>2</td></tr>
+                                        <tr><th scope="row">D</th><td>5</td><td>1</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <li>
+                            <p><em>Ejercicio 3:</em> completa los diagramas para estos procesos.</p>
+                            <div class="table-scroll" role="region" aria-label="Datos de procesos del ejercicio 3" tabindex="0">
+                                <table style="width:400px;">
+                                    <thead><tr><th scope="col">Proceso</th><th scope="col">Llegada</th><th scope="col">Duración</th></tr></thead>
+                                    <tbody>
+                                        <tr><th scope="row">A</th><td>1</td><td>4</td></tr>
+                                        <tr><th scope="row">B</th><td>2</td><td>2</td></tr>
+                                        <tr><th scope="row">C</th><td>4</td><td>5</td></tr>
+                                        <tr><th scope="row">D</th><td>6</td><td>1</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <li>
+                            <p><em>Ejercicio 4:</em> completa los diagramas para estos procesos.</p>
+                            <div class="table-scroll" role="region" aria-label="Datos de procesos del ejercicio 4" tabindex="0">
+                                <table style="width:400px;">
+                                    <thead><tr><th scope="col">Proceso</th><th scope="col">Llegada</th><th scope="col">Duración</th></tr></thead>
+                                    <tbody>
+                                        <tr><th scope="row">A</th><td>0</td><td>7</td></tr>
+                                        <tr><th scope="row">B</th><td>2</td><td>3</td></tr>
+                                        <tr><th scope="row">C</th><td>3</td><td>2</td></tr>
+                                        <tr><th scope="row">D</th><td>5</td><td>4</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ol>
+                    <p>Para cada ejercicio, entrega cuatro diagramas de Gantt: uno para FIFO, uno para SJF, uno para SJF-A y otro para Round Robin (q = 2). Indica los instantes de inicio y finalización de cada tramo y representa los periodos en los que la CPU quede inactiva.</p>
+                    <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SOM-UT1-ORDENACION">Enviar actividades por correo</a>
+                </details>
             </section>
 
             <!-- UT 2 -->
