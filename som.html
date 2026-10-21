@@ -1224,7 +1224,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="table-scroll" role="region" aria-label="Diagrama de Gantt SJF con cuatro procesos y quince unidades de tiempo" tabindex="0">
+                <div class="table-scroll" role="region" aria-label="Diagrama de Gantt SJF-A con cuatro procesos y quince unidades de tiempo" tabindex="0">
                     <table class="gantt-table"><caption>SJF-A</caption>
                         <thead>
                             <tr>
@@ -1369,7 +1369,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="table-scroll" role="region" aria-label="Diagrama de Gantt SJF con cuatro procesos y quince unidades de tiempo" tabindex="0">
+                <div class="table-scroll" role="region" aria-label="Diagrama de Gantt RR con cuatro procesos y quince unidades de tiempo" tabindex="0">
                     <table class="gantt-table">
                         <caption>RR (q=2)</caption>
                         <thead>
@@ -1473,6 +1473,156 @@
                                 <td></td>
                                 <td></td>
                                 <td class="exe">X</td>
+                                <td>&uarr;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Diagrama de Gantt: ejemplo Round Robin con prioridad</h4>
+                <p>Recuerda que en Round Robin con prioridad los procesos van avanzando en una fila imaginaria. Cuanto más baja la prioridad, antes les tocará. Los procesos de ejemplo son:</p>
+                <div class="table-scroll" role="region" aria-label="Tiempos de llegada y duración de los procesos" tabindex="0">
+                    <table style="width:400px;">
+                        <caption>Datos de los procesos</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Proceso</th>
+                                <th scope="col">Llegada</th>
+                                <th scope="col">Duración</th>
+                                <th scope="col">Prioridad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">A</th>
+                                <td>0</td>
+                                <td>6</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">B</th>
+                                <td>0</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">C</th>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">D</th>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>6</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-scroll" role="region" aria-label="Diagrama de Gantt RR con cuatro procesos y quince unidades de tiempo" tabindex="0">
+                    <table class="gantt-table">
+                        <caption>RR (q=2)</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Tiempo</th>
+                                <th scope="col">0</th>
+                                <th scope="col">1</th>
+                                <th scope="col">2</th>
+                                <th scope="col">3</th>
+                                <th scope="col">4</th>
+                                <th scope="col">5</th>
+                                <th scope="col">6</th>
+                                <th scope="col">7</th>
+                                <th scope="col">8</th>
+                                <th scope="col">9</th>
+                                <th scope="col">10</th>
+                                <th scope="col">11</th>
+                                <th scope="col">12</th>
+                                <th scope="col">13</th>
+                                <th scope="col">14</th>
+                                <th scope="col">15</th>
+                                <th scope="col">16</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">A</th>
+                                <td>&darr;</td>
+                                <td class="exe">X(3)</td>
+                                <td class="exe">X(3)</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td class="exe">X(3)</td>
+                                <td class="exe">X(3)</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td class="exe">X(3)</td>
+                                <td class="exe">X(3)</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">B</th>
+                                <td>&darr;</td>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td class="exe">X(5)</td>
+                                <td class="exe">X(5)</td>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td class="exe">X(5)</td>
+                                <td class="exe">X(5)</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">C</th>
+                                <td></td>
+                                <td>&darr;</td>
+                                <td>1</td>
+                                <td class="exe">X(1)</td>
+                                <td class="exe">X(1)</td>
+                                <td>&uarr;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">D</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>&darr;</td>
+                                <td>5</td>
+                                <td>5</td>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td class="exe">X(6)</td>
+                                <td class="exe">X(6)</td>
+                                <td></td>
+                                <td></td>
+                                <td class="exe">X(6)</td>
                                 <td>&uarr;</td>
                             </tr>
                         </tbody>
