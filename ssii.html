@@ -654,6 +654,96 @@
                         <p>Entrega un informe breve con las respuestas, la ruta para localizar la creación de usuarios locales y los enlaces de las tres reseñas consultadas. Comprueba que las fuentes sean distintas y señala la fecha de consulta.</p>
                         <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT2-Tarea 3">Enviar actividades por correo</a>
                     </details>
+                    <h3><em>04. </em>Comandos usuales</h3>
+                    <p>La terminal permite realizar tareas con texto, sin depender de los menús gráficos. A continuación vamos a comparar diez operaciones habituales en Linux y Windows. Los ejemplos de Windows muestran PowerShell y, cuando el comando cambia, también el equivalente en CMD (Símbolo del sistema).</p>
+                    <div class="table-scroll" role="region" aria-label="Comparación de diez comandos habituales de Linux y Windows" tabindex="0">
+                        <table>
+                            <caption>Comandos básicos para trabajar con archivos y directorios</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Operación</th>
+                                    <th scope="col">Linux</th>
+                                    <th scope="col">Windows (PowerShell)</th>
+                                    <th scope="col">Windows (CMD)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1. Mostrar el directorio actual</th>
+                                    <td><code>pwd</code></td>
+                                    <td><code>Get-Location</code></td>
+                                    <td><code>cd</code></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2. Crear un archivo</th>
+                                    <td><code>touch archivo</code></td>
+                                    <td><code>New-Item archivo.txt -ItemType File</code></td>
+                                    <td><code>echo. > archivo.txt</code></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3. Listar archivos, incluidos los ocultos</th>
+                                    <td><code>ls -la</code></td>
+                                    <td><code>Get-ChildItem -Force</code></td>
+                                    <td><code>dir /a</code></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4. Entrar en un directorio</th>
+                                    <td><code>cd Documentos</code></td>
+                                    <td><code>Set-Location Documentos</code></td>
+                                    <td><code>cd Documentos</code></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5. Subir al directorio padre</th>
+                                    <td><code>cd ..</code></td>
+                                    <td><code>Set-Location ..</code></td>
+                                    <td><code>cd ..</code></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6. Crear un directorio</th>
+                                    <td><code>mkdir Proyectos</code></td>
+                                    <td><code>New-Item -ItemType Directory Proyectos</code></td>
+                                    <td><code>mkdir Proyectos</code></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">7. Eliminar un directorio vacío</th>
+                                    <td><code>rmdir Temporal</code></td>
+                                    <td><code>Remove-Item Temporal</code></td>
+                                    <td><code>rmdir Temporal</code></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8. Copiar un archivo</th>
+                                    <td><code>cp informe.txt copia.txt</code></td>
+                                    <td><code>Copy-Item informe.txt copia.txt</code></td>
+                                    <td><code>copy informe.txt copia.txt</code></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">9. Mover o cambiar el nombre a un archivo</th>
+                                    <td><code>mv informe.txt Documentos/</code></td>
+                                    <td><code>Move-Item informe.txt Documentos/</code></td>
+                                    <td><code>move informe.txt Documentos</code></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">10. Eliminar un archivo</th>
+                                    <td><code>rm borrador.txt</code></td>
+                                    <td><code>Remove-Item borrador.txt</code></td>
+                                    <td><code>del borrador.txt</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Las rutas de Windows suelen escribirse con contrabarra (<code>\</code>) y las de Linux con barra normal (<code>/</code>). En Linux las mayúsculas y minúsculas distinguen nombres diferentes; en Windows normalmente no. Comprueba siempre la ruta antes de eliminar archivos o directorios.</p>
+                    <details class="activity-panel">
+                        <summary>Tarea 4</summary>
+                        <p>Prueba los diez comandos de la tabla en una terminal Linux y en Windows. En Windows, realiza las pruebas en PowerShell. Trabaja únicamente dentro de una carpeta de prácticas creada para esta actividad; no ejecutes comandos de borrado sobre carpetas personales, del sistema o compartidas.</p>
+                        <ol>
+                            <li>Crea una carpeta llamada <code>practica_comandos</code> y úsala como espacio de trabajo. Dentro, crea archivos de prueba con contenido sencillo y una subcarpeta. Repite las operaciones de la tabla: muestra la ruta actual, crea un archivo, lista también los archivos ocultos, navega entre carpetas, vuelve al directorio superior, crea y elimina una carpeta vacía, copia un archivo, muévelo o cámbiale el nombre y, al final, elimina solo el archivo de prueba que hayas creado.</li>
+                            <li>Documenta el proceso con capturas de pantalla legibles. Incluye los comandos escritos y sus resultados, y señala qué terminal utilizaste. No es necesario que cada comando tenga una captura distinta si una imagen muestra claramente varias operaciones.</li>
+                            <li>Explica con tus propias palabras las opciones principales de <code>ls</code>, <code>cp</code>, <code>mv</code> y <code>rm</code> en Linux. Incluye al menos dos opciones por comando, qué efecto tienen y un ejemplo de uso. Puedes consultar la ayuda con <code>man ls</code>, <code>man cp</code>, <code>man mv</code> y <code>man rm</code>, o con la opción <code>--help</code>.</li>
+                            <li>Investiga: ¿Qué es un script? ¿Cómo puedo crear uno para Linux? ¿Y en Windows?</li>
+                        </ol>
+                        <p>Entrega un informe con el objetivo, el entorno utilizado, los pasos y comandos probados, las capturas y las explicaciones de las opciones. Antes de borrar, confirma que la ruta actual sea la carpeta de prácticas y que el archivo o directorio seleccionado sea el que has creado para el ejercicio.</p>
+                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT2-Tarea 4">Enviar actividades por correo</a>
+                    </details>
                 </section>
 
                 <!-- UT3 -->
@@ -737,7 +827,7 @@
 
                 <footer class="site-footer" id="contacto">
                     <p>¿Tienes alguna duda?</p>
-                    <a href="mailto:lydia.garceran@colegiomiralmonte.com">lydia.garceran@colegiomiralmonte.com <span aria-hidden="true">↗</span></a>
+                    <a href="mailto:lydia.garceran@colegiomiralmonte.es">lydia.garceran@colegiomiralmonte.es <span aria-hidden="true">↗</span></a>
                     <small><a href="https://lydianmode.github.io/fp/">Apuntes FP</a> © 2026 by Lydia Garcerán is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></small>
                 </footer>
             </main>
