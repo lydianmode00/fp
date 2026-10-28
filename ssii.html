@@ -809,7 +809,108 @@
                 <!-- UT3 -->
                 <section class="studio-note" id="ut3" aria-labelledby="studio-title">
                     <p class="eyebrow"><span></span>UT 3 - RA 3</p>
-                    <h2 id="studio-title">Unidad en desarrollo.<br><em>Gracias por la paciencia \(^o^)/.</em></h2>
+                    <h2 id="studio-title">Gestores de <br><em>Ficheros</em></h2>
+                    <ul>
+                        <li>Comparar sistemas de archivos según sistemas operativos (Criterios: 3.a, 3.b.)</li>
+                        <li>Utilizar herramientas en entorno gráfico y comandos para localizar información en el sistema de archivos. (Criterios: 3.c</li>
+                        <li>Crear diferentes tipos de particiones y unidades lógicas. (Criterios: 3.d)</li>
+                        <li>Realizar copias de seguridad. (Criterios: 3.f)</li>
+                        <li>Planificar y automatizar tareas. (Criterios: 3.e)</li>
+                        <li>Instalar utilidades relacionadas con la gestión de información. (Criterios: 3.f)</li>
+                    </ul>
+                    <h3><em>01. </em>Sistemas de archivos</h3>
+                    <p>Un <em>sistema de archivos</em> es el método que utiliza un sistema operativo para organizar, guardar y localizar la información en un dispositivo de almacenamiento. Define cómo se distribuyen los datos y cómo se gestionan los nombres, las carpetas, el espacio libre, los permisos y otros atributos. Al formatear una partición o unidad se crea en ella un sistema de archivos.</p>
+                    <h4>Ficheros y directorios</h4>
+                    <p>Un <em>fichero</em> (o archivo) almacena información, como un documento, una fotografía o un programa. Puede tener un nombre, una extensión que suele indicar su tipo y atributos como el tamaño, la fecha o los permisos. Un <em>directorio</em> (o carpeta) organiza ficheros y otros directorios mediante una estructura jerárquica. No es lo mismo que un fichero de datos: contiene referencias a los elementos que agrupa. El directorio situado en la base de la jerarquía se denomina raíz.</p>
+                    <p>Es importante saber que un directorio no "contiene" ficheros. Un directorio no es más que un archivo con una lista de información sobre en qué parte del disco duro se encuentran una serie de ficheros y directorios. Un directorio también almacena una serie de metadatos (como fecha de creación, usuario propietario y permisos que se tienen sobre los datos)</p>
+                    <h4>Sistemas de archivos habituales</h4>
+                    <p>Los formatos disponibles dependen del sistema operativo y del dispositivo. Estos son algunos de los más frecuentes:</p>
+                    <div class="table-scroll" role="region" aria-label="Comparativa de sistemas de archivos habituales" tabindex="0">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sistema</th>
+                                    <th scope="col">Uso habitual</th>
+                                    <th scope="col">Características principales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">NTFS</th>
+                                    <td>Windows</td>
+                                    <td>Formato habitual de las unidades internas de Windows. Incluye permisos, registro de cambios (journaling), compresión y otras funciones de seguridad. No todos los sistemas operativos pueden escribir en él de forma nativa.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">FAT32</th>
+                                    <td>Unidades extraíbles y dispositivos antiguos</td>
+                                    <td>Muy compatible con distintos sistemas y aparatos, pero no admite ficheros de 4 GiB o más y carece de algunas funciones modernas de seguridad y recuperación.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">exFAT</th>
+                                    <td>Memorias USB y tarjetas SD</td>
+                                    <td>Diseñado para unidades extraíbles y ficheros grandes; es compatible con versiones actuales de Windows, Linux y macOS. No ofrece las mismas funciones de permisos y registro que NTFS o ext4.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ext4</th>
+                                    <td>Linux</td>
+                                    <td>Uno de los formatos más extendidos en Linux. Ofrece journaling, permisos de archivos y directorios y un buen equilibrio entre rendimiento y fiabilidad.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">XFS</th>
+                                    <td>Linux, especialmente servidores y almacenamiento de gran tamaño</td>
+                                    <td>Formato con journaling y buen rendimiento al trabajar con ficheros y volúmenes grandes. Puede ampliarse, pero no reducirse fácilmente una vez creado.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Btrfs</th>
+                                    <td>Linux</td>
+                                    <td>Formato moderno con funciones como instantáneas, compresión y comprobación de integridad. Sus capacidades avanzadas pueden requerir más administración.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">APFS</th>
+                                    <td>Apple: macOS, iOS y otros dispositivos actuales</td>
+                                    <td>Optimizado para almacenamiento flash y SSD. Admite cifrado, instantáneas y uso compartido flexible del espacio entre volúmenes.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">HFS+</th>
+                                    <td>Equipos Apple antiguos</td>
+                                    <td>Formato utilizado antes de APFS en los equipos Apple. Se encuentra sobre todo en sistemas y unidades antiguas.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>La compatibilidad no es igual en todos los sistemas operativos: por ejemplo, Windows no ofrece soporte nativo completo para ext4 ni APFS, y macOS puede leer NTFS normalmente, pero no escribir en él de forma nativa. Para una unidad que se vaya a usar en varios sistemas, exFAT suele ser una opción práctica, siempre que no se necesiten permisos avanzados ni journaling.</p>
+                    <details class="activity-panel"><summary>Tarea: organización y características de los sistemas de archivos</summary>
+                        <p>Responde con tus propias palabras a las siguientes cuestiones. Para los límites de capacidad, indica las unidades utilizadas y consulta fuentes fiables: pueden variar según la versión, la implementación y el sistema operativo.</p>
+                        <ol>
+                            <li>¿Cuál es la diferencia entre el árbol de directorios de Linux y el de Windows? Explica cómo se representan la raíz y las distintas unidades o particiones, y qué aspecto tienen sus rutas.</li>
+                            <li>
+                                <p>Para cada uno de estos sistemas de archivos, indica el tamaño máximo teórico de un fichero y el tamaño máximo teórico de un disco o volumen:</p>
+                                <ul>
+                                    <li>NTFS</li>
+                                    <li>FAT32</li>
+                                    <li>exFAT</li>
+                                    <li>ext4</li>
+                                    <li>XFS</li>
+                                    <li>Btrfs</li>
+                                    <li>APFS</li>
+                                    <li>HFS+</li>
+                                </ul>
+                            </li>
+                            <li>¿Qué es el <em>journaling</em>? Explica cómo ayuda a mantener la coherencia del sistema de archivos después de un apagado inesperado y menciona qué información registra.</li>
+                            <li>¿Qué son las instantáneas de un sistema de archivos? Explica para qué sirven, cómo permiten recuperar un estado anterior y en qué se diferencian de una copia de seguridad.</li>
+                        </ol>
+                        <p>Presenta los límites de capacidad en una tabla comparativa e incluye las fuentes consultadas.</p>
+                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SOM-UT1-SISTEMAS-ARCHIVOS">Enviar actividad por correo</a>
+                    </details>
+                    <h4>Jerarquía de directorios, discos y particiones</h4>
+                    <p>Los sistemas operativos organizan los archivos en una jerarquía de directorios, pero representan de forma distinta la raíz y las unidades de almacenamiento:</p>
+                    <ul>
+                        <li><em>Windows:</em> cada volumen suele aparecer como una unidad independiente con una letra, como <code>C:\</code> o <code>D:\</code>. La raíz de <code>C:\</code> es el inicio del árbol de esa unidad; las rutas usan la barra invertida, por ejemplo <code>C:\Usuarios\Ana\Documentos</code>. Cada disco tiene un árbol propio e independiente.</li>
+                        <li><em>Linux:</em> existe un único árbol de directorios cuya raíz es <code>/</code>. Las particiones y otros dispositivos se incorporan a ese árbol en un directorio llamado <em>punto de montaje</em>. Por ejemplo, un disco adicional puede montarse en <code>/mnt/datos</code> y sus archivos se encontrarán bajo esa ruta. Las rutas usan la barra normal, como <code>/home/ana/Documentos</code>.</li>
+                    </ul>
+                    <p>Un disco físico o virtual puede dividirse en una o varias <em>particiones</em>. Cada partición puede contener un sistema de archivos propio. En Windows, las particiones suelen recibir letras de unidad; en Linux, el sistema de archivos de cada partición se monta en una ruta. Por tanto, partición y punto de montaje no son lo mismo: la partición es una región del disco y el punto de montaje es el lugar del árbol de directorios desde el que se accede a su contenido.</p>
+                    <p>Para utilizar un disco adicional, el sistema debe detectarlo y, según el caso, se debe crear una tabla de particiones, definir una o varias particiones, formatearlas con un sistema de archivos compatible y montarlas o asignarles una letra. En Linux se puede montar una partición temporalmente en un directorio; para que vuelva a estar disponible después de reiniciar, hay que configurar el montaje persistente. Windows suele asignar letras automáticamente, aunque también permite montar un volumen en una carpeta vacía.</p>
+                    <p>Antes de inicializar, particionar o formatear una unidad, comprueba cuidadosamente qué disco has seleccionado: estas operaciones pueden eliminar los datos que ya contiene. El montaje, por sí solo, no crea particiones ni formatea el disco; permite acceder a un sistema de archivos ya preparado.</p>
                 </section>
 
                 <!-- UT4 -->
