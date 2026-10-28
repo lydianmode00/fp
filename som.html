@@ -1774,6 +1774,16 @@
                     <p>Presenta los límites de capacidad en una tabla comparativa e incluye las fuentes consultadas.</p>
                     <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SOM-UT1-SISTEMAS-ARCHIVOS">Enviar actividad por correo</a>
                 </details>
+                <h4>Jerarquía de directorios, discos y particiones</h4>
+                <p>Los sistemas operativos organizan los archivos en una jerarquía de directorios, pero representan de forma distinta la raíz y las unidades de almacenamiento:</p>
+                <ul>
+                    <li><em>Windows:</em> cada volumen suele aparecer como una unidad independiente con una letra, como <code>C:\</code> o <code>D:\</code>. La raíz de <code>C:\</code> es el inicio del árbol de esa unidad; las rutas usan la barra invertida, por ejemplo <code>C:\Usuarios\Ana\Documentos</code>. Cada disco tiene un árbol propio e independiente.</li>
+                    <li><em>Linux:</em> existe un único árbol de directorios cuya raíz es <code>/</code>. Las particiones y otros dispositivos se incorporan a ese árbol en un directorio llamado <em>punto de montaje</em>. Por ejemplo, un disco adicional puede montarse en <code>/mnt/datos</code> y sus archivos se encontrarán bajo esa ruta. Las rutas usan la barra normal, como <code>/home/ana/Documentos</code>.</li>
+                </ul>
+                <p>Un disco físico o virtual puede dividirse en una o varias <em>particiones</em>. Cada partición puede contener un sistema de archivos propio. En Windows, las particiones suelen recibir letras de unidad; en Linux, el sistema de archivos de cada partición se monta en una ruta. Por tanto, partición y punto de montaje no son lo mismo: la partición es una región del disco y el punto de montaje es el lugar del árbol de directorios desde el que se accede a su contenido.</p>
+                <p>Para utilizar un disco adicional, el sistema debe detectarlo y, según el caso, se debe crear una tabla de particiones, definir una o varias particiones, formatearlas con un sistema de archivos compatible y montarlas o asignarles una letra. En Linux se puede montar una partición temporalmente en un directorio; para que vuelva a estar disponible después de reiniciar, hay que configurar el montaje persistente. Windows suele asignar letras automáticamente, aunque también permite montar un volumen en una carpeta vacía.</p>
+                <p>Antes de inicializar, particionar o formatear una unidad, comprueba cuidadosamente qué disco has seleccionado: estas operaciones pueden eliminar los datos que ya contiene. El montaje, por sí solo, no crea particiones ni formatea el disco; permite acceder a un sistema de archivos ya preparado.</p>
+                
             </section>
 
             <!-- UT 2 -->
