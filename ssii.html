@@ -732,8 +732,7 @@
                         </table>
                     </div>
                     <p>Las rutas de Windows suelen escribirse con contrabarra (<code>\</code>) y las de Linux con barra normal (<code>/</code>). En Linux las mayúsculas y minúsculas distinguen nombres diferentes; en Windows normalmente no. Comprueba siempre la ruta antes de eliminar archivos o directorios.</p>
-                    <details class="activity-panel">
-                        <summary>Tarea 4</summary>
+                    <details class="activity-panel"><summary>Tarea 4</summary>
                         <p>Prueba los diez comandos de la tabla en una terminal Linux y en Windows. En Windows, realiza las pruebas en PowerShell. Trabaja únicamente dentro de una carpeta de prácticas creada para esta actividad; no ejecutes comandos de borrado sobre carpetas personales, del sistema o compartidas.</p>
                         <ol>
                             <li>Crea una carpeta llamada <code>practica_comandos</code> y úsala como espacio de trabajo. Dentro, crea archivos de prueba con contenido sencillo y una subcarpeta. Repite las operaciones de la tabla: muestra la ruta actual, crea un archivo, lista también los archivos ocultos, navega entre carpetas, vuelve al directorio superior, crea y elimina una carpeta vacía, copia un archivo, muévelo o cámbiale el nombre y, al final, elimina solo el archivo de prueba que hayas creado.</li>
@@ -743,6 +742,67 @@
                         </ol>
                         <p>Entrega un informe con el objetivo, el entorno utilizado, los pasos y comandos probados, las capturas y las explicaciones de las opciones. Antes de borrar, confirma que la ruta actual sea la carpeta de prácticas y que el archivo o directorio seleccionado sea el que has creado para el ejercicio.</p>
                         <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT2-Tarea 4">Enviar actividades por correo</a>
+                    </details>
+                    <h3><em>05.</em> Instalación de sistemas operativos</h3>
+                    <p>Instalar un sistema operativo implica preparar el equipo para que pueda arrancar desde el medio de instalación, organizar el almacenamiento y copiar y configurar los archivos del sistema. Antes de empezar, comprueba los requisitos del sistema operativo y realiza la práctica en una máquina virtual o en un disco de pruebas. Un error al elegir el disco o las particiones puede borrar los datos existentes.</p>
+                    <h4>BIOS y UEFI: el firmware del equipo</h4>
+                    <p>Al encender el ordenador, el <em>firmware</em> inicializa y comprueba parte del hardware y busca un dispositivo desde el que arrancar. La BIOS (Basic Input/Output System) es el firmware tradicional de los equipos; UEFI (Unified Extensible Firmware Interface) es su alternativa moderna, con más opciones de configuración y un proceso de arranque distinto. Hoy en día se sigue utilizando la palabra BIOS para referirse universalmente a BIOS o UEFI.</p>
+                    <ul>
+                        <li><em>BIOS o modo legacy:</em> suele iniciar el sistema leyendo el código de arranque del primer sector del disco. Se asocia tradicionalmente con discos particionados con MBR.</li>
+                        <li><em>UEFI:</em> puede consultar entradas de arranque guardadas en la configuración del firmware y cargar un programa de arranque desde la partición del sistema EFI (ESP). En instalaciones actuales suele utilizarse con una tabla GPT.</li>
+                        <li><em>Secure Boot o Arranque seguro:</em> opción de UEFI que verifica firmas de componentes del arranque para permitir solo componentes de confianza. No cifra el disco y puede requerir ajustes si se instalan sistemas o controladores no reconocidos por las claves configuradas.</li>
+                    </ul>
+                    <p>El modo elegido en el firmware debe ser compatible con el medio de instalación y la configuración del disco. Si se inicia el instalador en modo UEFI, lo habitual es instalar en GPT; si se inicia en modo BIOS legacy, es frecuente utilizar MBR. Mezclar modos puede hacer que el sistema instalado no aparezca como opción de arranque.</p>
+                    <h4>Gestores y cargadores de arranque</h4>
+                    <p>Tras el firmware, un <em>cargador de arranque</em> (boot loader) localiza e inicia el sistema operativo. Un <em>gestor de arranque</em> puede además mostrar un menú para elegir entre varios sistemas o núcleos. Algunos ejemplos son Windows Boot Manager y GRUB, habitual en distribuciones GNU/Linux. El firmware selecciona una entrada o dispositivo de arranque; el gestor carga el sistema elegido. No son lo mismo, pero se suele utilizar el término gestor de arranque para referirse universalmente a gestores y cargadores.</p>
+                    <p>En un equipo con varios sistemas, cada uno puede tener sus archivos de arranque y puede existir un menú común para elegir cuál iniciar. El orden de arranque se configura en el firmware; las entradas UEFI también se pueden gestionar desde sus opciones de configuración. Antes de instalar otro sistema operativo, averigua cómo recuperar o seleccionar las opciones de arranque existentes.</p>
+                    <h4>Discos, particiones y sistemas de archivos</h4>
+                    <p>Una <em>partición</em> es una región definida dentro de un disco. La tabla de particiones registra dónde empieza y termina cada región y qué tipo tiene; no contiene por sí misma los archivos del usuario. Para guardar archivos, normalmente se crea un <em>sistema de archivos</em> dentro de una partición, como NTFS, ext4 o FAT32. En GNU/Linux, las particiones se pueden montar en rutas como <code>/</code> (raíz) o <code>/home</code>; en Windows suelen identificarse con letras de unidad.</p>
+                    <div class="table-scroll" role="region" aria-label="Comparación entre tablas de particiones MBR y GPT" tabindex="0">
+                        <table>
+                            <caption>Tablas de particiones habituales</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Característica</th>
+                                    <th scope="col">MBR</th>
+                                    <th scope="col">GPT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Uso habitual</th>
+                                    <td>Esquemas antiguos y arranque BIOS legacy.</td>
+                                    <td>Equipos actuales con UEFI.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Número de particiones</th>
+                                    <td>Admite hasta cuatro particiones primarias; para superar ese límite se utiliza una partición extendida con unidades lógicas.</td>
+                                    <td>Admite muchas particiones; el límite concreto depende del sistema operativo.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Capacidad y robustez</th>
+                                    <td>El esquema clásico direcciona discos de hasta unos 2 TB con sectores de 512 bytes y mantiene una copia principal de la tabla.</td>
+                                    <td>Admite discos de mayor capacidad y guarda copias de la información de particionado, además de comprobar su integridad.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>En una instalación UEFI, la ESP es una partición especial, normalmente FAT32, que almacena archivos de arranque. No debe confundirse con la partición donde se instala el sistema operativo. Según el sistema y la configuración elegida, el instalador puede crear también otras particiones, por ejemplo una de recuperación o una de intercambio (<em>swap</em>).</p>
+                    <details class="activity-panel">
+                        <summary>Tarea 5 - Dual boot de Windows y Ubuntu en una máquina virtual</summary>
+                        <p>En esta práctica instalarás Windows y Ubuntu en una misma máquina virtual y aprenderás cómo el instalador prepara las particiones y el gestor de arranque. Todo el trabajo se hará en un disco virtual vacío: no modifiques el disco ni la configuración de arranque del ordenador físico.</p>
+                        <p>Necesitarás VirtualBox, una ISO de Windows y una ISO de Ubuntu Desktop descargadas desde sus páginas oficiales. Reserva recursos suficientes según los requisitos de ambos sistemas y las posibilidades del equipo anfitrión; como referencia, utiliza un disco virtual de al menos 100 GB y 8 GB de RAM si el equipo lo permite.</p>
+                        <ol>
+                            <li><em>Prepara el entorno:</em> consulta los requisitos oficiales de Windows y Ubuntu. En VirtualBox crea una máquina virtual nueva, asígnale un disco virtual dinámico de al menos 100 GB y recursos adecuados al equipo. Activa EFI/UEFI en la configuración de la máquina virtual y mantenlo activado durante toda la práctica. No añadas discos físicos ni carpetas compartidas.</li>
+                            <li><em>Instala Windows primero:</em> monta la ISO de Windows como unidad óptica virtual e inicia la máquina. En el instalador selecciona instalación personalizada y el disco virtual vacío. Comprueba cuidadosamente que el tamaño y el nombre del disco coinciden con el disco virtual de la máquina. Deja que el instalador cree sus particiones GPT y termina la instalación y la configuración inicial.</li>
+                            <li><em>Deja espacio para Ubuntu:</em> dentro de Windows abre Administración de discos y reduce la partición principal de Windows, dejando al menos 25 GB como espacio <em>sin asignar</em> para Ubuntu. No formatees ese espacio ni elimines las particiones pequeñas de sistema, recuperación o EFI. Apaga Windows correctamente y crea una instantánea de la máquina virtual antes de continuar.</li>
+                            <li><em>Arranca el instalador de Ubuntu:</em> cambia el medio óptico virtual por la ISO de Ubuntu Desktop e inicia la máquina en el mismo modo UEFI. Elige probar o instalar Ubuntu y sigue el asistente hasta el apartado de tipo de instalación. Si aparece la opción de instalar Ubuntu junto a Windows Boot Manager, selecciónala y verifica que el resumen muestra el espacio libre previsto y que conserva Windows.</li>
+                            <li><em>Si no aparece la opción automática:</em> en ningún caso elijas «borrar disco» ni formatees las particiones EFI, de Windows o de recuperación. Ubuntu debe instalarse únicamente en el espacio sin asignar; conserva la partición EFI existente y no la formatees.</li>
+                            <li><em>Completa la instalación:</em> confirma solo después de comprobar el resumen de operaciones y que se modificará el disco virtual correcto. Finaliza el asistente, reinicia y retira la ISO cuando lo solicite la máquina virtual.</li>
+                            <li><em>Comprueba el dual boot:</em> al arrancar debe aparecer un menú de GRUB o un gestor equivalente con opciones para Ubuntu y Windows Boot Manager. Inicia cada sistema por separado y confirma que ambos funcionan. Si el menú no aparece, no reinstales ni cambies particiones a ciegas: apaga la máquina y revisa con el docente el orden de arranque UEFI de VirtualBox.</li>
+                            <li><em>Documenta el resultado:</em> entrega un informe con la configuración de la máquina virtual, el modo de firmware, el espacio asignado a cada sistema, las particiones creadas y su función, y capturas del menú de arranque y de ambos sistemas iniciados. Explica qué gestor permite elegir el sistema y por qué se instala primero Windows.</li>
+                        </ol>
+                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT2-Tarea 5">Enviar actividades por correo</a>
                     </details>
                 </section>
 
