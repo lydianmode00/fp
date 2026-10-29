@@ -360,11 +360,16 @@ em { color: var(--purple-light); font-style: normal; font-weight: bold; }
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
 }
+.table-scroll table tbody tr td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 .table-scroll:focus-visible { outline: 2px solid var(--purple-light); outline-offset: 3px; }
 .studio-note table { width: 85%; border-collapse: collapse; margin-top: 35px; text-align: left; margin-bottom: 20px; }
 .studio-note .gantt-table { width: 100%; min-width: 68rem; table-layout: fixed; }
 .studio-note .gantt-table th,
 .studio-note .gantt-table td { border: 1px solid rgba(255, 255, 255, 0.12); }
+
 .exe { background: var(--purple-light-transparent);}
 .gantt-table caption {font-weight: bold; text-decoration: underline; margin-bottom: 6px; font-size: 20px;}
 .studio-note table tbody tr:hover { background: rgba(145, 28, 139, 0.384); }

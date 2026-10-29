@@ -1,306 +1,483 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Backend - Lydia FP</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="stylesheet.css">
-        <link rel="icon" type="image/x-icon" href="favicon.png">
-    </head>
-    <body>
-        <div class="page-shell">
-            <!--  NAVBAR  -->
-            <aside class="sidebar" id="site-menu">
 
-                <!--  BRAND  -->
-                <a class="brand" href="./index.html" aria-label="lydianmode, inicio">
-                    <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-                    <span>lydianmode<span class="brand-dot">_fp</span></span>
-                </a>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Backend - Lydia FP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
 
-                
-                <div class="sidebar-rule"></div>
+<body>
+<div class="page-shell">
+<!--  NAVBAR  -->
+<aside class="sidebar" id="site-menu">
 
-                <!--  MENU  -->
-                <p class="menu-label">Módulos</p>
-                <nav class="main-nav" aria-label="Navegación principal">
-                    <a class="nav-link" href="./som.html"><span>01</span>Sistemas Operativos Monopuesto</a>
-                    <a class="nav-link" href="./webapps.html"><span>02</span>Aplicaciones Web</a>
-                    <a class="nav-link" href="./ssii.html"><span>03</span>Sistemas Informáticos</a>
-                    <a class="nav-link active" href="./backend.html"><span>04</span>Desarrollo Web en Entorno Servidor</a>
-                </nav>
-            </aside>
-
-            <!--  MAIN CONTENT  -->
-            <main class="content" id="top">
-
-                <!--  MOBILE HEADER  -->
-                <header class="mobile-header">
-                    <a class="brand" href="./index.html" aria-label="lydianmode, inicio">
-                        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-                        <span>lydianmode<span class="brand-dot">_fp</span></span>
-                    </a>
-                    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-                        <span></span><span></span>
-                        <span class="sr-only">Abrir menú</span>
-                    </button>
-                </header>
-
-                <!-- INTRO -->
-                <section class="portada" aria-labelledby="portada-title">
-                    <div>
-                        <p class="eyebrow"><span></span>Lydia Garcerán Amat · 2026—2027</p>
-                        <h1 id="portada-title">Desarrollo Web en<br><em>Entorno Servidor</em></h1>
-                        <p class="portada-intro">Contenido web teórico y práctico relativo al módulo de Desarrollo Web en Entorno Servidor de 2º DAW.</p>
-                        <a class="button button-primary" href="https://drive.google.com/file/d/1Dn6Bzzg8Cui7GR3zaQQ-kpY3CIfzZsiO/view?usp=drive_link">Presentación del módulo</a>
-                    </div>
-                </section>
-
-                <!-- MENÚ DE UNIDADES -->
-                <section class="menu-unidades-preview" id="top" aria-labelledby="menu-unidades-title">
-                    <div class="section-heading">
-                        <p class="eyebrow"><span></span>Unidades de trabajo</p>
-                    </div>
-
-                    <div class="menu-unidades-grid">
-                        <a class="menu-unidades-card menu-unidades-main" href="#introduccion" aria-label="Introducción">
-                            <div class="menu-unidades-visual visual-a"><span>Introducción</span><small>UT 0</small></div>
-                        </a>
-
-                        <a class="menu-unidades-card menu-unidades-main" href="#ut1" aria-label="Ir a Fundamentos del Backend">
-                            <div class="menu-unidades-visual visual-a"><span>Fundamentos del Backend</span><small>UT 1</small></div>
-                        </a>
-
-                        <a class="menu-unidades-card menu-unidades-main" href="#ut2" aria-label="Ir a Django">
-                            <div class="menu-unidades-visual visual-a"><span>Django</span><small>UT 2</small></div>
-                        </a>
-
-                        <a class="menu-unidades-card menu-unidades-main" href="#ut3" aria-label="Ir a URLs y Templates">
-                            <div class="menu-unidades-visual visual-a"><span>URLs y Templates</span><small>UT 3</small></div>
-                        </a>
-
-                        <a class="menu-unidades-card menu-unidades-main" href="#ut4" aria-label="Ir a Cálculos en el Backend">
-                            <div class="menu-unidades-visual visual-a"><span>Cálculos en el Backend</span><small>UT 4</small></div>
-                        </a>
-
-                        <a class="menu-unidades-card menu-unidades-main" href="#ut5" aria-label="Ir a Ususarios y caché">
-                            <div class="menu-unidades-visual visual-a"><span>Ususarios y caché</span><small>UT 5</small></div>
-                        </a>
-
-                        <a class="menu-unidades-card menu-unidades-main" href="#ut6" aria-label="Ir a Programación Orientada a Objetos y ORMs">
-                            <div class="menu-unidades-visual visual-a"><span>POO y ORMs</span><small>UT 6</small></div>
-                        </a>
-
-                        <a class="menu-unidades-card menu-unidades-main" href="#ut7" aria-label="Ir a Servicios Web y APIs">
-                            <div class="menu-unidades-visual visual-a"><span>Servicios Web y APIs</span><small>UT 7</small></div>
-                        </a>
-
-                        <a class="menu-unidades-card menu-unidades-main" href="#ut8" aria-label="Ir a Integración Frontend y Backend. Websockets.">
-                            <div class="menu-unidades-visual visual-a"><span>Integración Frontend y Backend. Websockets.</span><small>UT 8</small></div>
-                        </a>
-
-                        <a class="menu-unidades-card menu-unidades-main" href="#ut9" aria-label="Ir a Servicios Externos">
-                            <div class="menu-unidades-visual visual-a"><span>Servicios Externos</span><small>UT 9</small></div>
-                        </a>
-
-                        <a class="menu-unidades-card menu-unidades-main" href="#english" aria-label="Ir a Ejercicios Bilingües">
-                            <div class="menu-unidades-visual visual-a"><span>Ejercicios Bilingües</span><small>English Sheets</small></div>
-                        </a>
-                    </div>
-                </section>
+    <!--  BRAND  -->
+    <a class="brand" href="./index.html" aria-label="lydianmode, inicio">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>lydianmode<span class="brand-dot">_fp</span></span>
+    </a>
 
 
-                <!-- UT 0 -->
-                 <section class="studio-note" id="ut0" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 0</p>
-                    <h2 id="studio-title">Introducción al Desarrollo Web en <em>Entorno Servidor</em></h2>
-                    <p>En esta unidad nos prepararemos para el estudio y el trabajo. Haremos alguna revisión de conceptos que tenemos que tener claros y pondremos a punto nuestro entorno de trabajo.</p>
-                    <p>Asumiremos que todos los estudiantes tienen conocimientos básicos de programación y están familiarizados con los conceptos fundamentales de los sistemas informáticos. Haremos simplemente una revisión de los conceptos más importantes.</p>
-                    <h3><em>01.</em> HTML</h3>
-                    <p>HTML es un lenguaje de marcado que deberíamos tener muy claro a estas alturas. Si hubiera algún concepto que no recordamos con exactitud, podemos revisar cualquiera de las siguientes dos documentaciones:</p>
-                    <ul>
-                        <li><a class="in-text-link" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">Documentación de HTML en MDN</a> es la documentación más completa y actualizada de HTML. Es la recomendada para programadores de alto nivel.</li>
-                        <li><a class="in-text-link" href="https://www.w3schools.com/html/" target="_blank" rel="noopener noreferrer">Documentación de HTML en W3Schools</a> es una excelente recurso para principiantes. Si tenéis problemas para recordar los conceptos básicos deberíais empezar por aquí y recordar lo necesario. Si este es vuestro caso, deberíais poner un empeño especial en poneros al día antes de que sea tarde.</li>
-                    </ul>
-                    <h3><em>02.</em> CSS</h3>
-                    <p>CSS es el lenguaje de estilo por defecto para CSS. Aunque es cierto que podemos usar frameworks como Bootstrap, Tailwind o Foundation, es importante entender los conceptos básicos de CSS para poder utilizarlos de manera efectiva. Los enlaces a la documentación oficial de CSS son:</p>
-                    <ul>
-                        <li><a class="in-text-link" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">Documentación de CSS en MDN</a> es la documentación más completa y actualizada de CSS. Es la recomendada para programadores de alto nivel.</li>
-                        <li><a class="in-text-link" href="https://www.w3schools.com/css/" target="_blank" rel="noopener noreferrer">Documentación de CSS en W3Schools</a> es una excelente recurso para principiantes. Si tenéis problemas para recordar los conceptos básicos deberíais empezar por aquí y recordar lo necesario. Si este es vuestro caso, deberíais poner un empeño especial en poneros al día antes de que sea tarde.</li>
-                    </ul>
-                    <h3><em>03.</em> Python</h3>
-                    <p>Python es un lenguaje de programación interpretado de alto nivel. Nosotros lo utilizaremos para el desarrollo de aplicaciones web en el entorno servidor a través del framework Django. Aquí tenemos los enlaces a la documentación de W3Schools y de Django:</p>
-                    <ul>
-                        <li><a class="in-text-link" href="https://www.w3schools.com/python/" target="_blank" rel="noopener noreferrer">Documentación de Python en W3Schools:</a> Para dudas sobre el lenguaje</li>
-                        <li><a class="in-text-link" href="https://docs.djangoproject.com/" target="_blank" rel="noopener noreferrer">Documentación de Django:</a> Para dudas sobre el framework</li>
-                    </ul>
-                    <h3><em>04.</em> JSON</h3>
-                    <p>JSON es un formato de intercambio de datos ligero. Es ampliamente utilizado en aplicaciones web para el envío y recepción de datos entre el cliente y el servidor. Los enlaces a la documentación oficial de JSON son:</p>
-                    <ul>
-                        <li><a class="in-text-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank" rel="noopener noreferrer">Documentación de JSON en MDN</a> es la documentación más completa y actualizada de JSON.</li>
-                        <li><a class="in-text-link" href="https://www.w3schools.com/js/js_json_intro.asp" target="_blank" rel="noopener noreferrer">Documentación de JSON en W3Schools</a> siendo JSON un formato simple de utilizar, ambas documentaciones son útiles para diferentes niveles de experiencia.</li>
-                    </ul>
-                    <h3><em>05.</em> Git y GitHub</h3>
-                    <p>Git es un sistema de control de versiones distribuido. GitHub es una plataforma de hosting para proyectos Git. Antes de comenzar a trabajar con Git y GitHub, es importante entender los conceptos básicos de control de versiones y cómo utilizar estas herramientas para gestionar tu código de forma eficiente.</p>
-                    <ul>
-                        <li><em>Proyecto:</em> Conjunto de archivos y directorios que representan un trabajo de desarrollo.</li>
-                        <li><em>Repositorio:</em> Un proyecto que está siendo gestionado por Git. Contiene todos los archivos del proyecto y el historial de cambios.</li>
-                        <li><em>Commit:</em> Una instantánea del estado de los archivos en un momento dado. Cada commit tiene un identificador único y un mensaje descriptivo.</li>
-                        <li><em>Branch:</em> Una línea de desarrollo independiente dentro de un repositorio. Permite trabajar en nuevas características o correcciones de errores sin afectar la rama principal (main o master). Normalmente usaremos staging y development como ramas paralelas.</li>
-                        <li><em>Merge:</em> El proceso de combinar cambios desde una rama a otra. Se utiliza para integrar nuevas características o correcciones de errores en la rama principal. Nosotros haremos merges desde development a staging por cada tarea completada y desde staging a main al final de cada unidad.</li>
-                        <li><em>Local:</em> El espacio donde se almacenan los commits antes de ser enviados al repositorio remoto.</li>
-                        <li><em>Remote:</em> El repositorio alojado en un servidor remoto, como GitHub. Permite la colaboración entre varios desarrolladores y el acceso a los cambios desde diferentes ubicaciones. Subo cambios haciendo push a la rama remota, y los descargo haciendo pull.</li>
-                    </ul>
-                    <details class="activity-panel">
-                        <summary>Actividades</summary>
-                        <h4>Pasos previos</h4>
-                        <ol>
-                            <li>Descargamos e instalamos VSCode y Git en nuestro ordenador. Ejecutamos los siguientes comandos en la terminal, manteniendo las comillas, pero sustituyendo el nombre y el correo electrónico:</li>
-                            <div class="code-block">
-                                <pre><code>git --global set user.name "Tu nombre"
+    <div class="sidebar-rule"></div>
+
+    <!--  MENU  -->
+    <p class="menu-label">Módulos</p>
+    <nav class="main-nav" aria-label="Navegación principal">
+        <a class="nav-link" href="./som.html"><span>01</span>Sistemas Operativos Monopuesto</a>
+        <a class="nav-link" href="./webapps.html"><span>02</span>Aplicaciones Web</a>
+        <a class="nav-link" href="./ssii.html"><span>03</span>Sistemas Informáticos</a>
+        <a class="nav-link active" href="./backend.html"><span>04</span>Desarrollo Web en Entorno Servidor</a>
+    </nav>
+</aside>
+
+<!--  MAIN CONTENT  -->
+<main class="content" id="top">
+
+<!--  MOBILE HEADER  -->
+<header class="mobile-header">
+    <a class="brand" href="./index.html" aria-label="lydianmode, inicio">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>lydianmode<span class="brand-dot">_fp</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span>
+        <span class="sr-only">Abrir menú</span>
+    </button>
+</header>
+
+<!-- INTRO -->
+<section class="portada" aria-labelledby="portada-title">
+    <div>
+        <p class="eyebrow"><span></span>Lydia Garcerán Amat · 2026—2027</p>
+        <h1 id="portada-title">Desarrollo Web en<br><em>Entorno Servidor</em></h1>
+        <p class="portada-intro">Contenido web teórico y práctico relativo al módulo de Desarrollo Web en
+            Entorno Servidor de 2º DAW.</p>
+        <a class="button button-primary"
+            href="https://drive.google.com/file/d/1Dn6Bzzg8Cui7GR3zaQQ-kpY3CIfzZsiO/view?usp=drive_link">Presentación
+            del módulo</a>
+    </div>
+</section>
+
+<!-- MENÚ DE UNIDADES -->
+<section class="menu-unidades-preview" id="top" aria-labelledby="menu-unidades-title">
+    <div class="section-heading">
+        <p class="eyebrow"><span></span>Unidades de trabajo</p>
+    </div>
+
+    <div class="menu-unidades-grid">
+        <a class="menu-unidades-card menu-unidades-main" href="#introduccion" aria-label="Introducción">
+            <div class="menu-unidades-visual visual-a"><span>Introducción</span><small>UT 0</small></div>
+        </a>
+
+        <a class="menu-unidades-card menu-unidades-main" href="#ut1"
+            aria-label="Ir a Fundamentos del Backend">
+            <div class="menu-unidades-visual visual-a"><span>Fundamentos del Backend</span><small>UT
+                    1</small></div>
+        </a>
+
+        <a class="menu-unidades-card menu-unidades-main" href="#ut2" aria-label="Ir a Django">
+            <div class="menu-unidades-visual visual-a"><span>Django</span><small>UT 2</small></div>
+        </a>
+
+        <a class="menu-unidades-card menu-unidades-main" href="#ut3" aria-label="Ir a URLs y Templates">
+            <div class="menu-unidades-visual visual-a"><span>URLs y Templates</span><small>UT 3</small>
+            </div>
+        </a>
+
+        <a class="menu-unidades-card menu-unidades-main" href="#ut4"
+            aria-label="Ir a Cálculos en el Backend">
+            <div class="menu-unidades-visual visual-a"><span>Cálculos en el Backend</span><small>UT
+                    4</small></div>
+        </a>
+
+        <a class="menu-unidades-card menu-unidades-main" href="#ut5" aria-label="Ir a Ususarios y caché">
+            <div class="menu-unidades-visual visual-a"><span>Ususarios y caché</span><small>UT 5</small>
+            </div>
+        </a>
+
+        <a class="menu-unidades-card menu-unidades-main" href="#ut6"
+            aria-label="Ir a Programación Orientada a Objetos y ORMs">
+            <div class="menu-unidades-visual visual-a"><span>POO y ORMs</span><small>UT 6</small></div>
+        </a>
+
+        <a class="menu-unidades-card menu-unidades-main" href="#ut7" aria-label="Ir a Servicios Web y APIs">
+            <div class="menu-unidades-visual visual-a"><span>Servicios Web y APIs</span><small>UT 7</small>
+            </div>
+        </a>
+
+        <a class="menu-unidades-card menu-unidades-main" href="#ut8"
+            aria-label="Ir a Integración Frontend y Backend. Websockets.">
+            <div class="menu-unidades-visual visual-a"><span>Integración Frontend y Backend.
+                    Websockets.</span><small>UT 8</small></div>
+        </a>
+
+        <a class="menu-unidades-card menu-unidades-main" href="#ut9" aria-label="Ir a Servicios Externos">
+            <div class="menu-unidades-visual visual-a"><span>Servicios Externos</span><small>UT 9</small>
+            </div>
+        </a>
+
+        <a class="menu-unidades-card menu-unidades-main" href="#english"
+            aria-label="Ir a Ejercicios Bilingües">
+            <div class="menu-unidades-visual visual-a"><span>Ejercicios Bilingües</span><small>English
+                    Sheets</small></div>
+        </a>
+    </div>
+</section>
+
+<!-- UT 0 -->
+<section class="studio-note" id="ut0" aria-labelledby="studio-title">
+    <p class="eyebrow"><span></span>UT 0</p>
+    <h2 id="studio-title">Introducción al Desarrollo Web en <em>Entorno Servidor</em></h2>
+    <p>En esta unidad nos prepararemos para el estudio y el trabajo. Haremos alguna revisión de conceptos
+        que tenemos que tener claros y pondremos a punto nuestro entorno de trabajo.</p>
+    <p>Asumiremos que todos los estudiantes tienen conocimientos básicos de programación y están
+        familiarizados con los conceptos fundamentales de los sistemas informáticos. Haremos simplemente una
+        revisión de los conceptos más importantes.</p>
+    <h3><em>01.</em> HTML</h3>
+    <p>HTML es un lenguaje de marcado que deberíamos tener muy claro a estas alturas. Si hubiera algún
+        concepto que no recordamos con exactitud, podemos revisar cualquiera de las siguientes dos
+        documentaciones:</p>
+    <ul>
+        <li><a class="in-text-link" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                rel="noopener noreferrer">Documentación de HTML en MDN</a> es la documentación más completa
+            y actualizada de HTML. Es la recomendada para programadores de alto nivel.</li>
+        <li><a class="in-text-link" href="https://www.w3schools.com/html/" target="_blank"
+                rel="noopener noreferrer">Documentación de HTML en W3Schools</a> es una excelente recurso
+            para principiantes. Si tenéis problemas para recordar los conceptos básicos deberíais empezar
+            por aquí y recordar lo necesario. Si este es vuestro caso, deberíais poner un empeño especial en
+            poneros al día antes de que sea tarde.</li>
+    </ul>
+    <h3><em>02.</em> CSS</h3>
+    <p>CSS es el lenguaje de estilo por defecto para CSS. Aunque es cierto que podemos usar frameworks como
+        Bootstrap, Tailwind o Foundation, es importante entender los conceptos básicos de CSS para poder
+        utilizarlos de manera efectiva. Los enlaces a la documentación oficial de CSS son:</p>
+    <ul>
+        <li><a class="in-text-link" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"
+                rel="noopener noreferrer">Documentación de CSS en MDN</a> es la documentación más completa y
+            actualizada de CSS. Es la recomendada para programadores de alto nivel.</li>
+        <li><a class="in-text-link" href="https://www.w3schools.com/css/" target="_blank"
+                rel="noopener noreferrer">Documentación de CSS en W3Schools</a> es una excelente recurso
+            para principiantes. Si tenéis problemas para recordar los conceptos básicos deberíais empezar
+            por aquí y recordar lo necesario. Si este es vuestro caso, deberíais poner un empeño especial en
+            poneros al día antes de que sea tarde.</li>
+    </ul>
+    <h3><em>03.</em> Python</h3>
+    <p>Python es un lenguaje de programación interpretado de alto nivel. Nosotros lo utilizaremos para el
+        desarrollo de aplicaciones web en el entorno servidor a través del framework Django. Aquí tenemos
+        los enlaces a la documentación de W3Schools y de Django:</p>
+    <ul>
+        <li><a class="in-text-link" href="https://www.w3schools.com/python/" target="_blank"
+                rel="noopener noreferrer">Documentación de Python en W3Schools:</a> Para dudas sobre el
+            lenguaje</li>
+        <li><a class="in-text-link" href="https://docs.djangoproject.com/" target="_blank"
+                rel="noopener noreferrer">Documentación de Django:</a> Para dudas sobre el framework</li>
+    </ul>
+    <h3><em>04.</em> JSON</h3>
+    <p>JSON es un formato de intercambio de datos ligero. Es ampliamente utilizado en aplicaciones web para
+        el envío y recepción de datos entre el cliente y el servidor. Los enlaces a la documentación oficial
+        de JSON son:</p>
+    <ul>
+        <li><a class="in-text-link"
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON"
+                target="_blank" rel="noopener noreferrer">Documentación de JSON en MDN</a> es la
+            documentación más completa y actualizada de JSON.</li>
+        <li><a class="in-text-link" href="https://www.w3schools.com/js/js_json_intro.asp" target="_blank"
+                rel="noopener noreferrer">Documentación de JSON en W3Schools</a> siendo JSON un formato
+            simple de utilizar, ambas documentaciones son útiles para diferentes niveles de experiencia.
+        </li>
+    </ul>
+    <h3><em>05.</em> Git y GitHub</h3>
+    <p>Git es un sistema de control de versiones distribuido. GitHub es una plataforma de hosting para
+        proyectos Git. Antes de comenzar a trabajar con Git y GitHub, es importante entender los conceptos
+        básicos de control de versiones y cómo utilizar estas herramientas para gestionar tu código de forma
+        eficiente.</p>
+    <ul>
+        <li><em>Proyecto:</em> Conjunto de archivos y directorios que representan un trabajo de desarrollo.
+        </li>
+        <li><em>Repositorio:</em> Un proyecto que está siendo gestionado por Git. Contiene todos los
+            archivos del proyecto y el historial de cambios.</li>
+        <li><em>Commit:</em> Una instantánea del estado de los archivos en un momento dado. Cada commit
+            tiene un identificador único y un mensaje descriptivo.</li>
+        <li><em>Branch:</em> Una línea de desarrollo independiente dentro de un repositorio. Permite
+            trabajar en nuevas características o correcciones de errores sin afectar la rama principal (main
+            o master). Normalmente usaremos staging y development como ramas paralelas.</li>
+        <li><em>Merge:</em> El proceso de combinar cambios desde una rama a otra. Se utiliza para integrar
+            nuevas características o correcciones de errores en la rama principal. Nosotros haremos merges
+            desde development a staging por cada tarea completada y desde staging a main al final de cada
+            unidad.</li>
+        <li><em>Local:</em> El espacio donde se almacenan los commits antes de ser enviados al repositorio
+            remoto.</li>
+        <li><em>Remote:</em> El repositorio alojado en un servidor remoto, como GitHub. Permite la
+            colaboración entre varios desarrolladores y el acceso a los cambios desde diferentes
+            ubicaciones. Subo cambios haciendo push a la rama remota, y los descargo haciendo pull.</li>
+    </ul>
+    <details class="activity-panel">
+        <summary>Actividades</summary>
+        <h4>Pasos previos</h4>
+        <ol>
+            <li>Descargamos e instalamos VSCode y Git en nuestro ordenador. Ejecutamos los siguientes
+                comandos en la terminal, manteniendo las comillas, pero sustituyendo el nombre y el correo
+                electrónico:</li>
+            <div class="code-block">
+                <pre><code>git --global set user.name "Tu nombre"
 git --global set user.email "tu.email@ejemplo.com"</code></pre>
-                            </div>
-                            <li>Creamos una cuenta en GitHub</li>
-                            <li>Dentro de la cuenta creamos un nuevo repositorio. No importa si es privado o público, pero si es privado asegúrate de añadirme como lectora/comentadora</li>
-                            <li>Nos aseguramos de tener tres ramas creadas (master, staging y development)</li>
-                        </ol>
+            </div>
+            <li>Creamos una cuenta en GitHub</li>
+            <li>Dentro de la cuenta creamos un nuevo repositorio. No importa si es privado o público, pero
+                si es privado asegúrate de añadirme como lectora/comentadora</li>
+            <li>Nos aseguramos de tener tres ramas creadas (master, staging y development)</li>
+        </ol>
 
-                        <h4>Configuración de VSCode</h4>
-                        <ol>
-                            <li>Dentro de VSCode, buscamos el </li>
-                            <li>Creamos una cuenta en GitHub</li>
-                            <li>Dentro de la cuenta creamos un nuevo repositorio. No importa si es privado o público, pero si es privado asegúrate de añadirme como lectora/comentadora</li>
-                            <li>Nos aseguramos de tener tres ramas creadas (master, staging y development)</li>
-                        </ol>
-                    </details>
-                </section>
+        <h4>Configuración de VSCode</h4>
+        <ol>
+            <li>Dentro de VSCode, buscamos el </li>
+            <li>Creamos una cuenta en GitHub</li>
+            <li>Dentro de la cuenta creamos un nuevo repositorio. No importa si es privado o público, pero
+                si es privado asegúrate de añadirme como lectora/comentadora</li>
+            <li>Nos aseguramos de tener tres ramas creadas (master, staging y development)</li>
+        </ol>
+    </details>
+</section>
 
-                 <!-- UT 1 -->
-                 <section class="studio-note" id="ut1" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 1 - RA 1</p>
-                    <h2 id="studio-title">Fundamentos del desarrollo en <br><em>Entorno Servidor</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                    <ul>
-                        <li>Caracterizar los modelos de ejecución de código en frontend y backend</li>
-                        <li>Reconocer las ventajas de la generación dinámica de páginas</li>
-                        <li>Describir las funcionalidades de los servidores de aplicación y servidores web</li>
-                        <li>Identificar los principales lenguajes de programación y frameworks para el desarrollo backend</li>
-                    </ul>
-                    <h3><em>01.</em> Recorrido histórico del mundo web.</h3>
-                    <p>El paradigma de desarrollo en entornos servidor ha ido evolucionando con el tiempo, adaptándose a las necesidades cambiantes de los usuarios y las tecnologías disponibles. En cada época y contexto, los desarrolladores han tenido que adaptar sus enfoques y técnicas para satisfacer las demandas cambiantes del entorno tecnológico.</p>
-                    <p>Para entender correctamente la evolución del desarrollo web en entornos servidor, es importante conocer la historia de la web y cómo ha cambiado a lo largo del tiempo. Desde los primeros días de la web estática hasta la era actual de aplicaciones web interactivas y dinámicas, cada etapa ha traído consigo nuevos desafíos y oportunidades para los desarrolladores.</p>
-                    <h4>Internet primigenio</h4>
-                    <p>En 1969, la red de ordenadores más grande del mundo se conocía como ARPANET, la precursora de internet. Era una red de comunicación muy limitada, principalmente utilizada por instituciones académicas y gubernamentales y fundamentalmente para fines académicos, de investigación y bélicos.</p>
-                    <h4>La web 1.0, la web estática</h4>
-                    <p>Podemos decir que Internet como lo conocemos hoy en día comenzó con la WWW en 1989.La web 1.0 se caracterizó por ser principalmente estática, con páginas web que ofrecían información de manera unidireccional. Los usuarios eran principalmente consumidores de contenido, y la interacción con las páginas web era limitada. Los desarrolladores se centraban en crear páginas web informativas y en la optimización de la velocidad de carga y la accesibilidad.</p>
-                    <h4>La web 2.0, la web dinámica</h4>
-                    <p>La web 2.0, termino acuñado en 2004, marcó un cambio significativo en la forma en que los usuarios interactuaban con la web. Surgieron plataformas de redes sociales, blogs y aplicaciones interactivas que permitían a los usuarios generar contenido y participar activamente en la web. Los desarrolladores comenzaron a centrarse en la experiencia del usuario, la interactividad y la personalización del contenido. Se popularizó el uso de tecnologías como AJAX, que permitían la actualización dinámica de contenido sin necesidad de recargar la página completa.</p>
-                    <h4>La web 3.0, la web semántica</h4>
-                    <p>La web 3.0, también conocida como la web semántica, se centra en la comprensión y el análisis de los datos para ofrecer experiencias más inteligentes y personalizadas. Se entiende que en la web 3.0 se deben integrar tecnologías como la inteligencia artificial, el aprendizaje automático y la realidad aumentada para crear experiencias más inmersivas y contextualmente relevantes. Los desarrolladores deberán adaptarse a estas nuevas tecnologías y enfoques para crear aplicaciones web más avanzadas y sofisticadas.</p>
-                    <h4>La web 4.0, la web natural</h4>
-                    <p>La web 4.0, también conocida como la web ubicua o la web de las cosas, se centra en la integración de la web con el mundo físico y la interconexión de dispositivos y objetos a través de Internet. Se espera que la web 4.0 permita una mayor automatización, personalización y conectividad en la vida cotidiana de los usuarios. Esta evolución de la web de momento es teórica, pero se teoriza que estará fuertemente marcada por la ausencia de interfaces de usuario tradicionales "GUI", y se apuntará más a interfaces naturales "NUI", donde el usuario interactúa directamente con los objetos y dispositivos a través de interfaces intuitivas y naturales como la interacción por voz con un asistente virtual.</p>
-                    <h3><em>02.</em> Arquitectura cliente-servidor</h3>
-                    <p>La arquitectura cliente-servidor es un modelo de diseño de software que divide las responsabilidades entre dos componentes principales: el cliente y el servidor. El cliente es la parte de la aplicación que interactúa directamente con el usuario, mientras que el servidor es responsable de procesar las solicitudes del cliente y proporcionar los recursos necesarios. Esta arquitectura permite una mayor escalabilidad, flexibilidad y eficiencia en el desarrollo de aplicaciones web, ya que cada componente puede evolucionar de manera independiente y adaptarse a las necesidades cambiantes del entorno tecnológico.</p>
-                    <p>Es fundamental entender que la verdadera fortaleza de esta arquitectura radica en los siguientes puntos: </p>
-                    <ul>
-                        <li><em>Seguridad:</em> Cuando desarrollamos aplicaciones en entornos servidor, la seguridad es una preocupación crítica. El servidor debe proteger los datos sensibles y garantizar que solo los usuarios autorizados puedan acceder a recursos específicos. Por esto, todas las operaciones y datos se manejan en el servidor, lo que permite una mejor protección de la información.</li>
-                        <li><em>Escalabilidad:</em> La arquitectura cliente-servidor permite una mejor escalabilidad, ya que el servidor puede manejar múltiples solicitudes simultáneamente y distribuir la carga de trabajo de manera eficiente mediante servicios de balanceo de carga como nginx. Esto facilita la expansión de la aplicación a medida que crece la demanda de usuarios y recursos.</li>
-                        <li><em>Flexibilidad:</em> La arquitectura cliente-servidor permite una mayor flexibilidad en el desarrollo y mantenimiento de aplicaciones web, ya que los componentes pueden evolucionar de manera independiente y adaptarse a las necesidades cambiantes del entorno tecnológico. Dividiremos entonces nuestros servicios en componentes relativamente independientes que puedan escalar por separado.</li>
-                    </ul>
-                    <p>De esta forma, el cliente ejecutará su parte del código, normalmente JavaScript, relacionado con la presentación de la web, la navegación o aspectos poco relevantes como la pre-validación de un formulario (como mínimo, los formularios deben validarse siempre en el backend, pero podemos hacer una pre-validación en el frontend para que el usuario tenga un feedback inmediato). Del mismo modo el backend ejecutará el grueso del código, relacionado con la seguridad, la validación de operaciones, accesos a la base de datos y generación de contenido.</p>
-                    <h3><em>03.</em> Tecnologías y lenguajes de programación</h3>
-                    <p>En el desarrollo web en entornos servidor, se utilizan diversas tecnologías y lenguajes de programación para crear aplicaciones web dinámicas y funcionales. Algunos de los lenguajes de programación más comunes incluyen PHP, Python, Ruby y JavaScript (Node.js). Cada lenguaje tiene sus propias características y ventajas, y los desarrolladores deben elegir el lenguaje más adecuado según los requisitos del proyecto y las preferencias del equipo de desarrollo. Además, se utilizan tecnologías como bases de datos, servidores web y frameworks para facilitar el desarrollo y la gestión de aplicaciones web en entornos servidor. Nosotros utiizaremos principalemte Python y su framework Django para el transcurso del módulo.</p>
-                    <h3><em>04.</em> Diseño basado en dominios (DDD)</h3>
-                    <p>El diseño basado en dominios (DDD) es una aproximación al desarrollo de software que se centra en el dominio del problema y en la modelización de los conceptos del negocio. Esta técnica ayuda a crear aplicaciones más mantenibles y escalables, ya que se enfoca en la comprensión profunda del problema que se está resolviendo y en la creación de un modelo conceptual que refleje fielmente el dominio del negocio.</p>
-                    <p>Al atacar el problema desde el dominio del negocio, se logra una mejor alineación entre la solución técnica y los requisitos del negocio, lo que resulta en aplicaciones más robustas y adaptables a los cambios en el entorno empresarial.</p>
-                    <p>El siguiente vídeo nos enseña rápidamente cómo implementar este enfoque en el desarrollo de aplicaciones web:</p>
-                    <div class="video-container">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UgEExav6CeE?si=nPMyYWBk3fG60r1n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <details class="activity-panel">
-                        <summary>Actividades UT1</summary>
-                        <ol>
-                            <li>Explica con tus palabras cuál es la función de un back-end. ¿Qué ventajas aporta? ¿Cuáles son sus mayores inconvenientes?</li>
-                            <li>¿Qué es un framework de desarrollo web? Menciona 2 ejemplos basados en diferentes lenguajes de programación. Haz una breve comparación entre ellos.</li>
-                            <li>¿Es lo mismo un servidor de aplicación que un servidor web? ¿Cuál es la principal diferencia entre ambos?</li>
-                            <li>¿Qué significa que una web se genere de forma dinámica?</li>
-                            <em>Análisis DDD</em>
-                            <li>Escoge un servicio web para estudiar su implementación basada en DDD. Puede ser el proyecto final del módulo.</li>
-                            <li>Escribe una lista de 20 eventos que puedas suceder en el servicio.</li>
-                            <li>Separa los eventos por dominios (principales y secundarios).</li>
-                            <li>Para cada dominio, escribe una lista de entidades y sus atributos.</li>
-                        </ol>>
-                </section>
+<!-- UT 1 -->
+<section class="studio-note" id="ut1" aria-labelledby="studio-title">
+    <p class="eyebrow"><span></span>UT 1 - RA 1</p>
+    <h2 id="studio-title">Fundamentos del desarrollo en <br><em>Entorno Servidor</em></h2>
+    <h3>Objetivos de la unidad:</h3>
+    <ul>
+        <li>Caracterizar los modelos de ejecución de código en cliente y servidor (Criterios: 1.a)</li>
+        <li>Reconocer las ventajas de la generación dinámica de páginas (Criterios: 1.b y 1.c)</li>
+        <li>Funcionalidades de los servidores de aplicación y servidores web. Lenguajes. (Criterios: 1.d y
+            1.e)</li>
+        <li>Identificar los principales lenguajes de programación y frameworks para el desarrollo backend.
+            (Criterios: 1.f y 1.g)</li>
+    </ul>
+    <h3><em>00.</em> Recorrido histórico del mundo web.</h3>
+    <p>El paradigma de desarrollo en entornos servidor ha ido evolucionando con el tiempo, adaptándose a las
+        necesidades cambiantes de los usuarios y las tecnologías disponibles. En cada época y contexto, los
+        desarrolladores han tenido que adaptar sus enfoques y técnicas para satisfacer las demandas
+        cambiantes del entorno tecnológico.</p>
+    <p>Para entender correctamente la evolución del desarrollo web en entornos servidor, es importante
+        conocer la historia de la web y cómo ha cambiado a lo largo del tiempo. Desde los primeros días de
+        la web estática hasta la era actual de aplicaciones web interactivas y dinámicas, cada etapa ha
+        traído consigo nuevos desafíos y oportunidades para los desarrolladores.</p>
+    <h4>Internet primigenio</h4>
+    <p>En 1969, la red de ordenadores más grande del mundo se conocía como ARPANET, la precursora de
+        internet. Era una red de comunicación muy limitada, principalmente utilizada por instituciones
+        académicas y gubernamentales y fundamentalmente para fines académicos, de investigación y bélicos.
+    </p>
+    <h4>La web 1.0, la web estática</h4>
+    <p>Podemos decir que Internet como lo conocemos hoy en día comenzó con la WWW en 1989.La web 1.0 se
+        caracterizó por ser principalmente estática, con páginas web que ofrecían información de manera
+        unidireccional. Los usuarios eran principalmente consumidores de contenido, y la interacción con las
+        páginas web era limitada. Los desarrolladores se centraban en crear páginas web informativas y en la
+        optimización de la velocidad de carga y la accesibilidad.</p>
+    <h4>La web 2.0, la web dinámica</h4>
+    <p>La web 2.0, termino acuñado en 2004, marcó un cambio significativo en la forma en que los usuarios
+        interactuaban con la web. Surgieron plataformas de redes sociales, blogs y aplicaciones interactivas
+        que permitían a los usuarios generar contenido y participar activamente en la web. Los
+        desarrolladores comenzaron a centrarse en la experiencia del usuario, la interactividad y la
+        personalización del contenido. Se popularizó el uso de tecnologías como AJAX, que permitían la
+        actualización dinámica de contenido sin necesidad de recargar la página completa.</p>
+    <h4>La web 3.0, la web semántica</h4>
+    <p>La web 3.0, también conocida como la web semántica, se centra en la comprensión y el análisis de los
+        datos para ofrecer experiencias más inteligentes y personalizadas. Se entiende que en la web 3.0 se
+        deben integrar tecnologías como la inteligencia artificial, el aprendizaje automático y la realidad
+        aumentada para crear experiencias más inmersivas y contextualmente relevantes. Los desarrolladores
+        deberán adaptarse a estas nuevas tecnologías y enfoques para crear aplicaciones web más avanzadas y
+        sofisticadas.</p>
+    <h4>La web 4.0, la web natural</h4>
+    <p>La web 4.0, también conocida como la web ubicua o la web de las cosas, se centra en la integración de
+        la web con el mundo físico y la interconexión de dispositivos y objetos a través de Internet. Se
+        espera que la web 4.0 permita una mayor automatización, personalización y conectividad en la vida
+        cotidiana de los usuarios. Esta evolución de la web de momento es teórica, pero se teoriza que
+        estará fuertemente marcada por la ausencia de interfaces de usuario tradicionales "GUI", y se
+        apuntará más a interfaces naturales "NUI", donde el usuario interactúa directamente con los objetos
+        y dispositivos a través de interfaces intuitivas y naturales como la interacción por voz con un
+        asistente virtual.</p>
 
-                 <!-- UT 2 -->
-                 <section class="studio-note" id="ut2" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 2 - RA 5</p>
-                    <h2 id="studio-title">Implementación de un framework:<br><em>Django</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                    <ul>
-                        <li>Separar lógica de negocio de la presentación</li>
-                        <li>Instalar y utilizar frameworks</li>
-                        <li>Generar y servir html al cliente</li>
-                        <li>Configurar la aplicación web</li>
-                        <li>Aplicar los principios de la Programación Orientada a Objetos</li>
-                    </ul>
-                    <details class="activity-panel">
-                        <summary>Tarea 1 - Creando un Proyecto</summary>
-                        <h4>Requisitos Previos</h4>
-                        <p style="font-style: italic;">Nota: La mayoría de comandos están escritos para ejecutarse en un entorno Linux ya que es lo más cercano a un entorno de desarrollo real. No debería costar demasiado entender lo que hacen y traducirlos a Windows si es necesario. IMPORTANTE: Verifica siempre que lees un paso completamente antes de pasar al siguiente, que respetas la jerarquía de directorios y que los comandos se ejecutan en el entorno virtual correcto.</p>
-                        <ol>
-                            <li>Antes de empezar, vamos a asegurarnos de tener instalados Python y VSCode en nuestro ordenador</li>
-                            <li>Vamos a crear una carpeta llamada Backend para alojar el código de nuestro proyecto. Puedes crear la carpeta donde quieras. Abre la carpeta con VSCode.</li>
-                            <li>Dentro de VSCode instalamos los siguientes plugins:</li>
-                            <ul>
-                                <li>Python</li>
-                                <li>Python Environments</li>
-                                <li>Pylance</li>
-                                <li>Python Debugger</li>
-                                <li>HTML CSS Support</li>
-                                <li>Django (Baptiste Darthenay)</li>
-                            </ul>
-                            <li>Dentro de VSCode y con la carpeta del proyecto abierta, abrimos la terminal de VSCode e instalamos el siguiente paquete de python.</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">terminal</p>
-                                <hr>
-                                <pre><code>sudo apt install pipenv</code></pre>
-                            </div>
-                            <li>Pipenv es un entorno virtual para desarrollo de aplicaciones de Python. Podemos crear un entorno virtual de la siguiente forma:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">terminal</p>
-                                <hr>
-                                <pre><code>mkdir .venv
+    <h3><em>01.</em> Arquitectura cliente-servidor</h3>
+    <p>La arquitectura cliente-servidor es un modelo de diseño de software que divide las responsabilidades
+        entre dos componentes principales: el cliente y el servidor. El cliente es la parte de la aplicación
+        que interactúa directamente con el usuario, mientras que el servidor es responsable de procesar las
+        solicitudes del cliente y proporcionar los recursos necesarios. Esta arquitectura permite una mayor
+        escalabilidad, flexibilidad y eficiencia en el desarrollo de aplicaciones web, ya que cada
+        componente puede evolucionar de manera independiente y adaptarse a las necesidades cambiantes del
+        entorno tecnológico.</p>
+    <p>Es fundamental entender que la verdadera fortaleza de esta arquitectura radica en los siguientes
+        puntos: </p>
+    <ul>
+        <li><em>Seguridad:</em> Cuando desarrollamos aplicaciones en entornos servidor, la seguridad es una
+            preocupación crítica. El servidor debe proteger los datos sensibles y garantizar que solo los
+            usuarios autorizados puedan acceder a recursos específicos. Por esto, todas las operaciones y
+            datos se manejan en el servidor, lo que permite una mejor protección de la información.</li>
+        <li><em>Escalabilidad:</em> La arquitectura cliente-servidor permite una mejor escalabilidad, ya que
+            el servidor puede manejar múltiples solicitudes simultáneamente y distribuir la carga de trabajo
+            de manera eficiente mediante servicios de balanceo de carga como nginx. Esto facilita la
+            expansión de la aplicación a medida que crece la demanda de usuarios y recursos.</li>
+        <li><em>Flexibilidad:</em> La arquitectura cliente-servidor permite una mayor flexibilidad en el
+            desarrollo y mantenimiento de aplicaciones web, ya que los componentes pueden evolucionar de
+            manera independiente y adaptarse a las necesidades cambiantes del entorno tecnológico.
+            Dividiremos entonces nuestros servicios en componentes relativamente independientes que puedan
+            escalar por separado.</li>
+    </ul>
+    <p>De esta forma, el cliente ejecutará su parte del código, normalmente JavaScript, relacionado con la
+        presentación de la web, la navegación o aspectos poco relevantes como la pre-validación de un
+        formulario (como mínimo, los formularios deben validarse siempre en el backend, pero podemos hacer
+        una pre-validación en el frontend para que el usuario tenga un feedback inmediato). Del mismo modo
+        el backend ejecutará el grueso del código, relacionado con la seguridad, la validación de
+        operaciones, accesos a la base de datos y generación de contenido.</p>
+
+    <h3><em>02.</em> Generación dinámica de páginas</h3>
+    <p>Cuando hablamos de generación dinámica de páginas, nos referimos a la capacidad del servidor para
+        crear una respuesta HTML específica para cada solicitud, en función de los datos del usuario, la
+        base de datos, la hora, la sesión o cualquier otra información disponible en ese momento. A
+        diferencia de una página estática, donde el contenido es fijo y se entrega siempre igual, la
+        generación dinámica permite personalizar la experiencia de cada visitante y mostrar información
+        actualizada de forma automatizada.</p>
+    <p>En una aplicación web dinámica, el servidor recibe una petición del cliente, procesa la lógica
+        necesaria, accede a datos o servicios, y finalmente genera un documento HTML con los contenidos
+        adecuados. Por ejemplo, una página de productos puede mostrar elementos diferentes según la
+        categoría seleccionada, un usuario autenticado puede ver su nombre o un listado de pedidos
+        actualizado, y una noticia puede incluir información obtenida desde una base de datos.</p>
+    <p>Este enfoque ofrece varios beneficios: permite ofrecer contenido personalizado, generar páginas a
+        partir de datos reales, reutilizar estructuras y reducir la duplicación de código mediante
+        plantillas o templates, y facilitar la interacción con datos en tiempo real. En el desarrollo
+        backend, la generación dinámica es una base esencial porque conecta la capa de presentación con la
+        lógica de negocio y la persistencia de datos.</p>
+
+    <h3><em>03.</em> Tecnologías y lenguajes de programación</h3>
+    <p>En el desarrollo web en entornos servidor, se utilizan diversas tecnologías y lenguajes de
+        programación para crear aplicaciones web dinámicas y funcionales. Algunos de los lenguajes de
+        programación más comunes incluyen PHP, Python, Ruby y JavaScript (Node.js). Cada lenguaje tiene sus
+        propias características y ventajas, y los desarrolladores deben elegir el lenguaje más adecuado
+        según los requisitos del proyecto y las preferencias del equipo de desarrollo. Además, se utilizan
+        tecnologías como bases de datos, servidores web y frameworks para facilitar el desarrollo y la
+        gestión de aplicaciones web en entornos servidor. Nosotros utiizaremos principalemte Python y su
+        framework Django para el transcurso del módulo.</p>
+
+    <h3><em>04.</em> Diseño basado en dominios (DDD) aplicado al backend</h3>
+    <p>El diseño basado en dominios (DDD) es una aproximación al desarrollo de software que se centra en el
+        dominio del problema y en la modelización de los conceptos del negocio. Esta técnica ayuda a crear
+        aplicaciones más mantenibles y escalables, ya que se enfoca en la comprensión profunda del problema
+        que se está resolviendo y en la creación de un modelo conceptual que refleje fielmente el dominio
+        del negocio.</p>
+    <p>Al atacar el problema desde el dominio del negocio, se logra una mejor alineación entre la solución
+        técnica y los requisitos del negocio, lo que resulta en aplicaciones más robustas y adaptables a los
+        cambios en el entorno empresarial.</p>
+    <p>El siguiente vídeo nos enseña rápidamente cómo implementar este enfoque en el desarrollo de
+        aplicaciones web:</p>
+    <div class="video-container">
+        <iframe width="100%" height="100%"
+            src="https://www.youtube.com/embed/UgEExav6CeE?si=nPMyYWBk3fG60r1n" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <details class="activity-panel">
+        <summary>Actividades UT1</summary>
+        <ol>
+            <li>Explica con tus palabras cuál es la función de un back-end. ¿Qué ventajas aporta? ¿Cuáles
+                son sus mayores inconvenientes?</li>
+            <li>¿Qué es un framework de desarrollo web? Menciona 2 ejemplos basados en diferentes lenguajes
+                de programación. Haz una breve comparación entre ellos.</li>
+            <li>¿Es lo mismo un servidor de aplicación que un servidor web? ¿Cuál es la principal diferencia
+                entre ambos?</li>
+            <li>¿Qué significa que una web se genere de forma dinámica?</li>
+            <em>Análisis DDD</em>
+            <li>Escoge un servicio web para estudiar su implementación basada en DDD. Puede ser el proyecto
+                final del módulo.</li>
+            <li>Escribe una lista de 20 eventos que puedas suceder en el servicio.</li>
+            <li>Separa los eventos por dominios (principales y secundarios).</li>
+            <li>Para cada dominio, escribe una lista de entidades y sus atributos.</li>
+        </ol>>
+</section>
+
+<!-- UT 2 -->
+<section class="studio-note" id="ut2" aria-labelledby="studio-title">
+    <p class="eyebrow"><span></span>UT 2 - RA 5</p>
+    <h2 id="studio-title">Implementación de un framework:<br><em>Django</em></h2>
+    <h3>Objetivos de la unidad:</h3>
+    <ul>
+
+        <li>Configurar la aplicación web (Criterios: 5.e)</li>
+        <li>Separar lógica de negocio de la presentación mediante frameworks (Criterios: 5a y 5.b)</li>
+        <li>Utilizar controles y formularios para generar el aspecto visual de la aplicación web.
+            (Criterios: 5.c y 5.d)</li>
+        <li>Aplicar los principios de la Programación Orientada a Objetos, separando la lógica de negocio y
+            documentando el código. (Criterios: 5.f, 5.g y 5.h)</li>
+    </ul>
+    <h3><em>01.</em> Lógica de negocio </h3>
+    <details class="activity-panel">
+        <summary>Tarea 1 - Creando un Proyecto</summary>
+        <h4>Requisitos Previos</h4>
+        <p style="font-style: italic;">Nota: La mayoría de comandos están escritos para ejecutarse en un
+            entorno Linux ya que es lo más cercano a un entorno de desarrollo real. No debería costar
+            demasiado entender lo que hacen y traducirlos a Windows si es necesario. IMPORTANTE: Verifica
+            siempre que lees un paso completamente antes de pasar al siguiente, que respetas la jerarquía de
+            directorios y que los comandos se ejecutan en el entorno virtual correcto.</p>
+        <ol>
+            <li>Antes de empezar, vamos a asegurarnos de tener instalados Python y VSCode en nuestro
+                ordenador</li>
+            <li>Vamos a crear una carpeta llamada Backend para alojar el código de nuestro proyecto. Puedes
+                crear la carpeta donde quieras. Abre la carpeta con VSCode.</li>
+            <li>Dentro de VSCode instalamos los siguientes plugins:</li>
+            <ul>
+                <li>Python</li>
+                <li>Python Environments</li>
+                <li>Pylance</li>
+                <li>Python Debugger</li>
+                <li>HTML CSS Support</li>
+                <li>Django (Baptiste Darthenay)</li>
+            </ul>
+            <li>Dentro de VSCode y con la carpeta del proyecto abierta, abrimos la terminal de VSCode e
+                instalamos el siguiente paquete de python.</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">terminal</p>
+                <hr>
+                <pre><code>sudo apt install pipenv</code></pre>
+            </div>
+            <li>Pipenv es un entorno virtual para desarrollo de aplicaciones de Python. Podemos crear un
+                entorno virtual de la siguiente forma:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">terminal</p>
+                <hr>
+                <pre><code>mkdir .venv
 pipenv install
 pipenv shell</code></pre>
-                            </div>
-                        </ol>
-                        <h4>DJANGO</h4>
-                        <ol>
-                            <li>Instalamos Django en nuestro entorno virtual</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">terminal</p>
-                                <hr>
-                                <pre><code>pip install django
+            </div>
+        </ol>
+        <h4>DJANGO</h4>
+        <ol>
+            <li>Instalamos Django en nuestro entorno virtual</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">terminal</p>
+                <hr>
+                <pre><code>pip install django
 django-admin --version
-                                </code></pre>
-                            </div>
-                            <li>Si todo ha ido bien, deberíamos ver la versión de Django instalada.</li>
-                            <li>Ahora ejecutamos el siguiente comando para crear un nuevo proyecto Django:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">terminal</p>
-                                <hr>
-                                <pre><code>django-admin startproject $NOMBRE_DEL_PROYECTO</code></pre>
-                            </div>
-                            <li>Si todo ha ido bien deberíamos tener la siguiente jerarquía de ficheros y directorios:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">directorios</p>
-                                <hr>
-                                <pre><code>Backend/
+                    </code></pre>
+            </div>
+            <li>Si todo ha ido bien, deberíamos ver la versión de Django instalada.</li>
+            <li>Ahora ejecutamos el siguiente comando para crear un nuevo proyecto Django:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">terminal</p>
+                <hr>
+                <pre><code>django-admin startproject $NOMBRE_DEL_PROYECTO</code></pre>
+            </div>
+            <li>Si todo ha ido bien deberíamos tener la siguiente jerarquía de ficheros y directorios:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">directorios</p>
+                <hr>
+                <pre><code>Backend/
 ├── .venv/
 └── $NOMBRE_DEL_PROYECTO/
     ├── manage.py
@@ -309,28 +486,35 @@ django-admin --version
         ├── asgi.py
         ├── settings.py
         ├── urls.py
-        └── wsgi.py</code></pre></div>
-                            <li>Ahora podemos ejecutar el servidor de desarrollo con el siguiente comando:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">terminal</p>
-                                <hr>
-                                <pre><code>cd $NOMBRE_DEL_PROYECTO
-python manage.py runserver</code></pre></div>
-<li>Intenta conectarte a localhost:8000. ¿Puedes verlo todo bien?</li>
-                        </ol>
+        └── wsgi.py</code></pre>
+            </div>
+            <li>Ahora podemos ejecutar el servidor de desarrollo con el siguiente comando:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">terminal</p>
+                <hr>
+                <pre><code>cd $NOMBRE_DEL_PROYECTO
+python manage.py runserver</code></pre>
+            </div>
+            <li>Intenta conectarte a localhost:8000. ¿Puedes verlo todo bien?</li>
+        </ol>
 
-                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT2-TAREA1">Enviar actividades por correo</a>
-                    </details>
+        <a class="button button-primary"
+            href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT2-TAREA1">Enviar actividades
+            por correo</a>
+    </details>
 
-                    <details class="activity-panel">
-                        <summary>Tarea 2 - Aplicaciones de un Proyecto Django</summary>
-                        <h4>Nueva Homepage</h4>
-                        <ol>
-                            <li>Nuestra servidor actualmente solo tiene la página por defecto de Django. Vamos a intentar entender cómo cambiarlo. Dentro de nuestra carpeta de proyecto crea un archivo <i>views.py</i> con un contenido como el siguiente:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">directorios</p>
-                                <hr>
-                                <pre><code>Backend/
+    <details class="activity-panel">
+        <summary>Tarea 2 - Aplicaciones de un Proyecto Django</summary>
+        <h4>Nueva Homepage</h4>
+        <ol>
+            <li>Nuestra servidor actualmente solo tiene la página por defecto de Django. Vamos a intentar
+                entender cómo cambiarlo. Dentro de nuestra carpeta de proyecto crea un archivo
+                <i>views.py</i> con un contenido como el siguiente:
+            </li>
+            <div class="code-block">
+                <p style="font-weight: bold;">directorios</p>
+                <hr>
+                <pre><code>Backend/
 ├── .venv/
 └── $NOMBRE_DEL_PROYECTO/
     ├── manage.py
@@ -341,19 +525,20 @@ python manage.py runserver</code></pre></div>
         ├── urls.py
         ├── views.py
         └── wsgi.py</code></pre>
-                                <hr style="height:4px; background-color: #8d4df4; border: none;">
-                                <p style="font-weight: bold;">views.py</p>
-                                <hr>
-                                <pre><code>from django.http import HttpResponse
+                <hr style="height:4px; background-color: #8d4df4; border: none;">
+                <p style="font-weight: bold;">views.py</p>
+                <hr>
+                <pre><code>from django.http import HttpResponse
 
 def homepage(request):
     return HttpResponse("Hello World!")</code></pre>
-                            </div>
-                            <li>Ahora vamos a modificar el archivo <i>urls.py</i> para que apunte a nuestra nueva vista. Añade la siguiente línea al final del archivo:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">urls.py</p>
-                                <hr>
-                                <pre><code>from django.urls import path
+            </div>
+            <li>Ahora vamos a modificar el archivo <i>urls.py</i> para que apunte a nuestra nueva vista.
+                Añade la siguiente línea al final del archivo:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">urls.py</p>
+                <hr>
+                <pre><code>from django.urls import path
 from . import views
 from django.contrib import admin
 
@@ -361,63 +546,71 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage),
 ]</code></pre>
-                            </div>
-                            <li>Prueba el resultado. ¿Puedes ver el mensaje "Hello World!" en tu navegador? Si todo ha ido bien, podemos pasar al siguiente punto</li>
-                            <li>Vamos a crear un directorio <i>templates</i> y un fichero <i>home.html</i> como sigue:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">directorios</p>
-                                <hr>
-                                <pre><code>Backend/
+            </div>
+            <li>Prueba el resultado. ¿Puedes ver el mensaje "Hello World!" en tu navegador? Si todo ha ido
+                bien, podemos pasar al siguiente punto</li>
+            <li>Vamos a crear un directorio <i>templates</i> y un fichero <i>home.html</i> como sigue:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">directorios</p>
+                <hr>
+                <pre><code>Backend/
 ├── .venv/
 └── $NOMBRE_DEL_PROYECTO/
     ├── manage.py
     ├── $NOMBRE_DEL_PROYECTO/
     └── templates/
-        └── home.html</code></pre></div>
-                            <li>Ahora vamos a modificar nuestra vista para que devuelva el contenido de nuestro template. Modifica el archivo <i>views.py</i> como sigue:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">views.py</p>
-                                <hr>
-                                <pre><code>from django.shortcuts import render
+        └── home.html</code></pre>
+            </div>
+            <li>Ahora vamos a modificar nuestra vista para que devuelva el contenido de nuestro template.
+                Modifica el archivo <i>views.py</i> como sigue:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">views.py</p>
+                <hr>
+                <pre><code>from django.shortcuts import render
 
 def homepage(request):
     return render(request, 'home.html')
-</code></pre></div>
-                            <p style="font-style: italic;">Ten en cuenta que habrá líneas de views.py que debas borrar, otras que debas conservar y otras que debas modificar</p>
-                            <li>Ahora tenemos que decirle a Django que puede buscar plantillas dentro de esa carpeta. Eso lo hacemos desde los ajustes de Django. Buscamos la variable TEMPLATES y añadimos las siguentes líneas:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">settings.py</p>
-                                <hr>
-                                <pre><code>import os
+</code></pre>
+            </div>
+            <p style="font-style: italic;">Ten en cuenta que habrá líneas de views.py que debas borrar,
+                otras que debas conservar y otras que debas modificar</p>
+            <li>Ahora tenemos que decirle a Django que puede buscar plantillas dentro de esa carpeta. Eso lo
+                hacemos desde los ajustes de Django. Buscamos la variable TEMPLATES y añadimos las siguentes
+                líneas:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">settings.py</p>
+                <hr>
+                <pre><code>import os
 
 TEMPLATES = [
     {
         [...]
         'DIRS': [
-            os.path.join(BASE_DIR, "templates"),
+        os.path.join(BASE_DIR, "templates"),
         ],
         [...]
     },
 ]
 </code></pre>
-                            </div>
-                            <li>Ya podemos usar nuestro template en la vista.</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">views.py</p>
-                                <hr>
-                                <pre><code>from django.shortcuts import render
+            </div>
+            <li>Ya podemos usar nuestro template en la vista.</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">views.py</p>
+                <hr>
+                <pre><code>from django.shortcuts import render
 
 def homepage(request):
     return render(request, 'home.html')
 </code></pre>
-                            </div>
-                            <li>Comprueba que puedas ver tu html. Si es así puedes continuar.</li>
-                            <li>Ahora vamos a añadir assets estáticos a nuestra aplicación.</li>
-                            <li>Dentro de la carpeta del proyecto, crea un directorio llamado <i>static</i> con una carpeta para cada tipo de archivo estático (img, js, css):</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">directorios</p>
-                                <hr>
-                                <pre><code>Backend/
+            </div>
+            <li>Comprueba que puedas ver tu html. Si es así puedes continuar.</li>
+            <li>Ahora vamos a añadir assets estáticos a nuestra aplicación.</li>
+            <li>Dentro de la carpeta del proyecto, crea un directorio llamado <i>static</i> con una carpeta
+                para cada tipo de archivo estático (img, js, css):</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">directorios</p>
+                <hr>
+                <pre><code>Backend/
 ├── .venv/
 └── $NOMBRE_DEL_PROYECTO/
     ├── manage.py
@@ -427,239 +620,286 @@ def homepage(request):
         ├── img/
         ├── js/
         └── css/
-                            </code></pre></div>
-                            <li>Ahora modificamos el archivo <i>settings.py</i> para indicarle a Django dónde buscar los archivos estáticos. Añadimos las siguientes líneas al final del archivo:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">settings.py</p>
-                                <hr>
-                                <pre><code>STATICFILES_DIRS = [
+                </code></pre>
+            </div>
+            <li>Ahora modificamos el archivo <i>settings.py</i> para indicarle a Django dónde buscar los
+                archivos estáticos. Añadimos las siguientes líneas al final del archivo:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">settings.py</p>
+                <hr>
+                <pre><code>STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]</code></pre>
-                            </div>
-                            <li>Ahora podemos usar los archivos estáticos en nuestro template. Por ejemplo, para añadir un archivo CSS, podemos hacer lo siguiente:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">home.html</p>
-                                <hr>
-                                <pre><code>
-&lt!DOCTYPE html>
-&lthtml lang="en">
-{% load static %}
-&lthead>
-    &ltmeta charset="UTF-8">
-    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
-    &ltlink rel="stylesheet" href="{% static 'css/style.css' %}">
-    &ltlink rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
-    &ltscript src="{% static 'js/script.js' %}">&lt/script>
-    &lttitle>Home&lt/title>
-&lt/head>
-&lt/html></code></pre>
-                            </div>
-                            <li>Comprueba que puedas ver tu html con los assets estáticos. Si es así puedes continuar.</li>
-                    </ol>
-                    <h4>Aplicaciones</h4>
-                    <ol>
-                        <li>Vamos a crear una aplicación de Django, recuerda que grosso modo, una aplicación corresponde a un dominio del DDD es un módulo que contiene lógica específica para una funcionalidad determinada. Para crear aplicaciones en Django, utilizamos el comando:</li>
-                        <div class="code-block">
-                            <p style="font-weight: bold;">terminal</p>
-                            <hr>
-                            <pre><code>python manage.py startapp $NOMBRE_DE_LA_APP</code></pre>
-                            <hr style="height:4px; background-color: #8d4df4; border: none;">
-                            <p style="font-weight: bold;">settings.py</p>
-                            <hr>
-                            <pre><code>INSTALLED_APPS = [
-    [...]
-    '$NOMBRE_DE_LA_APP',
+            </div>
+            <li>Ahora podemos usar los archivos estáticos en nuestro template. Por ejemplo, para añadir un
+                archivo CSS, podemos hacer lo siguiente:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">home.html</p>
+                <hr>
+                <pre><code>
+&lt;!DOCTYPE html>
+&lt;html lang="en">
+    {% load static %}
+    &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+        &lt;link rel="stylesheet" href="{% static 'css/style.css' %}">
+        &lt;link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+        &lt;script src="{% static 'js/script.js' %}">&lt;/script>
+        &lt;title>Home&lt;/title>
+    &lt;/head>
+&lt;/html></code></pre>
+            </div>
+            <li>Comprueba que puedas ver tu html con los assets estáticos. Si es así puedes continuar.</li>
+        </ol>
+        <h4>Aplicaciones</h4>
+        <ol>
+            <li>Vamos a crear una aplicación de Django, recuerda que grosso modo, una aplicación corresponde
+                a un dominio del DDD es un módulo que contiene lógica específica para una funcionalidad
+                determinada. Para crear aplicaciones en Django, utilizamos el comando:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">terminal</p>
+                <hr>
+                <pre><code>python manage.py startapp $NOMBRE_DE_LA_APP</code></pre>
+                <hr style="height:4px; background-color: #8d4df4; border: none;">
+                <p style="font-weight: bold;">settings.py</p>
+                <hr>
+                <pre><code>INSTALLED_APPS = [
+[...]
+'$NOMBRE_DE_LA_APP',
 ]</code></pre>
-                        </div>
-                        <li>Se creará un directorio con el nombre de la aplicación y los archivos necesarios para su funcionamiento. Dentro de este directorio crearemos un <i>templates</i> nuevo y dentro de él otra carpeta con el nombre de la aplicación tal que así:</li>
-                        <div class="code-block">
-                            <p style="font-weight: bold;">directorios</p>
-                            <hr>
-                            <pre><code>Backend/
-    ├── .venv/
-    └──  $NOMBRE_DEL_PROYECTO/
-        ├── manage.py
-        ├── $NOMBRE_DEL_PROYECTO/
-        ├── templates/
-        ├── static/
-        └── $NOMBRE_DE_LA_APP/
-            ├── __init__.py
-            ├── admin.py
-            ├── apps.py
-            ├── migrations/
-            ├── models.py
-            ├── tests.py
-            ├── views.py
-            └── templates/
-                └── $NOMBRE_DE_LA_APP/
-                    └── $NOMBRE_DEL_ARCHIVO.html
-                    </code></pre></div>
-                    <li>Ahora podemos editar los <i>views.py</i> y <i>urls.py</i> de la aplicación de la siguiente manera:</li>
-                    <div class="code-block">
-                        <p style="font-weight: bold;">$NOMBRE_DE_LA_APP/views.py</p>
-                        <hr>
-                        <pre><code>from django.shortcuts import render
+            </div>
+            <li>Se creará un directorio con el nombre de la aplicación y los archivos necesarios para su
+                funcionamiento. Dentro de este directorio crearemos un <i>templates</i> nuevo y dentro de él
+                otra carpeta con el nombre de la aplicación tal que así:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">directorios</p>
+                <hr>
+                <pre><code>Backend/
+├── .venv/
+└──  $NOMBRE_DEL_PROYECTO/
+    ├── manage.py
+    ├── $NOMBRE_DEL_PROYECTO/
+    ├── templates/
+    ├── static/
+    └── $NOMBRE_DE_LA_APP/
+        ├── __init__.py
+        ├── admin.py
+        ├── apps.py
+        ├── migrations/
+        ├── models.py
+        ├── tests.py
+        ├── views.py
+        └── templates/
+            └── $NOMBRE_DE_LA_APP/
+                └── $NOMBRE_DEL_ARCHIVO.html
+        </code></pre>
+            </div>
+            <li>Ahora podemos editar los <i>views.py</i> y <i>urls.py</i> de la aplicación de la siguiente
+                manera:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">$NOMBRE_DE_LA_APP/views.py</p>
+                <hr>
+                <pre><code>from django.shortcuts import render
 
-    def $NOMBRE_DE_LA_FUNCION(request):
-        return render(request, '$NOMBRE_DE_LA_APP/$NOMBRE_DEL_ARCHIVO.html')</code></pre>
-        <hr style="height:4px; background-color: #8d4df4; border: none;">
-                        <p style="font-weight: bold;">$NOMBRE_DE_LA_APP/urls.py</p>
-                        <hr>
-                        <pre><code>from django.urls import path
-    from . import views
+def $NOMBRE_DE_LA_FUNCION(request):
+    return render(request, '$NOMBRE_DE_LA_APP/$NOMBRE_DEL_ARCHIVO.html')</code></pre>
+                <hr style="height:4px; background-color: #8d4df4; border: none;">
+                <p style="font-weight: bold;">$NOMBRE_DE_LA_APP/urls.py</p>
+                <hr>
+                <pre><code>from django.urls import path
+from . import views
 
-    urlpatterns = [
-        path('', views.$NOMBRE_DE_LA_FUNCION),
-    ]</code></pre>
-                        <hr style="height:4px; background-color: #8d4df4; border: none;">
-                        <p style="font-weight: bold;">urls.py</p>
-                        <hr>
-                        <pre><code>from django.urls import path, include
+urlpatterns = [
+    path('', views.$NOMBRE_DE_LA_FUNCION),
+]</code></pre>
+                <hr style="height:4px; background-color: #8d4df4; border: none;">
+                <p style="font-weight: bold;">urls.py</p>
+                <hr>
+                <pre><code>from django.urls import path, include
 
-    urlpatterns = [
-        [...]
-        path('$NOMBRE_DE_LA_APP/', include('$NOMBRE_DE_LA_APP.urls')),
-    ]
-    ]</code></pre></div>
-                        <li>Comprueba que todo funncione correctamente y añade hipervínculos para poder saltar de una página a otra</li>
-                    </ol>
-                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT2-TAREA2">Enviar actividades por correo</a>
-                    </details>
-                </section>
+urlpatterns = [
+    [...]
+    path('$NOMBRE_DE_LA_APP/', include('$NOMBRE_DE_LA_APP.urls')),
+]</code></pre>
+            </div>
+            <li>Comprueba que todo funncione correctamente y añade hipervínculos para poder saltar de una
+                página a otra</li>
+        </ol>
+        <a class="button button-primary"
+            href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT2-TAREA2">Enviar actividades
+            por correo</a>
+    </details>
+</section>
 
-                 <!-- UT 3 -->
-                 <section class="studio-note" id="ut3" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 3 - RA 2</p>
-                    <h2 id="studio-title">URLS y <em>Templates</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                    <ul>
-                        <li>Insertar código dentro de HTML para generar webs</li>
-                        <li>Utilizar etiquetas de inclusión de código</li>
-                        <li>Escribir sentencias simples</li>
-                        <li>Utilizar variables y operadores en el lenguaje de marcas</li>
-                        <li>Estandarizar el uso de URLs</li>
-                    </ul>
-                    <h3><em>01. </em>Templates</h3>
-                    <p>Como vimos en la unidad anterior, el contenido de un HTML se puede modificar gracias a las utilidades de Django. Hasta ahora lo único que hemos hecho es insertar URLs de forma dinámica, pero como te puedes imaginar no terminan ahí las utilidades.</p>
-                    <p>Django propone diferentes herramientas que usan un sistema de marcas propio de Django como: <i>{% ejemplo %}</i>. Las marcas más simples son el uso de bloques reemplazables desde una plantilla.</p>
-                    <p>Es decir, podemos crear una plantilla con el esqueleto de nuestra página web (hoja de estilos, pie de página, encabezados, menús...) y solo cambiar el contenido de la siguiente manera</p>
-                    <div class="code-block">
-                                <p style="font-weight: bold;">template.html</p>
-                                <hr>
-<pre><code>&lt!DOCTYPE html>
-&lthtml lang="en">
-{% load static %}
-&lthead>
-    &ltmeta charset="UTF-8">
-    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
-    &ltlink rel="stylesheet" href="{% static 'css/style.css' %}">
-    &ltlink rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
-    &ltscript src="{% static 'js/script.js' %}">&lt/script>
-    &lttitle>Home&lt/title>
-&lt/head>
+<!-- UT 3 -->
+<section class="studio-note" id="ut3" aria-labelledby="studio-title">
+    <p class="eyebrow"><span></span>UT 3 - RA 2</p>
+    <h2 id="studio-title">URLS y <em>Templates</em></h2>
+    <h3>Objetivos de la unidad:</h3>
+    <ul>
+        <li>Insertar código dentro de HTML para generar webs</li>
+        <li>Utilizar etiquetas de inclusión de código</li>
+        <li>Escribir sentencias simples</li>
+        <li>Utilizar variables y operadores en el lenguaje de marcas</li>
+        <li>Estandarizar el uso de URLs</li>
+    </ul>
+    <h3><em>01. </em>Templates</h3>
+    <p>Como vimos en la unidad anterior, el contenido de un HTML se puede modificar gracias a las utilidades
+        de Django. Hasta ahora lo único que hemos hecho es insertar URLs de forma dinámica, pero como te
+        puedes imaginar no terminan ahí las utilidades.</p>
+    <p>Django propone diferentes herramientas que usan un sistema de marcas propio de Django como: <i>{%
+            ejemplo %}</i>. Las marcas más simples son el uso de bloques reemplazables desde una plantilla.
+    </p>
+    <p>Es decir, podemos crear una plantilla con el esqueleto de nuestra página web (hoja de estilos, pie de
+        página, encabezados, menús...) y solo cambiar el contenido de la siguiente manera</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">template.html</p>
+        <hr>
+        <pre><code>&lt;!DOCTYPE html>
+&lt;html lang="en">
+    {% load static %}
+    &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+        &lt;link rel="stylesheet" href="{% static 'css/style.css' %}">
+        &lt;link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+        &lt;script src="{% static 'js/script.js' %}">&lt;/script>
+        &lt;title>Home&lt;/title>
+    &lt;/head>
 
-&ltbody>
-    &ltp>Este párrafo está fuera del bloque y no se puede modificar&lt/p>
-    {% block $NOMBRE_DEL_BLOQUE %}
-        &ltp>Este es un contenido de ejemplo dentro del bloque y sí se puede modificar&lt/p>
-    {% endblock $NOMBRE_DEL_BLOQUE%}
-&lt/body>
-&lt/html>
+    &lt;body>
+        &lt;p>Este párrafo está fuera del bloque y no se puede modificar&lt;/p>
+        {% block $NOMBRE_DEL_BLOQUE %}
+            &lt;p>Este es un contenido de ejemplo dentro del bloque y sí se puede modificar&lt;/p>
+        {% endblock $NOMBRE_DEL_BLOQUE%}
+    &lt;/body>
+&lt;/html>
 </code>
-</pre></div>
-                    <p>En otro archivo podemos definir una herencia, exactamente igual que una Clase de cualquier lenguaje de programación y redefinimos solo aquerllo que queremos cambiar. Un HTML de ejemplo se podría quedar tal que así:</p>
-                    <div class="code-block">
-                                <p style="font-weight: bold;">index.html</p>
-                                <hr>
-                    <pre><code>{% extends 'template.html' %}
+</pre>
+    </div>
+    <p>En otro archivo podemos definir una herencia, exactamente igual que una Clase de cualquier lenguaje
+        de programación y redefinimos solo aquerllo que queremos cambiar. Un HTML de ejemplo se podría
+        quedar tal que así:</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">index.html</p>
+        <hr>
+        <pre><code>{% extends 'template.html' %}
 
 {% block $NOMBRE_DEL_BLOQUE %}
-    &lth1>Este titulo reemplaza el contenido por defecto dentro del bloque&lt/h1>
+    &lt;h1>Este titulo reemplaza el contenido por defecto dentro del bloque&lt;/h1>
 {% endblock $NOMBRE_DEL_BLOQUE%}
 </code>
-</pre></div>
-                    <details class="activity-panel">
-                        <summary>Tarea 1</summary>
-                        <ol>
-                            <li>Crea una plantilla parecida a la del ejemplo  que contenga toda la estructura báśica de la web. Incluye bloques para lo que consideres necesario, pero especialmente:</li>
-                            <ul>
-                                <li>Título de la página</li>
-                                <li>Contenido principal (sin incluir menú de navegación ni pie de página)</li>
-                            </ul>
-                            <li>Crea las siguientes webs que hereden de tu plantilla con <i>{& extends '...' &}</i></li>
-                            <ul>
-                                <li>Página web principal de acogida</li>
-                                <li>Página de la aplicación que creaste en la tarea anterior</li>
-                                <li>Página web de contacto con un formulario HTML sencillo</li>
-                            </ul>
-                            <li>Verifica que los estilos se mantienen de forma homogenea</li>
-                        </ol>
-                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT3-TAREA1">Enviar actividades por correo</a>
-                    </details>
+</pre>
+    </div>
+    <details class="activity-panel">
+        <summary>Tarea 1</summary>
+        <ol>
+            <li>Crea una plantilla parecida a la del ejemplo que contenga toda la estructura báśica de la
+                web. Incluye bloques para lo que consideres necesario, pero especialmente:</li>
+            <ul>
+                <li>Título de la página</li>
+                <li>Contenido principal (sin incluir menú de navegación ni pie de página)</li>
+            </ul>
+            <li>Crea las siguientes webs que hereden de tu plantilla con <i>{& extends '...' &}</i></li>
+            <ul>
+                <li>Página web principal de acogida</li>
+                <li>Página de la aplicación que creaste en la tarea anterior</li>
+                <li>Página web de contacto con un formulario HTML sencillo</li>
+            </ul>
+            <li>Verifica que los estilos se mantienen de forma homogenea</li>
+        </ol>
+        <a class="button button-primary"
+            href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT3-TAREA1">Enviar actividades
+            por correo</a>
+    </details>
 
-                    <h3><em>02. </em>URLs y modularidad</h3>
-                    <p>Una URL (Uniform Resource Locator) es la dirección única que identifica a un recurso en internet, como una página web, una imagen, un archivo o un video. Se compone de dos partes, el host y la ruta. Por ejemplo www.youtube.com/feed/playlists/ se compone de www.youtube.com (el host) y /feed/playlists es la ruta.</p>
-                    <p>Tradicionalmente las rutas apuntaban a un fichero en el host y ese fichero es el que se mostraba. Hoy en día la mayoría de rutas son simbólicas y no reflejan la arquitectura de ficheros y directorios real. Las rutas modernas simbolizan la jerarquía de servicios. Por ejemplo /feed/playlists indica que quiero que me muestren contenido (feed), concretamente playlists.</p>
-                    <p>Con frecuencia me puedo encontrar parámetros en la URL después de un signo de interrogación. Por ejemplo: en https://www.youtube.com/watch?v=LkIJfAds4 estamos dentro de /watch y tenemos un parámetro v=LkIJfAds4, lo que le dice a youtube que el vídeo que queremos ver tiene el UID LkIJfAds4</p>
-                    <details class="activity-panel"><summary>Tarea 2</summary>
-                        <ol>
-                            <h4>URLs</h4>
-                            <li>Vamos a empezar por crear namespaces para nuestras URLs, es decir, nombres cortos y fáciles de escribir, fácilmente reconocibles para los desarrolladores y que permitan identificar al servicio al que hago referencia</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">urls.py</p>
-                                <hr>
-<pre><code>
+    <h3><em>02. </em>URLs y modularidad</h3>
+    <p>Una URL (Uniform Resource Locator) es la dirección única que identifica a un recurso en internet,
+        como una página web, una imagen, un archivo o un video. Se compone de dos partes, el host y la ruta.
+        Por ejemplo www.youtube.com/feed/playlists/ se compone de www.youtube.com (el host) y
+        /feed/playlists es la ruta.</p>
+    <p>Tradicionalmente las rutas apuntaban a un fichero en el host y ese fichero es el que se mostraba. Hoy
+        en día la mayoría de rutas son simbólicas y no reflejan la arquitectura de ficheros y directorios
+        real. Las rutas modernas simbolizan la jerarquía de servicios. Por ejemplo /feed/playlists indica
+        que quiero que me muestren contenido (feed), concretamente playlists.</p>
+    <p>Con frecuencia me puedo encontrar parámetros en la URL después de un signo de interrogación. Por
+        ejemplo: en https://www.youtube.com/watch?v=LkIJfAds4 estamos dentro de /watch y tenemos un
+        parámetro v=LkIJfAds4, lo que le dice a youtube que el vídeo que queremos ver tiene el UID LkIJfAds4
+    </p>
+    <details class="activity-panel">
+        <summary>Tarea 2</summary>
+        <ol>
+            <h4>URLs</h4>
+            <li>Vamos a empezar por crear namespaces para nuestras URLs, es decir, nombres cortos y fáciles
+                de escribir, fácilmente reconocibles para los desarrolladores y que permitan identificar al
+                servicio al que hago referencia</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">urls.py</p>
+                <hr>
+                <pre><code>
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, <b>name='homepage'</b>),
     path('reservas/, include(reservas.urls)'),
 ]
 </code>
-</pre></div>
-                            <li>Añadir un argumento name a la función path le asigna un nombre que debería ser único dentro del proyecto, de tal forma que yo podría hacer lo siguiente dentro de mis HTMLs</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">index.html</p>
-                                <hr>
-<pre><code>
-    &lta href="{% url 'homepage' %}">Home&lt/a>
+</pre>
+            </div>
+            <li>Añadir un argumento name a la función path le asigna un nombre que debería ser único dentro
+                del proyecto, de tal forma que yo podría hacer lo siguiente dentro de mis HTMLs</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">index.html</p>
+                <hr>
+                <pre><code>
+&lta href="{% url 'homepage' %}">Home&lt/a>
 </code>
-</pre></div>
-                            <p>Django se encargará de sustituir {% url 'homepage' %} por la dirección correcta.</p>
-                            <li>La mejor forma de proceder, para asegurar que los nombres son realmente únicos, es crear unos namespaces organizados</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">$APP/urls.py</p>
-                                <hr>
-<pre><code>
+</pre>
+            </div>
+            <p>Django se encargará de sustituir {% url 'homepage' %} por la dirección correcta.</p>
+            <li>La mejor forma de proceder, para asegurar que los nombres son realmente únicos, es crear
+                unos namespaces organizados</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">$APP/urls.py</p>
+                <hr>
+                <pre><code>
 app_name = “$APP”
 
 urlpatterns = [
     path('', views.app_homepage, name='homepage'),
 ]
 </code>
-</pre></div>
-                            <li>Al hacer esto, para una aplicación que se llame Reservas yo podría hacer algo así como:</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">index.html</p>
-                                <hr>
-<pre><code>
-    &lta href="{% url 'reservas:homepage' %}">Reservas&lt/a>
+</pre>
+            </div>
+            <li>Al hacer esto, para una aplicación que se llame Reservas yo podría hacer algo así como:</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">index.html</p>
+                <hr>
+                <pre><code>
+&lta href="{% url 'reservas:homepage' %}">Reservas&lt/a>
 </code>
-</pre></div>
-                            <li>A este proceso se le llama normalizar. Asegurate de que todas tus URLs estén normalizadas antes de seguir (tanto en los htmls como en el código)</li>
-                            <h4>Parámetros</h4>
-                            <li>Vamos a hacer una pequeña página de prueba en nuestro proyecto para hacer una demostración de parámetros. Un ejemplo bastante sencillo puede ser un calendario. Crea una aplicación calendario dentro de tu web (es probable que no te interese conservarla para tu proyecto final).</li>
-                            <li>Vamos a crear una página que muestre unos pocos detalles sobre la fecha que el usuario nos pase en parámetro.</li>
-                            <div class="code-block">
-                                <p style="font-weight: bold;">calendario/views.py</p>
-                                <hr>
-<pre><code>
+</pre>
+            </div>
+            <li>A este proceso se le llama normalizar. Asegurate de que todas tus URLs estén normalizadas
+                antes de seguir (tanto en los htmls como en el código)</li>
+            <h4>Parámetros</h4>
+            <li>Vamos a hacer una pequeña página de prueba en nuestro proyecto para hacer una demostración
+                de parámetros. Un ejemplo bastante sencillo puede ser un calendario. Crea una aplicación
+                calendario dentro de tu web (es probable que no te interese conservarla para tu proyecto
+                final).</li>
+            <li>Vamos a crear una página que muestre unos pocos detalles sobre la fecha que el usuario nos
+                pase en parámetro.</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">calendario/views.py</p>
+                <hr>
+                <pre><code>
 '''
-    Esta función toma como parámetro, además del request habitual, un parámetro fecha que tendrá que introducir el usuario en el formato "DD-MM-AAAA". La función está incompleta, intenta terminarla con las diferentes utilidades de python para tratar texto y fechas.
+Esta función toma como parámetro, además del request habitual, un parámetro fecha que tendrá que introducir el usuario en el formato "DD-MM-AAAA". La función está incompleta, intenta terminarla con las diferentes utilidades de python para tratar texto y fechas.
 
-    Además, la función render puede tomar como parámetro un diccionario con datos para copiar dentro del html (luego veremos cómo)
+Además, la función render puede tomar como parámetro un diccionario con datos para copiar dentro del html (luego veremos cómo)
 '''
 def calendario(request, fecha):
-    
+
     [...]
 
     mi_dia = [...]
@@ -671,10 +911,10 @@ def calendario(request, fecha):
 
 </code>
 </pre>
-                                <hr style="height:4px; background-color: #8d4df4; border: none;">
-                                <p style="font-weight: bold;">calendario/urls.py</p>
-                                <hr>
-<pre><code>
+                <hr style="height:4px; background-color: #8d4df4; border: none;">
+                <p style="font-weight: bold;">calendario/urls.py</p>
+                <hr>
+                <pre><code>
 
 urlpatterns = [
 
@@ -682,150 +922,348 @@ urlpatterns = [
     path('&ltstr:fecha>', views.calendario, name='calendario'),
 ]
 </code>
-</pre>                          <hr style="height:4px; background-color: #8d4df4; border: none;">
-                                <p style="font-weight: bold;">calendario/fecha.html</p>
-                                <hr>
-<pre><code>
+</pre>
+                <hr style="height:4px; background-color: #8d4df4; border: none;">
+                <p style="font-weight: bold;">calendario/fecha.html</p>
+                <hr>
+                <pre><code>
 &ltp> Hoy es {{ dia }} del {{ mes }} del año {{ ano }}. {{ mensaje }}.&lt/p>
 </code>
-</pre></div>
-                        <li>Es posible que el usuario introduzca mal el formato de fecha, prepara una página de error que mostrar si se da el caso y modifica la función de calendario para que muestre uno u otro en función de si hay un error o no.</li>
-                        </ol>
-                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT3-TAREA2">Enviar actividades por correo</a>
-                    </details>
-                </section>
+</pre>
+            </div>
+            <li>Es posible que el usuario introduzca mal el formato de fecha, prepara una página de error
+                que mostrar si se da el caso y modifica la función de calendario para que muestre uno u otro
+                en función de si hay un error o no.</li>
+        </ol>
+        <a class="button button-primary"
+            href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT3-TAREA2">Enviar actividades
+            por correo</a>
+    </details>
+</section>
 
-                 <!-- UT 4 -->
-                 <section class="studio-note" id="ut4" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 4 - RA 3</p>
-                    <h2 id="studio-title">Cálculos en el<br><em>backend</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                </section>
+<!-- UT 4 -->
+<section class="studio-note" id="ut4" aria-labelledby="studio-title">
+    <p class="eyebrow"><span></span>UT 4 - RA 3</p>
+    <h2 id="studio-title">Cálculos en el<br><em>backend</em></h2>
+    <h3>Objetivos de la unidad:</h3>
+    <ul>
+        <li>Utilizar mecanismos de decisión para crear bloques de sentencias (Criterios: 3.a, y 3.g)</li>
+        <li>Utilizar bucles (Criterios: 3.b)</li>
+        <li>Utilizar arrays para almacenar y recuperar conjuntos de datos (Criterios: 3.c, 3.d)</li>
+        <li>Crear formularios web para interactuar con el usuario (Criterios: 3.e y 3.f)</li>
+    </ul>
+    <h3><em>01.</em> Métodos GET y POST en formularios</h3>
+    <p>Cuando se envía un formulario, el atributo <code>method</code> indica cómo se mandan sus datos al
+        servidor. Los métodos más habituales son <code>GET</code> y <code>POST</code>.</p>
+    <h4>GET: consultar información</h4>
+    <p>Con <code>GET</code>, los datos se añaden a la URL como parámetros. Por ejemplo, al buscar «Django»,
+        la dirección podría terminar en <code>?q=Django</code>. Es adecuado para búsquedas y consultas que
+        no cambian información: la URL se puede guardar en favoritos o compartir. Como los datos quedan
+        visibles en la dirección y el historial, no se debe usar para enviar contraseñas ni información
+        privada.</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">Formulario de búsqueda</p>
+        <hr>
+        <pre><code>&lt;form action="/buscar/" method="get">
+    &lt;label for="consulta">Buscar:&lt;/label>
+    &lt;input id="consulta" type="search" name="q">
+    &lt;button type="submit">Buscar&lt;/button>
+&lt;/form></code></pre>
+    </div>
+    <h4>POST: enviar información</h4>
+    <p>Con <code>POST</code>, los datos se envían en el cuerpo de la petición, no como parte de la URL. Se
+        usa normalmente para acciones que crean o modifican información, como registrar un usuario o enviar
+        un formulario de contacto. Que los datos no aparezcan en la URL no significa que estén cifrados:
+        para protegerlos durante el envío se necesita HTTPS. En Django, los formularios POST deben incluir
+        el token CSRF.</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">Formulario de contacto en Django</p>
+        <hr>
+        <pre><code>&lt;form action="/contacto/" method="post">
+    {% csrf_token %}
+    &lt;label for="mensaje">Mensaje:&lt;/label>
+    &lt;textarea id="mensaje" name="mensaje">&lt;/textarea>
+    &lt;button type="submit">Enviar&lt;/button>
+&lt;/form></code></pre>
+    </div>
+    <p>En Django, los valores enviados con <code>GET</code> se consultan mediante <code>request.GET</code> y
+        los enviados con <code>POST</code>, mediante <code>request.POST</code>. En ambos casos, el servidor
+        debe validar los datos recibidos; nunca se debe confiar únicamente en la validación del navegador.
+    </p>
+    <details class="activity-panel">
+        <summary>Tarea 1</summary>
+        <p>Para hacer la siguiente práctica tenemos que tener en cuenta los siguientes aspectos:</p>
+        <ul>
+            <li>El usuario interactuará con un formulario para enviar datos al backend</li>
+            <li>Dentro del formulario tendremos un campo oculto con los datos del tablero y del juego.</li>
+            <li>Los datos del juego son:</li>
+            <ul>
+                <li>Un tablero en forma de string. Por ejemplo: O-X-X----</li>
+                <li>El turno del jugador actual</li>
+            </ul>
+            <li>El tablero en forma de string se decompone en 9 caracteres que representan cada celda</li>
+            <pre>
+0 &boxv; 1 &boxv; 2
+&boxh; &boxvh; &boxh; &boxvh; &boxh;
+3 &boxv; 4 &boxv; 5
+&boxh; &boxvh; &boxh; &boxvh; &boxh; 
+6 &boxv; 7 &boxv; 8
+</pre>
+        </ul>
+        <p>Con esto controlado, ya podemos empezar la práctica:</p>
+        <ol>
+            <li>Crea una nueva aplicación para alojar el juego 3 en raya. Añade las rutas, funciones y htmls
+                necesarios para poder empezar a desarrollar.</li>
+            <li>Dentro de views.py crea una función que gestione la lógica del juego. De momento la función
+                solo tiene que crear las variables necesarias y pasarlas al html.</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">views.py</p>
+                <hr>
+                <pre><code>from django.shortcuts import render
 
-                 <!-- UT 5 -->
-                 <section class="studio-note" id="ut5" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 5 - RA 4</p>
-                    <h2 id="studio-title">Usuarios y<br><em>cachés</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                </section>
-
-                 <!-- UT 6 -->
-                 <section class="studio-note" id="ut6" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 6 - RA 6</p>
-                    <h2 id="studio-title">POO y <em>ORMs</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                </section>
-
-                 <!-- UT 7 -->
-                 <section class="studio-note" id="ut7" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 7 - RA 7</p>
-                    <h2 id="studio-title">Servicios web y <em>APIs</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                </section>
-
-                <!-- UT 8 -->
-                 <section class="studio-note" id="ut8" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 8 - RA 8</p>
-                    <h2 id="studio-title">Integración frontend y backend<br><em>Protocolo Websocket</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                </section>
-
-                <!-- UT 9 -->
-                 <section class="studio-note" id="ut9" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>UT 9 - RA 9</p>
-                    <h2 id="studio-title">Bibliotecas <em>Externas</em></h2>
-                    <h3>Objetivos de la unidad:</h3>
-                </section>
-
-                <!-- ENGLISH -->
-                 <section class="studio-note" id="english" aria-labelledby="studio-title">
-                    <p class="eyebrow"><span></span>Ejercicios Bilingües</p>
-                    <h2 id="studio-title">English <em>Sheets</em></h2>
-                    <h3><em>UNIT </em> 1</h3>
-                    <h4>Vocabulary</h4>
-                    <ul>
-                        <li><em>Back-end:</em> Part of an online product that runs in a server. To be considered a full back-end it should, at least: respond to <u>requests</u> (such as HTTP), change its <u>behavior</u> and store data in a permanent <u>storage</u>.</li>
-                        <li><em>Web server:</em> Software that responds to HTTP requests. It also runs in a server.</li>
-                        <li><em>App server:</em> Software that responds to HTTP requests and changes its behavior. It could be considered some kind of back-end.</li>
-                        <li><em>Framework:</em> Set of libraries with previously written code that <u>streamlines</u> the <u>workflow</u>.</li>
-                        <li><em>HTTP:</em> One of the many internet protocols that exist. It's a client/server text protocol with a very short <u>lifespan.</u></li>
-                        <li><em>Module:</em> Piece of code that works independently and is <u>able</u> to communicate with other modules.</li>
-                        <li><em>Interface:</em> Piece of code that connects two different parts of an application.</li>
-                        <li><em>Scalability:</em> Property of an application that <u>measures</u> how easily can a project be expanded in size or in functionalities.</li>
-                        <li><em>Flexibility:</em> Property of an application that measures how easily can we modify an existing functionality.</li>
-                    </ul>
-                    <details class="activity-panel">
-                        <summary>English Sheet 1</summary>
-                        <h4>Exercises</h4>
-                        <ol>
-                                <li>Draw an HTTP request/response cycle that shows: A users logs in to Amazon and then searches “laptop computer”. Include requests to the database if necessary.</li>
-                                <li>In your own words: When is a back-end necessary?</li>
-                                <li>Watch this <a href="https://www.youtube.com/watch?v=4r6WdaY3SOA" target="_blank">video</a>. What are the HTTP methods? What are they for?</li>
-                        </ol>
-                        <h4>Writing</h4>
-                        <p>Make a short comparison (around 200 words) between two backend frameworks of your choice. What are they for? Where do they excel? Which languages are they written in?What is their main advantage? What are their market share?</p>
+def tres_en_raya(request):
+    tablero = ['-','-','-','-','-','-','-','-','-']
+    turno = 'X'
+    mensaje = 'Turno de X'
+    terminado = False    
                 
-                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT1-ENGLISH%20SHEET">Enviar actividades por correo</a>
-                    </details>
-
-                    <h3><em>UNIT </em> 2</h3>
-                    <h4>Vocabulary</h4>
-                    <ul>
-                        <li><em>Environment variable:</em> A dynamic value that affects the way running processes will behave on a computer. It is usually stored in the system's memory.</li>
-                        <li><em>Library:</em> A collection of pre-compiled or pre-written code that can be reused in multiple programs.</li>
-                        <li><em>Settings:</em> A collection of values that control the behavior of a program or system.</li>
-                        <li><em>URL:</em> Uniform Resource Locator, a reference to a web resource that specifies its location on a computer network and the mechanism for retrieving it.</li>
-                        <li><em>Protocol:</em>  In computer science, a protocol is an established, standardized set of rules that governs how electronic devices or software programs format, transmit, receive, and interpret data</li>
-                        <li><em>Import:</em> To include a module or library in your code so you can use its functions, classes and variables.</li>
-                        <li><em>Error traceback:</em> A report generated by a programming language when an error occurs, showing the sequence of function calls that led to the error.</li>
-                    </ul>
-                    <details class="activity-panel">
-                        <summary>English Sheet 2</summary>
-                        <h4>Exercises</h4>
-                        <ol>
-                            <li>What's a virtual environment in python? Why is it useful?</li>
-                            <li>We used a couple of different commands to create and activate a virtual environment. What do they do?</li>
-                            <li>How do you run a Python script? (such as manage.py)</li>
-                            <li>How do you install a Python package in Linux? And in Windows?</li>
-                            <li>How do you make sure you are working within a virtual environment?</li>
-                        </ol>
-                        <h4>Writing</h4>
-                        <p>The MVC (Model-View-Controller) pattern is a software architectural pattern that separates an application into three main components: the model (data and business logic), the view (user interface), and the controller (handles user input and updates the model and view accordingly). In your own words (200 words), explain the three different languages/technologies that Django uses in this pattern and how they interact.</p>
-                
-                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT2-ENGLISH%20SHEET">Enviar actividades por correo</a>
-                    </details>
-                    
-                    <h3><em>UNIT </em> 3</h3>
-                    <h4>Vocabulary</h4>
-                    <ul>
-                        <li><em>Template:</em> Master pattern, file or blueprint used as a guide to create identical or similar pages without starting from scratch</li>
-                        <li><em>URL:</em> (Universal Ressource Locator), text sequence that allows to unequivocally locate a file or service on the internet.</li>
-                        <li><em>Slug:</em> A Slug is the unique identifying part of a web address, typically at the end of the URL. It is human readable and helps optimize SEO</li>
-                    </ul>
-                    <details class="activity-panel">
-                        <summary>English Sheet 3</summary>
-                        <h4>Exercises</h4>
-                        <ol>
-                            <li>Why are templates useful?</li>
-                            <li>How does Django manage URL paths across applications?</li>
-                            <li>What is the final part of the URL called?</li>
-                        </ol>
-                        <h4>Writing</h4>
-                        <p>It is very common to have generic urls such as /product/&ltint:product_id>/. Describe how is this kind of slug used in Django.</p>
-                
-                        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT3-ENGLISH%20SHEET">Enviar actividades por correo</a>
-                    </details>
-                </section>
-
-                <footer class="site-footer" id="contacto">
-                    <p>¿Tienes alguna duda?</p>
-                    <a href="mailto:lydia.garceran@colegiomiralmonte.es">lydia.garceran@colegiomiralmonte.es <span aria-hidden="true">↗</span></a>
-                    <small><a href="https://lydianmode.github.io/fp/">Apuntes FP</a> © 2026 by Lydia Garcerán is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></small>
-                </footer>
-            </main>
+    contexto = {
+        'tablero': tablero
+        'turno': turno,
+        'mensaje': mensaje,
+        'terminado': terminado,
+    }
+    return render(request, 'tres_en_raya.html', contexto)</code></pre>
         </div>
 
-        <a class="back-to-top" href="#top" aria-label="Volver arriba" title="Volver arriba">↑</a>
-    </body>
-    <script src="script.js"></script>
+            <li>Dentro de la plantilla html podemos acceder al contexto por ejemplo así:</p>
+                <div class="code-block">
+                    <p style="font-weight: bold;">tres_en_raya.html</p>
+                    <hr>
+                    <pre><code>&lt;h1>Tres en raya&lt;/h1>
+&lt;p>{{ mensaje }}&lt;/p>
+&lt;div>
+    {% if not terminado %}
+        &lt;form action="{% url 'tres_en_raya' %}" method="post">
+            {% csrf_token %}
+            &lt;input type="hidden" name="tablero" value="{{ tablero }}">
+            &lt;input type="hidden" name="turno" value="{{ turno }}">
+            {% for casilla in tablero %}                    
+                &lt;button type="submit" name="posicion" value="{{ forloop.counter0 }}">
+                    {{ casilla }}
+                &lt;/button>
+            {% endfor %}
+        &lt;/form>
+    {% endif %}
+&lt;/div></code></pre>
+                </div>
+            <li>Este será el esqueleto de nuestro juego. Asegúrate de que todo funciona antes de seguir. Ten
+                en cuenta que loss botones de momento no hacen nada, pero no deberían dar errores.</li>
+            <li>El siguiente paso será añadir css y estilos para que el tablero tenga 3 filas y 3 columnas.
+                Aprovecha y haz que el juego sea un poco más bonito.</li>
+            <li>Modifica el views.py para poder acceder al contenido del formulario y actualizar el tablero</li>
+            <div class="code-block">
+                <p style="font-weight: bold;">views.py</p>
+                <hr>
+                <pre><code>from django.shortcuts import render
+def tres_en_raya(request):
+    if request.method == 'POST':
+        tablero = request.POST.get("tablero") #Seguramente tengas que tratar este string
+        [...]
+        posicion = request.POST.get("posicion")
+        [...]
+
+    else:
+        tablero = ['-','-','-','-','-','-','-','-','-']
+        turno = 'X'
+        mensaje = 'Turno de X'
+        terminado = False
+                    
+    contexto = {
+        'tablero': tablero
+        'turno': turno,
+        'mensaje': mensaje,
+        'terminado': terminado,
+    }
+    return render(request, 'tres_en_raya.html', contexto)</code></pre>
+        </div>
+        <li>Ya deberías tener todas las pistas para poder avanzar poco a poco en el proyecto. Recuerda: avanza paso a paso y haz todas las pruebas necesarias para evitar errores.</li>
+    </ol>
+</details> 
+</section>
+
+<!-- UT 5 -->
+<section class="studio-note" id="ut5" aria-labelledby="studio-title">
+    <p class="eyebrow"><span></span>UT 5 - RA 4</p>
+    <h2 id="studio-title">Usuarios y<br><em>cachés</em></h2>
+    <h3>Objetivos de la unidad:</h3>
+</section>
+
+<!-- UT 6 -->
+<section class="studio-note" id="ut6" aria-labelledby="studio-title">
+    <p class="eyebrow"><span></span>UT 6 - RA 6</p>
+    <h2 id="studio-title">POO y <em>ORMs</em></h2>
+    <h3>Objetivos de la unidad:</h3>
+</section>
+
+<!-- UT 7 -->
+<section class="studio-note" id="ut7" aria-labelledby="studio-title">
+    <p class="eyebrow"><span></span>UT 7 - RA 7</p>
+    <h2 id="studio-title">Servicios web y <em>APIs</em></h2>
+    <h3>Objetivos de la unidad:</h3>
+</section>
+
+<!-- UT 8 -->
+<section class="studio-note" id="ut8" aria-labelledby="studio-title">
+    <p class="eyebrow"><span></span>UT 8 - RA 8</p>
+    <h2 id="studio-title">Integración frontend y backend<br><em>Protocolo Websocket</em></h2>
+    <h3>Objetivos de la unidad:</h3>
+</section>
+
+<!-- UT 9 -->
+<section class="studio-note" id="ut9" aria-labelledby="studio-title">
+    <p class="eyebrow"><span></span>UT 9 - RA 9</p>
+    <h2 id="studio-title">Bibliotecas <em>Externas</em></h2>
+    <h3>Objetivos de la unidad:</h3>
+</section>
+
+<!-- ENGLISH -->
+<section class="studio-note" id="english" aria-labelledby="studio-title">
+    <p class="eyebrow"><span></span>Ejercicios Bilingües</p>
+    <h2 id="studio-title">English <em>Sheets</em></h2>
+    <h3><em>UNIT </em> 1</h3>
+    <h4>Vocabulary</h4>
+    <ul>
+        <li><em>Back-end:</em> Part of an online product that runs in a server. To be considered a full
+            back-end it should, at least: respond to <u>requests</u> (such as HTTP), change its
+            <u>behavior</u> and store data in a permanent <u>storage</u>.
+        </li>
+        <li><em>Web server:</em> Software that responds to HTTP requests. It also runs in a server.</li>
+        <li><em>App server:</em> Software that responds to HTTP requests and changes its behavior. It could
+            be considered some kind of back-end.</li>
+        <li><em>Framework:</em> Set of libraries with previously written code that <u>streamlines</u> the
+            <u>workflow</u>.
+        </li>
+        <li><em>HTTP:</em> One of the many internet protocols that exist. It's a client/server text protocol
+            with a very short <u>lifespan.</u></li>
+        <li><em>Module:</em> Piece of code that works independently and is <u>able</u> to communicate with
+            other modules.</li>
+        <li><em>Interface:</em> Piece of code that connects two different parts of an application.</li>
+        <li><em>Scalability:</em> Property of an application that <u>measures</u> how easily can a project
+            be expanded in size or in functionalities.</li>
+        <li><em>Flexibility:</em> Property of an application that measures how easily can we modify an
+            existing functionality.</li>
+    </ul>
+    <details class="activity-panel">
+        <summary>English Sheet 1</summary>
+        <h4>Exercises</h4>
+        <ol>
+            <li>Draw an HTTP request/response cycle that shows: A users logs in to Amazon and then searches
+                “laptop computer”. Include requests to the database if necessary.</li>
+            <li>In your own words: When is a back-end necessary?</li>
+            <li>Watch this <a href="https://www.youtube.com/watch?v=4r6WdaY3SOA" target="_blank">video</a>.
+                What are the HTTP methods? What are they for?</li>
+        </ol>
+        <h4>Writing</h4>
+        <p>Make a short comparison (around 200 words) between two backend frameworks of your choice. What
+            are they for? Where do they excel? Which languages are they written in?What is their main
+            advantage? What are their market share?</p>
+
+        <a class="button button-primary"
+            href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT1-ENGLISH%20SHEET">Enviar
+            actividades por correo</a>
+    </details>
+
+    <h3><em>UNIT </em> 2</h3>
+    <h4>Vocabulary</h4>
+    <ul>
+        <li><em>Environment variable:</em> A dynamic value that affects the way running processes will
+            behave on a computer. It is usually stored in the system's memory.</li>
+        <li><em>Library:</em> A collection of pre-compiled or pre-written code that can be reused in
+            multiple programs.</li>
+        <li><em>Settings:</em> A collection of values that control the behavior of a program or system.</li>
+        <li><em>URL:</em> Uniform Resource Locator, a reference to a web resource that specifies its
+            location on a computer network and the mechanism for retrieving it.</li>
+        <li><em>Protocol:</em> In computer science, a protocol is an established, standardized set of rules
+            that governs how electronic devices or software programs format, transmit, receive, and
+            interpret data</li>
+        <li><em>Import:</em> To include a module or library in your code so you can use its functions,
+            classes and variables.</li>
+        <li><em>Error traceback:</em> A report generated by a programming language when an error occurs,
+            showing the sequence of function calls that led to the error.</li>
+    </ul>
+    <details class="activity-panel">
+        <summary>English Sheet 2</summary>
+        <h4>Exercises</h4>
+        <ol>
+            <li>What's a virtual environment in python? Why is it useful?</li>
+            <li>We used a couple of different commands to create and activate a virtual environment. What do
+                they do?</li>
+            <li>How do you run a Python script? (such as manage.py)</li>
+            <li>How do you install a Python package in Linux? And in Windows?</li>
+            <li>How do you make sure you are working within a virtual environment?</li>
+        </ol>
+        <h4>Writing</h4>
+        <p>The MVC (Model-View-Controller) pattern is a software architectural pattern that separates an
+            application into three main components: the model (data and business logic), the view (user
+            interface), and the controller (handles user input and updates the model and view accordingly).
+            In your own words (200 words), explain the three different languages/technologies that Django
+            uses in this pattern and how they interact.</p>
+
+        <a class="button button-primary"
+            href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT2-ENGLISH%20SHEET">Enviar
+            actividades por correo</a>
+    </details>
+
+    <h3><em>UNIT </em> 3</h3>
+    <h4>Vocabulary</h4>
+    <ul>
+        <li><em>Template:</em> Master pattern, file or blueprint used as a guide to create identical or
+            similar pages without starting from scratch</li>
+        <li><em>URL:</em> (Universal Ressource Locator), text sequence that allows to unequivocally locate a
+            file or service on the internet.</li>
+        <li><em>Slug:</em> A Slug is the unique identifying part of a web address, typically at the end of
+            the URL. It is human readable and helps optimize SEO</li>
+    </ul>
+    <details class="activity-panel">
+        <summary>English Sheet 3</summary>
+        <h4>Exercises</h4>
+        <ol>
+            <li>Why are templates useful?</li>
+            <li>How does Django manage URL paths across applications?</li>
+            <li>What is the final part of the URL called?</li>
+        </ol>
+        <h4>Writing</h4>
+        <p>It is very common to have generic urls such as /product/&lt;int:product_id>/. Describe how is
+            this
+            kind of slug used in Django.</p>
+
+        <a class="button button-primary"
+            href="mailto:lydia.garceran@colegiomiralmonte.es?subject=BACKEND-UT3-ENGLISH%20SHEET">Enviar
+            actividades por correo</a>
+    </details>
+</section>
+
+<footer class="site-footer" id="contacto">
+    <p>¿Tienes alguna duda?</p>
+    <a href="mailto:lydia.garceran@colegiomiralmonte.es">lydia.garceran@colegiomiralmonte.es <span
+            aria-hidden="true">↗</span></a>
+    <small><a href="https://lydianmode.github.io/fp/">Apuntes FP</a> © 2026 by Lydia Garcerán is licensed
+        under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt=""
+            style="max-width: 1em;max-height:1em;margin-left: .2em;"><img
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt=""
+            style="max-width: 1em;max-height:1em;margin-left: .2em;"><img
+            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt=""
+            style="max-width: 1em;max-height:1em;margin-left: .2em;"><img
+            src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt=""
+            style="max-width: 1em;max-height:1em;margin-left: .2em;"></small>
+</footer>
+</main>
+</div>
+
+<a class="back-to-top" href="#top" aria-label="Volver arriba" title="Volver arriba">↑</a>
+</body>
+<script src="script.js"></script>
+
 </html>
