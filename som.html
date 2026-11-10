@@ -1783,7 +1783,8 @@
                 <p>Un disco físico o virtual puede dividirse en una o varias <em>particiones</em>. Cada partición puede contener un sistema de archivos propio. En Windows, las particiones suelen recibir letras de unidad; en Linux, el sistema de archivos de cada partición se monta en una ruta. Por tanto, partición y punto de montaje no son lo mismo: la partición es una región del disco y el punto de montaje es el lugar del árbol de directorios desde el que se accede a su contenido.</p>
                 <p>Para utilizar un disco adicional, el sistema debe detectarlo y, según el caso, se debe crear una tabla de particiones, definir una o varias particiones, formatearlas con un sistema de archivos compatible y montarlas o asignarles una letra. En Linux se puede montar una partición temporalmente en un directorio; para que vuelva a estar disponible después de reiniciar, hay que configurar el montaje persistente. Windows suele asignar letras automáticamente, aunque también permite montar un volumen en una carpeta vacía.</p>
                 <p>Antes de inicializar, particionar o formatear una unidad, comprueba cuidadosamente qué disco has seleccionado: estas operaciones pueden eliminar los datos que ya contiene. El montaje, por sí solo, no crea particiones ni formatea el disco; permite acceder a un sistema de archivos ya preparado.</p>
-                
+                <h4>Rutas relativas y absolutas</h4>
+                <p>Las rutas relativas se expresan en relación con el directorio actual, mientras que las rutas absolutas se expresan desde la raíz del sistema de archivos. Por ejemplo, si estás en el directorio <code>/home/ana</code>, la ruta relativa <code>./Documentos</code> se refiere a <code>/home/ana/Documentos</code>, mientras que si el directorio actual fuera /mnt/datos, la ruta ser referiría a <code>/mnt/datos/Documentos</code>. La ruta absoluta <code>/home/ana/Documentos</code> siempre se refiere al mismo lugar independientemente del directorio actual.</p>
             </section>
 
             <!-- UT 2 -->
@@ -1799,9 +1800,34 @@
                     <li>Crear máquinas virtuales con sistemas operativos libres y propietarios</li>
                     <li>Configurar máquinas virtuales</li>
                     <li>Comunicar máquinas virtuales y anfitrionas</li>
-                    <li>Analalizar el rendimiento del sistema</li>
+                    <li>Analizar el rendimiento del sistema</li>
                 </ul>
-                <h3></h3>
+                <h3><em>01. </em>Virtualización</h3>
+                <p>La virtualización de hardware es una tecnología que permite crear entornos virtuales (máquinas virtuales o MV) a partir de un único ordenador físico, dividiendo componentes como la CPU, la memoria RAM y el almacenamiento. De esta forma se simula un nuevo hardware dentro del software de un ordenador.</p>
+                <p>Cuando hablamos de virtualización distinguimos entre máquina host, física o anfitriona para referirnos al equipo físico original; y máquina guest, virtual o invitada para referirnos a la simulación sobre la que queremos trabajar. El software que permite crear máquinas virtuales se llama hipervisor.</p>
+                <p>Hay diferentes tipos de hipervisores, cada uno con sus propios pros y contras:</p>
+                <ul>
+                    <li><em>Tipo 1 o Bare Metal:</em> Aquellos que se instalan directamente sobre el hardware físico de un servidor o computadora, sin necesidad de un sistema operativo intermedio. Suelen tener buen rendimiento. Funcionan directamente sobre el Kernel. Ejemplos:</li>
+                    <ul>
+                        <li>KVM</li>
+                        <li>Hyper-V</li>
+                        <li>Proxmox</li>
+                    </ul>
+                    <li><em>Tipo 2 o tipo aplicación:</em> Aquellos que funcionan sobre el sistema operativo en tanto que aplicaciones. Tienen alta compatibilidad a costa de sacrificar rendimiento. Ejemplos:</li>
+                    <ul>
+                        <li>VirtualBox</li>
+                        <li>VMWare</li>
+                        <li>Parallels Desktop</li>
+                    </ul>
+                    <li><em>Emuladores:</em> Aquellos que emulan un hardware radicalmente diferente del de origen. También pueden ser de tipo 1 o tipo 2. Ampliamente usados para desarrollo móvil o gaming retro. Ejemplos:</li>
+                    <ul>
+                        <li>mGBA</li>
+                        <li>BlueStacks</li>
+                        <li>PCSX2</li>
+                    </ul>
+                    <li><em>Contenedores:</em> Máquinas virtuales extremadamente ligeras, normalmente sin interfaz gráfica, que buscan optimizar rendimiento y asegurar escalabilidad. El ejemplo más famoso es Docker</li>
+                    <li><em>Subsistemas:</em> Hipervisor que busca virtualizar únicamente una aplicación e integrarla lo mejor posible en el sistema operativo de origen. El ejemplo más famoso es WSL2 para Windows.</li>
+                </ul>
             </section>
 
             <!-- UT 3 -->
