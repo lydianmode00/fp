@@ -738,11 +738,10 @@ urlpatterns = [
     <h2 id="studio-title">URLS y <em>Templates</em></h2>
     <h3>Objetivos de la unidad:</h3>
     <ul>
-        <li>Insertar código dentro de HTML para generar webs</li>
-        <li>Utilizar etiquetas de inclusión de código</li>
-        <li>Escribir sentencias simples</li>
-        <li>Utilizar variables y operadores en el lenguaje de marcas</li>
-        <li>Estandarizar el uso de URLs</li>
+        <li>Comprender cómo se generan páginas web con código embebido. Principales tecnologías asociadas. (Criterios: 2.a y 2.b)</li>
+        <li>Integrar código en documentos html. (Criterios: 2.c y 2.f)</li>
+        <li>Conocer y aplicar la sintaxis básica de Django, escribiendo sentencias sencillas. (Criterios: 2.d y 2.e)</li>
+        <li>Utilizar variables y operadores del lenguaje, identificando sus diferentes tipos y ámbitos de utilización. (Criterios: 2.g y 2.h)</li>
     </ul>
     <h3><em>01. </em>Templates</h3>
     <p>Como vimos en la unidad anterior, el contenido de un HTML se puede modificar gracias a las utilidades
@@ -1095,8 +1094,69 @@ def tres_en_raya(request):
 <!-- UT 5 -->
 <section class="studio-note" id="ut5" aria-labelledby="studio-title">
     <p class="eyebrow"><span></span>UT 5 - RA 4</p>
-    <h2 id="studio-title">Usuarios y<br><em>cachés</em></h2>
+    <h2 id="studio-title">Usuarios y<br><em>sesiones</em></h2>
     <h3>Objetivos de la unidad:</h3>
+    <ul>
+        <li>Mantener información sobre usuarios en la sesión (Criterios: 4.a, 4.b, 4.c)</li>
+        <li>Crear y gestionar usuarios en Django (Criterios: 4.d, 4.e)</li>
+        <li>Usar herramientas para prueba y depuración del código (Criterios: 4.f)</li>
+    </ul>
+    <h3><em>01.</em> Información de la sesión</h3>
+    <p>HTTP no conserva por sí mismo la información entre una petición y la siguiente. Django permite
+        mantener datos asociados a un visitante mediante la sesión, disponible en cada vista a través de
+        <code>request.session</code>. Se comporta como un diccionario: podemos guardar valores usando una
+        clave y recuperarlos en otra petición.</p>
+    <p>Por defecto, Django guarda los datos de la sesión en el servidor (en la base de datos) y envía al
+        navegador una cookie con un identificador de sesión. En las siguientes peticiones, el navegador
+        envía esa cookie y Django usa el identificador para recuperar los datos correspondientes. Así, la
+        cookie no contiene directamente los datos de la sesión. El middleware de sesiones debe estar
+        habilitado en la configuración del proyecto; viene activado por defecto.</p>
+    <p>Por ejemplo, una vista puede guardar y leer el nombre de una persona así:</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">views.py</p>
+        <hr>
+        <pre><code>def bienvenida(request):
+    request.session["nombre"] = "Ada"
+    nombre = request.session.get("nombre", "visitante") #El primer parámetro es la clave, el segundo es el valor por defecto si no existe
+    return render(request, "bienvenida.html", {"nombre": nombre})</code></pre>
+    </div>
+    <p>Los datos se guardan automáticamente al modificar la sesión. Para recuperar un valor sin provocar
+        un error cuando la clave todavía no existe, podemos usar <code>get()</code> e indicar un valor por
+        defecto.</p>
+    <p>Las sesiones son útiles para mantener información del usuario durante su navegación por el sitio web. Se reinician al borrar las cookies de sesión y solo se actualizan cuando se modifican los datos. Por ejemplo:</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">views.py</p>
+        <hr>
+        <pre><code>def bienvenida(request):
+    request.session["nombre"] = "Ada" # Modfica directamente la sesión y se guarda automáticamente
+    </code></pre>
+    <div class="code-block">
+        <p style="font-weight: bold;">views.py</p>
+        <hr>
+        <pre><code>def bienvenida(request):
+    request.session["usuario"]["nombre"] = "Ada" # No modfica directamente la sesión y no se guardará automáticamente
+    request.session.modified = True # Hay que indicar que la sesión se ha modificado para que se guarde
+    </code></pre>
+    </div>
+    <p>Como hemos dicho, las sesiones se almacenan en el servidor y no se envían al cliente, lo que las hace seguras para almacenar información sensible, pero también pueden llegar a poblar el espacio de almacenamiento del servidor. Para evitar esto, es importante gestionar adecuadamente el tiempo de vida de las sesiones y limpiarlas periódicamente. Podemos modificar los parámetros de configuración de la siguiente forma:</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">settings.py</p>
+        <hr>
+        <pre><code>SESSION_COOKIE_AGE = 3600 # Tiempo de vida de la cookie de sesión en segundos (1 hora)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True # La sesión expira al cerrar el navegador
+SESSION_SAVE_EVERY_REQUEST = True # La sesión se guarda en cada petición, aunque no se haya modificado</code></pre>
+    </div>
+
+    <details class="activity-panel">
+        <summary>Tarea 1 - Contador de páginas visitadas</summary>
+        <ol>
+            <li>Modifica todas tus funciones de tus views.py para que accedan a la sesión e incrementen el contador de forma segura.</li>
+            <li>Modifica tus html para que muestren el total actualizado en el pie de página (seguramente sea suficiente con la plantilla base).</li>
+            <li>Comprueba que el contador se mantiene al cambiar de página y al recargar. Abre una sesión
+                nueva y verifica que tiene su propio contador.</li>
+            <li>Modifica los parámetros de configuración de las sesiones para que tengan un tiempo de vida de dos horas y se limpien periódicamente.</li>
+        </ol>
+    </details>
 </section>
 
 <!-- UT 6 -->
