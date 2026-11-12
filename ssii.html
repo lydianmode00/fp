@@ -802,6 +802,25 @@
         </ol>
         <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT2-Tarea 5">Enviar actividades por correo</a>
     </details>
+    <h3><em>06.</em> Gestor de Aplicaciones de Ubuntu</h3>
+    <p>Ubuntu permite instalar y mantener programas mediante un <em>gestor de paquetes</em>. Los dos sistemas de paquetes principales son:</p>
+        <ul>
+            <li><em>APT</em>: puede utilizarse desde la terminal con órdenes como <code>apt install</code>. Al instalar un paquete, consulta sus dependencias, propone los cambios necesarios y, con autorización de administración, descarga e instala los archivos. Antes de confirmar una operación, muestra qué paquetes se van a instalar, actualizar o eliminar. APT trabaja con paquetes .deb que dependen de librerías de sistema, ocupan menos espacio y se ejecutan más rápido.</li>
+            <li><em>SNAP</em>: es el gestor de paquetes desarrollado por canonical. Los paquetes snap contienen todas las dependencias necesarias. Por lo tanto las instalaciones son sencillas y directas. A cambio, ocupan más espacio y tienen un tiempo de ejecución más lento.</li>
+            <li><em>FLATPACK</em>: es un gestor abierto impulsado por la comunidad originado en el ecosistema Fedora que utiliza un sistema de entornos llamados "sandbox". Los entornos comparten librerías entre ellos para ahorrar espacio y son independientes de la distribución que se use. Los paquetes disponibles se publican en la plataforma flathub. Flatpack no está pensado ni diseñado para su uso en servidores ya que aloja exclusivamente aplicaciones con GUI.</li>
+        </ul>
+    <p>Los paquetes se obtienen de <em>repositorios</em>: servidores que organizan y distribuyen software para una versión concreta de Ubuntu. El sistema consulta los repositorios configurados para conocer qué paquetes y versiones están disponibles; al actualizar esa información, no se instalan programas automáticamente, sino que se renueva el catálogo local. Mantenerse en los repositorios oficiales ayuda a recibir paquetes verificados y actualizaciones de seguridad. No conviene añadir repositorios desconocidos sin comprobar su procedencia y compatibilidad.</p>
+    <details class="activity-panel"><summary>Tarea 6 - Instalación de paquetes</summary>
+        <p>En la máquina virtual con Ubuntu, instala el kit de desarrollo OpenJDK 21 utilizando <em>aptitude</em>, una interfaz de texto interactiva para apt. Trabaja con los repositorios oficiales configurados en el sistema y revisa las operaciones propuestas antes de confirmarlas.</p>
+        <ol>
+            <li>Abre una terminal y comprueba si <em>aptitude</em> está disponible con <code>aptitude --version</code>. Si no está instalado, actualiza el catálogo con <code>sudo apt update</code> e instálalo con <code>sudo apt install aptitude</code>.</li>
+            <li>Actualiza la información de paquetes de <em>aptitude</em> con <code>sudo aptitude update</code>. Busca el paquete <code>openjdk-21-jdk</code> y comprueba que aparece en los repositorios configurados.</li>
+            <li>Instala el paquete con <code>sudo aptitude install openjdk-21-jdk</code>. Lee la lista de cambios que propone la herramienta y confirma solo si se va a instalar el paquete esperado y sus dependencias, sin eliminar software que necesites.</li>
+            <li>Verifica la instalación con <code>java -version</code> y <code>javac -version</code>. Anota las versiones que muestran la máquina virtual de Java y el compilador.</li>
+            <li>Entrega un informe breve con la distribución y versión de Ubuntu, los comandos utilizados, el resultado de las comprobaciones y capturas del proceso. Explica qué es un repositorio y qué función cumple <em>aptitude</em>. Si el paquete no aparece, no añadas repositorios de terceros: documenta el mensaje y consulta con el docente.</li>
+        </ol>
+        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT2-Tarea 6">Enviar actividades por correo</a>
+    </details>
 </section>
 
 <!-- UT3 -->
