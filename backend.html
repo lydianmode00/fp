@@ -1151,11 +1151,27 @@ SESSION_SAVE_EVERY_REQUEST = True # La sesión se guarda en cada petición, aunq
     <details class="activity-panel">
         <summary>Tarea 1 - Contador de páginas visitadas</summary>
         <ol>
+            <li>Actualiza la base de datos para almacenar la información de las sesiones.</li>
+            <diV class="code-block">
+                <p style="font-weight: bold;">terminal</p>
+                <hr>
+                <pre><code>python manage.py migrate
+    </code></pre>
+            </diV>
             <li>Modifica todas tus funciones de tus views.py para que accedan a la sesión e incrementen el contador de forma segura.</li>
             <li>Modifica tus html para que muestren el total actualizado en el pie de página (seguramente sea suficiente con la plantilla base).</li>
             <li>Comprueba que el contador se mantiene al cambiar de página y al recargar. Abre una sesión
                 nueva y verifica que tiene su propio contador.</li>
             <li>Modifica los parámetros de configuración de las sesiones para que tengan un tiempo de vida de dos horas y se limpien periódicamente.</li>
+        </ol>
+    </details>
+    <details class="activity-panel">
+        <summary>Tarea 2 - Tres en raya modificado</summary>
+        <p>El problema con nuestro último tres en raya es que el juego entero se almacena dentro del formulario html. Aunque cómodo esto puede suponer un fallo de seguridad enorme en casos más sensibles que un simple tres en raya.Vamos a intentar modificarlo para almacenar los datos en la sesión.</p>
+        <ol>
+            <li>Elimina la información del tablero y del turno dentro del formulario.</li>
+            <li>Añade esa información a la sesión y envíala por contexto.</li>
+            <li>Asegúrate de que la lógica del juego sigue funcionando.</li>
         </ol>
     </details>
 </section>
