@@ -426,6 +426,34 @@
                             autor y puede ser usado, modificado y distribuido libremente por cualquier persona.</li>
                     </ul>
                 </ul>
+                <details class="activity-panel">
+                        <summary>Tarea: licencias, kernel y origen de los sistemas operativos</summary>
+                        <p>Realiza una investigación con fuentes fiables y redacta las respuestas con tus propias palabras.
+                            Para la entrega, indica la fecha de consulta y enlaza al menos una fuente oficial o
+                            académica por apartado.</p>
+                        <ol>
+                            <li>
+                                <strong>Licencias de software.</strong> Explica la diferencia entre software propietario,
+                                software libre, software de código abierto, freeware, shareware y dominio público. Describe
+                                al menos tres licencias concretas y compara para qué permite cada una: ejecutar, copiar,
+                                estudiar, modificar y distribuir el software.
+                            </li>
+                            <li>
+                                <strong>Kernel.</strong> Define qué es el kernel de un sistema operativo y explica sus
+                                funciones principales. Diferencia entre kernel monolítico, microkernel y kernel híbrido,
+                                indicando al menos un ejemplo de sistema operativo para cada tipo.
+                            </li>
+                            <li>
+                                <strong>Origen de los sistemas operativos.</strong> Haz una breve historia desde los primeros
+                                sistemas por lotes hasta los sistemas operativos personales y modernos. Menciona al menos
+                                tres hitos o sistemas importantes y la necesidad técnica que resolvió cada uno.
+                            </li>
+                            <li>
+                                Añade una tabla de resumen con una columna para cada concepto y otra con una ventaja y una
+                                limitación o responsabilidad asociada a él.
+                            </li>
+                        </ol>
+                </details>
 
                 <h3><em>02. </em>Representación de la información</h3>
                 <p>Como hemos dicho. Los ordenadores trabajan con información representada en forma binaria, es decir,
@@ -913,6 +941,43 @@
                     <i>54 65 6E 67 6F 20 31 36 20 61 F1 6F 73</i>
                 </ol>
                 <p>El proceso es el mismo, pero al revés para convertir ASCII hexadecimal a texto natural que una persona pueda leer.</p>
+                <details class="activity-panel">
+                    <summary>Tarea: ejercicios de conversión entre bases y texto ASCII</summary>
+                    <p>Realiza las conversiones mostrando el procedimiento utilizado. Puedes comprobar los resultados
+                        con una calculadora o herramienta de conversión, pero no sustituyas el desarrollo manual.</p>
+                    <h4>A. Conversiones entre binario, decimal y hexadecimal</h4>
+                    <ol>
+                        <li>Convierte a decimal: <code>10110110₂</code>, <code>00101101₂</code> y
+                            <code>11110000₂</code>.</li>
+                        <li>Convierte a binario: <code>73₁₀</code>, <code>126₁₀</code> y
+                            <code>202₁₀</code>.</li>
+                        <li>Convierte a hexadecimal: <code>42₁₀</code>, <code>255₁₀</code> y
+                            <code>4096₁₀</code>. Indica el prefijo <code>0x</code> en los resultados.</li>
+                        <li>Convierte a decimal: <code>0x7C</code>, <code>0x1A5</code> y
+                            <code>0xC80</code>.</li>
+                        <li>Convierte a hexadecimal agrupando los bits de cuatro en cuatro:
+                            <code>10110110₂</code> y <code>11100011₂</code>.</li>
+                        <li>Convierte a binario: <code>0x2F</code> y <code>0xA5</code>.</li>
+                    </ol>
+                    <h4>B. Conversión de texto a hexadecimal usando ASCII</h4>
+                    <ol start="7">
+                        <li>Convierte el texto <code>HOLA</code> a su representación hexadecimal ASCII.</li>
+                        <li>Convierte el texto <code>FP 2026</code> a hexadecimal ASCII. Recuerda que el espacio tiene
+                            el código <code>20</code> hexadecimal.</li>
+                        <li>Convierte la palabra <code>SISTEMA</code> a hexadecimal ASCII y después utiliza ese
+                            resultado para comprobar la conversión inversa.</li>
+                    </ol>
+                    <h4>C. Conversión de hexadecimal a texto usando ASCII</h4>
+                    <ol start="10">
+                        <li>Convierte <code>53 49 49</code> a texto natural.</li>
+                        <li>Convierte <code>4C 69 62 72 65</code> a texto natural.</li>
+                        <li>Convierte <code>53 49 53 54 45 4D 41</code> a texto natural y explica qué regla utilizas
+                            para separar cada carácter.</li>
+                    </ol>
+                    <p>Entrega una tabla con la representación original, el procedimiento o descomposición utilizada
+                        y el resultado final. En las conversiones a binario utiliza ocho bits por byte cuando se indique
+                        una cantidad de bytes.</p>
+                </details>
                 <h3><em>03. </em>Procesos y estados</h3>
                 <p>Un <em>proceso</em> es un programa en ejecución. No es solo el conjunto de instrucciones del programa: también incluye su estado actual, los datos con los que trabaja y los recursos que el sistema operativo le ha asignado. El sistema operativo registra esta información en una estructura de control del proceso, que le permite pausarlo y reanudarlo.</p>
                 <h4>Interacción con el procesador y la memoria</h4>
