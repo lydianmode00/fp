@@ -831,7 +831,7 @@
     <h2 id="studio-title">Gestores de <br><em>Ficheros</em></h2>
     <ul>
         <li>Comparar sistemas de archivos según sistemas operativos (Criterios: 3.a, 3.b.)</li>
-        <li>Utilizar herramientas en entorno gráfico y comandos para localizar información en el sistema de archivos. (Criterios: 3.c</li>
+        <li>Utilizar herramientas en entorno gráfico y comandos para localizar información en el sistema de archivos. (Criterios: 3.c)</li>
         <li>Crear diferentes tipos de particiones y unidades lógicas. (Criterios: 3.d)</li>
         <li>Realizar copias de seguridad. (Criterios: 3.f)</li>
         <li>Planificar y automatizar tareas. (Criterios: 3.e)</li>
@@ -898,6 +898,19 @@
         </table>
     </div>
     <p>La compatibilidad no es igual en todos los sistemas operativos: por ejemplo, Windows no ofrece soporte nativo completo para ext4 ni APFS, y macOS puede leer NTFS normalmente, pero no escribir en él de forma nativa. Para una unidad que se vaya a usar en varios sistemas, exFAT suele ser una opción práctica, siempre que no se necesiten permisos avanzados ni journaling.</p>
+    <h3><em>02.</em> Journaling: registro para recuperar el sistema de archivos</h3>
+    <p>El <em>journaling</em> o registro por diario es una técnica que permite recuperar con rapidez y seguridad la coherencia de un sistema de archivos después de un apagado inesperado, un reinicio brusco o un fallo del almacenamiento. Cuando se crea o modifica un archivo, el sistema no cambia únicamente sus datos: también debe actualizar estructuras internas, como directorios, tablas de asignación, metadatos o mapas de bloques libres. Si se interrumpe una operación a mitad de camino, estas estructuras pueden quedar en un estado incompatible entre sí.</p>
+    <p>Antes de ejecutar una operación importante, el sistema de archivos escribe en una zona reservada del disco denominada <em>diario</em> qué cambios tiene previsto realizar y el estado necesario para completar la transacción. Esta zona actúa como una especie de registro de operaciones pendientes. Después de confirmar que los datos del diario se han almacenado, el sistema aplica los cambios a sus estructuras definitivas y finalmente marca la transacción como completada. Si ocurre un corte de energía, la siguiente puesta en marcha puede repetir las operaciones confirmadas o descartar las incompletas sin tener que comprobar cada bloque del volumen mediante un análisis completo.</p>
+    <h4>Información que puede registrar el diario</h4>
+    <p>La información concreta depende del sistema de archivos, pero un diario suele incluir identificadores de transacción, referencias a los bloques o estructuras que van a modificarse, cambios en metadatos como nombres, tamaños, propietarios o permisos, operaciones sobre directorios y asignaciones de espacio. Hay que distinguir el diario de una copia de seguridad: el diario conserva principalmente información para la recuperación inmediata de las estructuras del sistema de archivos, no una versión histórica de todos los documentos ni una copia independiente de los datos del usuario.</p>
+    <h4>Modos de trabajo y límites</h4>
+    <ul>
+        <li><em>Journaling de metadatos:</em> registra los cambios de la estructura y los metadatos, pero no necesariamente todo el contenido escrito por el usuario. Es habitual en sistemas orientados a rendimiento, porque reduce las escrituras al diario.</li>
+        <li><em>Journaling completo:</em> registra primero los datos y los metadatos en el diario antes de aplicarlos definitivamente. Proporciona mayor protección frente a la pérdida o corrupción de datos, aunque puede generar más operaciones de escritura.</li>
+        <li><em>Journaling ordenado:</em> combina ambos enfoques: escribe los datos antes de registrar determinados cambios de metadatos. Se busca equilibrar integridad y rendimiento.</li>
+    </ul>
+    <p>Los nombres exactos y los modos disponibles cambian según NTFS, ext4, XFS, Btrfs u otros sistemas. Además, el diario no evita todos los problemas: no sustituye las copias de seguridad, no garantiza que los datos se hayan escrito correctamente si existe un hardware defectuoso y no protege frente a borrados accidentales, malware o fallos físicos de un disco. Una SSD o unidad USB puede perder información si falla su electrónica; incluso con journaling, conviene mantener copias externas y comprobar periódicamente el estado del almacenamiento.</p>
+    <p>Durante una operación normal, el diario ocupa espacio y puede aumentar ligeramente el número de escrituras. Sin embargo, gracias a él, después de un reinicio brusco el sistema puede realizar una recuperación dirigida en lugar de revisar todo el volumen. Procesos como <code>fsync</code>, las llamadas de confirmación o la política de caché de escritura influyen también en cuándo quedan persistidos los datos; cerrar un archivo no siempre significa que el mismo instante haya sido escrito físicamente en el medio.</p>
     <details class="activity-panel"><summary>Tarea: organización y características de los sistemas de archivos</summary>
         <p>Responde con tus propias palabras a las siguientes cuestiones. Para los límites de capacidad, indica las unidades utilizadas y consulta fuentes fiables: pueden variar según la versión, la implementación y el sistema operativo.</p>
         <ol>
@@ -921,15 +934,201 @@
         <p>Presenta los límites de capacidad en una tabla comparativa e incluye las fuentes consultadas.</p>
         <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SOM-UT1-SISTEMAS-ARCHIVOS">Enviar actividad por correo</a>
     </details>
-    <h4>Jerarquía de directorios, discos y particiones</h4>
-    <p>Los sistemas operativos organizan los archivos en una jerarquía de directorios, pero representan de forma distinta la raíz y las unidades de almacenamiento:</p>
+    <h3><em>03.</em> Jerarquía de archivos y directorios</h3>
+    <p>La <em>jerarquía</em> es la forma estructurada de organizar archivos y directorios dentro de un sistema de almacenamiento. Los directorios pueden contener archivos y otros directorios, llamados subdirectorios, formando un árbol con una base común: el directorio raíz. Cada elemento ocupa una posición dentro de ese árbol y se identifica mediante una ruta. Esta organización permite localizar información, separar responsabilidades, establecer permisos y mostrar el contenido de distintas unidades como un conjunto lógico.</p>
+    <p>Una ruta puede ser <em>absoluta</em> o <em>relativa</em>. La ruta absoluta comienza en la raíz del sistema y describe desde ella todo el recorrido hasta el elemento: por ejemplo, <code>/home/ana/proyectos</code> o <code>C:\Users\Ana\Documentos</code>. La ruta relativa comienza en el directorio de trabajo actual y utiliza nombres o atajos: <code>documentos/informe.pdf</code> indica que el archivo está dentro de <code>documentos</code>, desde la ubicación actual. Los símbolos <code>.</code> y <code>..</code> representan respectivamente el directorio actual y el directorio padre.</p>
+    <h4>Elementos que forman una jerarquía</h4>
     <ul>
-        <li><em>Windows:</em> cada volumen suele aparecer como una unidad independiente con una letra, como <code>C:\</code> o <code>D:\</code>. La raíz de <code>C:\</code> es el inicio del árbol de esa unidad; las rutas usan la barra invertida, por ejemplo <code>C:\Usuarios\Ana\Documentos</code>. Cada disco tiene un árbol propio e independiente.</li>
-        <li><em>Linux:</em> existe un único árbol de directorios cuya raíz es <code>/</code>. Las particiones y otros dispositivos se incorporan a ese árbol en un directorio llamado <em>punto de montaje</em>. Por ejemplo, un disco adicional puede montarse en <code>/mnt/datos</code> y sus archivos se encontrarán bajo esa ruta. Las rutas usan la barra normal, como <code>/home/ana/Documentos</code>.</li>
+        <li><em>Raíz:</em> es el directorio inicial de la jerarquía. En Windows, cada volumen tiene su propia raíz representada por una letra, mientras que en Linux existe una raíz única <code>/</code> para todo el sistema visible.</li>
+        <li><em>Directorios o carpetas:</em> contienen referencias a archivos y subdirectorios. Internamente, suelen guardar metadatos y apuntar a estructuras como las entradas de directorio o las inodos, según el sistema de archivos.</li>
+        <li><em>Subdirectorios:</em> son directorios situados dentro de otro directorio. Pueden crear niveles arbitrarios, aunque una estructura excesivamente profunda dificulta la navegación y la administración.</li>
+        <li><em>Ruta:</em> describe los componentes que hay que recorrer desde una raíz o desde el directorio actual hasta llegar a un elemento.</li>
+        <li><em>Enlaces:</em> permiten referenciar un elemento desde otra ubicación. Un enlace simbólico apunta a una ruta; un enlace duro puede representar varias rutas al mismo objeto almacenado, según las capacidades del sistema de archivos.</li>
     </ul>
-    <p>Un disco físico o virtual puede dividirse en una o varias <em>particiones</em>. Cada partición puede contener un sistema de archivos propio. En Windows, las particiones suelen recibir letras de unidad; en Linux, el sistema de archivos de cada partición se monta en una ruta. Por tanto, partición y punto de montaje no son lo mismo: la partición es una región del disco y el punto de montaje es el lugar del árbol de directorios desde el que se accede a su contenido.</p>
-    <p>Para utilizar un disco adicional, el sistema debe detectarlo y, según el caso, se debe crear una tabla de particiones, definir una o varias particiones, formatearlas con un sistema de archivos compatible y montarlas o asignarles una letra. En Linux se puede montar una partición temporalmente en un directorio; para que vuelva a estar disponible después de reiniciar, hay que configurar el montaje persistente. Windows suele asignar letras automáticamente, aunque también permite montar un volumen en una carpeta vacía.</p>
-    <p>Antes de inicializar, particionar o formatear una unidad, comprueba cuidadosamente qué disco has seleccionado: estas operaciones pueden eliminar los datos que ya contiene. El montaje, por sí solo, no crea particiones ni formatea el disco; permite acceder a un sistema de archivos ya preparado.</p>
+    <h4>Windows y Linux representan las unidades de distinta manera</h4>
+    <p>En <em>Windows</em>, cada volumen suele verse como una unidad independiente con una letra, como <code>C:\</code> o <code>D:\</code>. La raíz de <code>C:\</code> comienza el árbol de ese volumen y las rutas utilizan habitualmente la barra invertida, por ejemplo <code>C:\Usuarios\Ana\Documentos</code>. Dos discos pueden tener entonces dos árboles visibles con raíces distintas. Windows distingue además nombres reservados y convenciones propias, como los nombres de usuario, y normalmente no diferencia mayúsculas de minúsculas en sus rutas.</p>
+    <p>En <em>Linux</em> existe un único árbol cuyo origen es <code>/</code>. Las particiones y dispositivos no necesitan una letra propia: sus sistemas de archivos se incorporan al árbol mediante un <em>punto de montaje</em>. Por ejemplo, una partición puede conectarse en <code>/mnt/datos</code> y todos sus archivos aparecen bajo esa ruta. Las rutas usan la barra normal, como <code>/home/ana/Documentos</code>, y el nombre distingue mayúsculas y minúsculas. Además, Linux organiza con convenciones conocidas directorios como <code>/bin</code>, <code>/etc</code>, <code>/home</code>, <code>/var</code> y <code>/tmp</code>, aunque pueden existir diferencias entre distribuciones y configuraciones.</p>
+    <h4>Discos, particiones, volúmenes y puntos de montaje</h4>
+    <p>Un disco físico o virtual puede dividirse en una o varias <em>particiones</em>. Una partición es una región definida dentro del almacenamiento y puede contener un sistema de archivos; por ello, partición y sistema de archivos son conceptos diferentes. El <em>volumen</em> puede referirse al sistema de archivos accesible dentro de una partición o a un espacio lógico construido sobre uno o varios dispositivos. El <em>punto de montaje</em> es, en Linux, el directorio desde el que se accede al volumen; en Windows, el volumen puede recibir una letra o montarse también en una carpeta vacía.</p>
+    <p>Para utilizar un disco adicional deben detectarse sus controladores y hardware, preparar una tabla de particiones si fuera necesario, crear una o varias particiones, formatearlas con un sistema compatible y montarlas o asignarles una letra. En Linux, un montaje temporal puede realizarse con una orden y mantenerse hasta reiniciar; para conservarlo después del arranque hay que declararlo en el archivo de configuración correspondiente. El montaje no crea particiones ni formatea el disco: solo conecta un sistema de archivos ya preparado a una ubicación del árbol.</p>
+    <h4>Una estructura coherente y segura</h4>
+    <p>Una buena organización comienza por nombres claros, evitando caracteres confusos o descripciones genéricas como «nuevo_documento_final». Conviene separar documentos personales, datos de aplicación, configuraciones, copias de seguridad y temporales. Los permisos deben limitar el acceso a los directorios sensibles, y las rutas usadas en scripts deberían comprobarse para no depender de directorios improvisados.</p>
+    <p>Antes de inicializar, particionar o formatear una unidad hay que verificar el nombre, el tamaño y el identificador del disco. Estas operaciones pueden eliminar datos, cambiar el arranque o hacer que un volumen deje de estar disponible. Siempre conviene comprobar que se está trabajando sobre la unidad correcta y que existen copias de seguridad recientes. Eliminar un directorio no siempre debe significar borrar físicamente todos sus bloques de inmediato: el sistema puede marcar primero el espacio como libre y reutilizarlo posteriormente.</p>
+    <h3><em>04.</em> Navegación por el sistema de archivos</h3>
+    <p>Navegar por el sistema de archivos consiste en localizar elementos, desplazarse entre directorios y conocer dónde se está trabajando. La navegación puede realizarse desde un entorno gráfico mediante ventanas, iconos y menús, o desde una terminal mediante comandos y rutas escritas. Ambos métodos ofrecen las mismas capacidades fundamentales, pero la línea de comandos resulta especialmente útil para búsquedas complejas, procesos automatizados y administración remota.</p>
+    <h4>Navegación gráfica</h4>
+    <p>Los gestores de archivos muestran el contenido de cada directorio y permiten abrir, crear, mover, copiar, renombrar o eliminar archivos y carpetas. Las funciones más habituales son:</p>
+    <ul>
+        <li>Usar el panel de navegación lateral para acceder rápidamente a unidades, carpetas personales, descargas, lugares recientes y ubicaciones montadas.</li>
+        <li>Recorrer el árbol mediante carpetas visibles o pulsar los botones de retroceso y avance.</li>
+        <li>Escribir o mostrar la ruta actual en la barra de direcciones para acceder directamente a una ubicación conocida.</li>
+        <li>Activar la vista de elementos ocultos, distinguir carpetas y archivos, cambiar el orden y utilizar las distintas vistas de iconos o detalles.</li>
+        <li>Buscar por nombre o por contenido; los filtros pueden incluir tamaño, tipo, fecha de modificación o ubicación.</li>
+        <li>Usar pestañas o varias ventanas para organizar operaciones de arrastrar y soltar o copiar entre directorios.</li>
+        <li>Consultar las propiedades de un elemento para conocer su tamaño, ubicación, fecha, propietario y permisos.</li>
+    </ul>
+    <p>En <em>Windows</em> se utiliza principalmente el Explorador de archivos. Se puede abrir con <code>Inicio + E</code>, acceder a «Este equipo» para ver las unidades y escribir una ruta en la barra superior. En <em>Linux</em>, herramientas como Nautilus, Dolphin, Thunar o Nemo permiten realizar operaciones similares; la combinación o el nombre del gestor dependen de la distribución y del entorno de escritorio. En <em>macOS</em>, Finder proporciona una navegación gráfica con el Dock, los dispositivos laterales, etiquetas y búsquedas mediante Spotlight.</p>
+    <p>Antes de arrastrar o eliminar elementos hay que comprobar el destino, la unidad y los permisos. El arrastre puede mover o copiar según el origen y el destino, y puede existir una diferencia entre la papelera, la eliminación permanente y la recuperación de espacio. Una unidad extraíble no debe desconectarse durante una operación de copia o después de haber modificado los datos sin expulsarla primero.</p>
+    <h4>Navegación mediante comandos</h4>
+    <p>La terminal trabaja sobre un <em>directorio actual</em> o de trabajo. Las rutas relativas se interpretan desde esa ubicación y las rutas absolutas se interpretan desde la raíz del sistema. Esta tabla recoge las operaciones básicas en Linux y Windows:</p>
+    <div class="table-scroll" role="region" aria-label="Comandos básicos para navegar por archivos y directorios" tabindex="0">
+        <table>
+            <caption>Navegación y búsqueda con línea de comandos</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Operación</th>
+                    <th scope="col">Linux</th>
+                    <th scope="col">Windows PowerShell</th>
+                    <th scope="col">Windows CMD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Mostrar el directorio actual</th>
+                    <td><code>pwd</code></td>
+                    <td><code>Get-Location</code></td>
+                    <td><code>cd</code></td>
+                </tr>
+                <tr>
+                    <th scope="row">Cambiar de directorio</th>
+                    <td><code>cd Documentos</code></td>
+                    <td><code>Set-Location Documentos</code></td>
+                    <td><code>cd Documentos</code></td>
+                </tr>
+                <tr>
+                    <th scope="row">Ir al directorio padre</th>
+                    <td><code>cd ..</code></td>
+                    <td><code>Set-Location ..</code></td>
+                    <td><code>cd ..</code></td>
+                </tr>
+                <tr>
+                    <th scope="row">Ir al directorio personal</th>
+                    <td><code>cd ~</code></td>
+                    <td><code>Set-Location $HOME</code></td>
+                    <td><code>cd %USERPROFILE%</code></td>
+                </tr>
+                <tr>
+                    <th scope="row">Ir a la raíz</th>
+                    <td><code>cd /</code></td>
+                    <td><code>Set-Location C:\</code></td>
+                    <td><code>cd \</code></td>
+                </tr>
+                <tr>
+                    <th scope="row">Cambiar de unidad</th>
+                    <td>Usar <code>cd</code> sobre su punto de montaje</td>
+                    <td><code>D:</code></td>
+                    <td><code>D:</code></td>
+                </tr>
+                <tr>
+                    <th scope="row">Listar el contenido</th>
+                    <td><code>ls</code>; ocultos con <code>ls -la</code></td>
+                    <td><code>Get-ChildItem</code>; ocultos con <code>-Force</code></td>
+                    <td><code>dir</code>; ocultos con <code>dir /a</code></td>
+                </tr>
+                <tr>
+                    <th scope="row">Buscar por nombre en Linux</th>
+                    <td><code>find /ruta -name "*.pdf"</code></td>
+                    <td>—</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <th scope="row">Buscar por nombre en Windows</th>
+                    <td>—</td>
+                    <td><code>Get-ChildItem C:\ -Recurse -Filter "*.pdf"</code></td>
+                    <td><code>dir /s /b "*.pdf"</code> desde la unidad adecuada</td>
+                </tr>
+                <tr>
+                    <th scope="row">Buscar texto dentro de archivos</th>
+                    <td><code>grep -R "texto" /ruta</code></td>
+                    <td><code>Select-String "texto" -Path C:\ruta\*</code></td>
+                    <td><code>findstr /s "texto" C:\ruta\*.*</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4>Búsquedas útiles y precauciones</h4>
+    <p>La orden <code>find</code> permite buscar en Linux con criterios de nombre, tipo, tamaño o fecha, y puede ejecutar acciones sobre los resultados. Las búsquedas recursivas pueden tardar mucho si incluyen rutas como <code>/</code> o una unidad con millones de archivos. En PowerShell conviene empezar en la carpeta concreta y usar filtros antes de recorrer el sistema completo. En Windows, el comando <code>where</code> también permite localizar un ejecutable disponible en las rutas configuradas por la variable <code>PATH</code>.</p>
+    <p>Los comodines representan patrones: por ejemplo, <code>*</code> sustituye cualquier secuencia de caracteres y <code>?</code> sustituye un solo carácter. Las comillas pueden ser necesarias para evitar que la terminal interprete los símbolos antes de que lleguen a la aplicación. Comprueba siempre la ruta utilizada al ejecutar operaciones destructivas como eliminar o mover; en Linux, una ruta mal escrita con permisos elevados puede afectar a archivos críticos.</p>
+    <p>En resumen, el entorno gráfico facilita la comprensión visual de la jerarquía y es adecuado para muchas tareas cotidianas. La línea de comandos ofrece precisión, búsqueda avanzada y automatización. El alumnado debe conocer ambos métodos y saber elegir el más seguro y adecuado para cada operación.</p>
+    <h3><em>05.</em> Particiones y unidades lógicas</h3>
+    <p>Una <em>partición</em> es una sección definida dentro de un disco. Permite separar sistemas operativos, datos y zonas de recuperación, o asignar un volumen a una tabla de archivos concreta. La <em>tabla de particiones</em> describe qué regiones utiliza el disco. Los sistemas actuales suelen emplear GPT, mientras que MBR conserva compatibilidad con equipos antiguos y esquemas de arranque heredados.</p>
+    <p>Una partición primaria puede contener directamente un sistema de archivos. MBR también utiliza particiones extendidas para crear varias <em>unidades lógicas</em> dentro de ellas. GPT no necesita las particiones extendidas ni las unidades lógicas: permite crear directamente muchas particiones. Formatear una partición crea el sistema de archivos que organizará sus datos; en Windows puede asignarse una letra de unidad y en Linux puede montarse en un directorio.</p>
+    <h4>Crear particiones con herramientas gráficas</h4>
+    <p>En <em>Windows</em>, la Administración de discos puede abrirse con <code>diskmgmt.msc</code>. La utilidad permite crear volúmenes simples, ampliar o reducir particiones existentes, cambiar letras, formatear y eliminar volúmenes. Si se dispone de espacio sin asignar, se pulsa con el botón derecho sobre él y se selecciona «Nuevo volumen simple». El asistente pide el tamaño, la letra de unidad, el sistema de archivos —normalmente NTFS— y, opcionalmente, una etiqueta de volumen.</p>
+    <p>Para reducir una partición, se selecciona «Reducir volumen» y se indica la cantidad de espacio que se quiere liberar. Windows solo puede reducir hasta donde existan datos movibles en determinadas posiciones; si no puede liberar suficiente espacio, puede ser necesario reorganizar o mover datos. Nunca se debe reducir el disco ni el volumen de arranque de un equipo físico sin una copia de seguridad y sin conocer las consecuencias.</p>
+    <p>En <em>Ubuntu</em>, el apartado «Discos» permite crear una tabla de particiones nueva, definir particiones y formatearlas. Para operaciones sobre particiones existentes, la herramienta gráfica <em>GParted</em> muestra de forma visual qué bloques están ocupados y cuáles son libres. Desde el menú se puede crear una tabla nueva de GPT o MBR, elegir «Nueva», indicar el tamaño y el sistema de archivos y confirmar al final con «Aplicar todas las operaciones». GParted y «Discos» requieren permisos de administración para modificar unidades.</p>
+    <h4>Crear particiones desde la línea de comandos</h4>
+    <p>En Windows, <code>diskpart</code> permite trabajar con discos, particiones y volúmenes mediante texto. Para modificar un disco virtual se debe abrir una terminal como administrador y seguir una comprobación cuidadosa:</p>
+    <ol>
+        <li><code>list disk</code> muestra los discos disponibles.</li>
+        <li><code>select disk N</code> selecciona el disco elegido, sustituyendo <code>N</code> por su número correcto.</li>
+        <li><code>detail disk</code> permite comprobar el tamaño, el estado y las particiones antes de continuar.</li>
+        <li><code>convert gpt</code> crea una tabla GPT, si el disco está vacío y se desea ese esquema.</li>
+        <li><code>create partition primary size=2048</code> crea una partición primaria de 2048 MB en el espacio disponible.</li>
+        <li><code>format fs=ntfs quick label=Practica</code> prepara la partición con NTFS.</li>
+        <li><code>assign letter=Z</code> asigna una letra si está disponible.</li>
+        <li><code>list volume</code> permite comprobar el resultado.</li>
+    </ol>
+    <p>Los pasos anteriores dependen de que exista espacio sin asignar. Una orden como <code>clean</code> elimina la tabla de particiones y debe evitarse en equipos físicos o unidades que contengan datos importantes. DiskPart no debe utilizarse hasta estar completamente seguro del número de disco seleccionado.</p>
+    <p>En Ubuntu, la orden <code>lsblk</code> identifica los discos y sus particiones con nombres como <code>sdb</code>, <code>nvme0n1</code> o <code>vda</code>. Para comprobar el esquema se puede utilizar <code>sudo fdisk -l /dev/NOMBRE_DISCO</code>. Después, <code>sudo fdisk /dev/NOMBRE_DISCO</code> abre un entorno interactivo donde <code>g</code> crea una tabla GPT vacía, <code>n</code> crea una partición, <code>p</code> muestra el esquema, <code>w</code> escribe los cambios y <code>q</code> sale sin escribirlos.</p>
+    <p>Otra opción es <code>sudo parted /dev/NOMBRE_DISCO</code>. Dentro se pueden ejecutar órdenes como <code>mklabel gpt</code>, <code>mkpart primary ext4 1MiB 2GiB</code> y <code>print</code>. Tras confirmar la partición, se crea el sistema de archivos fuera de <code>parted</code>, por ejemplo con <code>sudo mkfs.ext4 /dev/NOMBRE_PARTICION</code>. Finalmente, puede montarse en una carpeta creada previamente:</p>
+    <p><code>sudo mkdir /mnt/practica</code> &nbsp; <code>sudo mount /dev/NOMBRE_PARTICION /mnt/practica</code></p>
+    <p>El montaje permite usar la partición, pero no la hace permanente después de reiniciar. Para un montaje persistente se debe comprobar su UUID con <code>sudo blkid</code> y declararlo con cuidado en <code>/etc/fstab</code>. Un error en este archivo puede impedir el arranque o el montaje completo del sistema.</p>
+    <div class="table-scroll" role="region" aria-label="Comparación de herramientas para crear particiones" tabindex="0">
+        <table>
+            <caption>Herramientas gráficas y de línea de comandos para particionar</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Sistema</th>
+                    <th scope="col">Herramienta gráfica</th>
+                    <th scope="col">Herramienta de línea de comandos</th>
+                    <th scope="col">Operaciones principales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Windows</th>
+                    <td>Administración de discos (<code>diskmgmt.msc</code>)</td>
+                    <td><code>diskpart</code></td>
+                    <td>Elegir disco, reducir o crear volumen, formatear, asignar letra y comprobar el volumen.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ubuntu/Linux</th>
+                    <td>Discos o GParted</td>
+                    <td><code>lsblk</code>, <code>fdisk</code>, <code>parted</code>, <code>mkfs</code> y <code>mount</code></td>
+                    <td>Identificar discos, crear la tabla, crear particiones, formatear y montar en el árbol.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <details class="activity-panel">
+        <summary>Actividad - Práctica segura de particiones en máquinas virtuales</summary>
+        <p>Realiza la actividad exclusivamente con discos virtuales nuevos y de prueba. Crea una instantánea antes de comenzar y no añadas ni utilices discos físicos del equipo anfitrión. Confirma el número, el tamaño y el nombre del disco antes de cualquier operación destructiva.</p>
+        <h4>Parte A: Windows en máquina virtual</h4>
+        <ol>
+            <li>Crea una máquina virtual Windows con al menos un disco secundario virtual vacío de 20 GB. No modifiques el disco donde esté instalado el sistema.</li>
+            <li>Crea una instantánea. Desde Windows abre la Administración de discos y verifica que el disco secundario aparece como «Sin inicializar» o «Sin asignar». No confíes únicamente en el tamaño: comprueba el número de disco virtual configurado en la máquina.</li>
+            <li>Inicia el disco con una tabla GPT. Crea una partición principal de 5 GB, asígnale una letra disponible y formatéala con NTFS. Pon una etiqueta identificativa, por ejemplo <code>PRUEBA1</code>.</li>
+            <li>Crea dentro del volumen un archivo de texto y comprueba que puede abrirse. Luego crea una segunda partición simple con el espacio libre restante y formatéala con NTFS.</li>
+            <li>Captura las propiedades de ambas particiones y el resultado en Administración de discos. Explica qué diferencias observas entre el disco, la partición, el volumen y la letra asignada.</li>
+            <li>Abre una terminal como administrador y ejecuta <code>diskpart</code>. Usa <code>list disk</code>, <code>select disk N</code> y <code>detail disk</code>. Confirma dos veces que <code>N</code> corresponde al disco secundario; no uses <code>clean</code>, <code>format</code> ni <code>delete partition</code> sobre el disco del sistema.</li>
+            <li>Comprueba con <code>list volume</code> los volúmenes creados con la herramienta gráfica. Sin modificar los datos existentes, explica qué volúmenes, letras y formatos aparecen. Si el profesor lo autoriza, crea otra partición en un disco vacío añadido específicamente para la práctica y documenta cada orden usada.</li>
+            <li>Entrega capturas de Administración de discos, de <code>diskpart</code> y del archivo guardado. Enumera las particiones, sus tamaños, los formatos y las letras asignadas.</li>
+        </ol>
+        <h4>Parte B: Ubuntu en máquina virtual</h4>
+        <ol>
+            <li>Crea una máquina Ubuntu con un disco secundario virtual vacío de al menos 20 GB. Verifica con <code>lsblk</code> y <code>sudo fdisk -l</code> qué dispositivo corresponde al disco secundario. No modifiques el disco del sistema ni otros dispositivos.</li>
+            <li>Crea una instantánea y abre la herramienta «Discos» o GParted. Crea una tabla de particiones GPT en el disco secundario vacío y una partición ext4 de 5 GB. Asigna una etiqueta clara y móntala en un punto de montaje temporal.</li>
+            <li>Abre la terminal, crea un archivo dentro del punto de montaje y comprueba su ruta y propiedades. Utiliza <code>ls -l</code>, <code>df -h</code> y <code>mount</code> para comprobar que el volumen está disponible.</li>
+            <li>Captura la representación gráfica de GParted o «Discos» y las pantallas de <code>lsblk</code>, <code>df -h</code> y <code>mount</code>.</li>
+            <li>Repite la práctica con la línea de comandos en un segundo disco virtual vacío. Identifica el disco, abre <code>sudo fdisk</code> o <code>sudo parted</code>, crea una tabla GPT y una partición del tamaño indicado por el profesor.</li>
+            <li>En <code>fdisk</code>, usa <code>g</code>, <code>n</code>, <code>p</code> y <code>w</code>; en <code>parted</code> usa <code>mklabel gpt</code>, <code>mkpart primary ext4</code> y <code>print</code>. Después crea el sistema de archivos y móntalo para comprobarlo. No uses <code>mkfs</code>, <code>mount</code>, <code>dd</code> ni <code>fdisk</code> sobre el disco del sistema.</li>
+            <li>Explica por qué la partición creada con GParted o «Discos» puede verse con distintos nombres desde la terminal y diferencia el dispositivo, la partición, el sistema de archivos y el punto de montaje.</li>
+            <li>Entrega un informe con una tabla que compare los resultados gráficos y por línea de comandos en Windows y Ubuntu, las capturas solicitadas y las dudas o errores encontrados.</li>
+        </ol>
+        <p>La práctica no debe borrarse ni finaliza hasta haber restaurado o comprobado las instantáneas. Si se eliminan particiones o se pierde acceso a los datos, utiliza únicamente el disco virtual de prueba y documenta qué operación produjo el resultado.</p>
+        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT3-Particiones-unidades-logicas">Enviar actividad por correo</a>
+    </details>
 </section>
 
 <!-- UT4 -->
