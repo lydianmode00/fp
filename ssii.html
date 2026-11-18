@@ -876,12 +876,13 @@ autoinstall:
     <p>El campo <code>password</code> debe contener un hash de contraseña válido, no una contraseña escrita directamente. Antes de usar una configuración real, comprueba en una máquina virtual que el nombre, el usuario, el almacenamiento, el red y el servidor SSH cumplen lo esperado.</p>
 
     <details class="activity-panel">
-        <summary>Comprueba el resultado</summary>
+        <summary>Tarea 7 - Archivos de autoinstalación</summary>
         <ol>
             <li>Explica con tus propias palabras qué decide un archivo de autoinstalación y qué papel tienen el medio de instalación y el propio sistema operativo.</li>
-            <li>Investiga las fases de respuesta desatendida de Windows y relaciona cada una con una configuración concreta.</li>
-            <li>En una máquina virtual, prepara una configuración NoCloud de Ubuntu sin datos reales y valida su sintaxis en YAML. No uses contraseñas ni claves privadas reales en los ejercicios.</li>
-            <li>Compara <code>unattend.xml</code> con <code>user-data</code>: nombre, formato, herramienta principal y sistema operativo al que pertenece cada uno.</li>
+            <li>Crea un archivo de autoinstalación de Windows con <em><a href="https://schneegans.de/windows/unattend-generator/">esta web</a></em>.</li>
+            <li>Crea una ISO para instalar windows que contenga el archivo de autinstalación. Puedes hacer esto con el programa AnyBurn.</li>
+            <li>Prueba el archivo de autoinstalación en una máquina virtual. Asegurate de desmarcar la opción por defecto de VirtualBox de instalación desatendida (ya hemos creado un archivo, no hace falta recrearlo).</li>
+            <li>Coge el archivo que has creado para Windows y pasaselo a una IA. Dile que cree un archivo con instrucciones similares para que funcione en Ubuntu. Pasaselo a otra IA diferente para que encuentre fallos que se hayan cometido. Copia en el documento la respuesta que te da cada IA. ¿Qué observas?</li>
         </ol>
     </details>
 </section>
