@@ -1174,6 +1174,186 @@ SESSION_SAVE_EVERY_REQUEST = True # La sesión se guarda en cada petición, aunq
             <li>Asegúrate de que la lógica del juego sigue funcionando.</li>
         </ol>
     </details>
+    <h3><em>02.</em> Usuarios y administradores</h3>
+    <p>Django incluye un sistema de usuarios y un panel de administración. Para acceder al panel primero
+        necesitamos crear una cuenta con permisos de superusuario. Desde la carpeta donde está
+        <code>manage.py</code>, podemos ejecutar:</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">terminal</p>
+        <hr>
+        <pre><code>python manage.py migrate
+python manage.py createsuperuser</code></pre>
+    </div>
+    <p>El comando <code>migrate</code> crea las tablas necesarias si todavía no has aplicado las
+        migraciones. Después, <code>createsuperuser</code> te pedirá un nombre de usuario, un correo
+        electrónico (opcional) y una contraseña. La contraseña no se muestra
+        mientras la escribes. Un superusuario tiene acceso a todas las funciones y permisos del panel;
+        por eso, en una aplicación real debemos proteger sus credenciales.</p>
+    <p>Ahora podemos acceder a la url
+        <code>http://127.0.0.1:8000/admin/</code> en el navegador e iniciar sesión con la cuenta creada.</p>
+    <p>Desde el panel se pueden gestionar usuarios y grupos, entre otros datos. Los usuarios normales no pueden entrar al panel si no
+        tienen permisos de personal (<code>is_staff</code>).</p>
+    <p>Dentro de nuestros html, podemos ofrecer formularios de registro e inicio de sesión pregenerados en nuestras
+        propias páginas. Django proporciona <code>UserCreationForm</code> para crear usuarios y
+        <code>AuthenticationForm</code> para comprobar las credenciales de un usuario existente. Ambos
+        formularios validan los datos; el primero también aplica las comprobaciones de contraseña de
+        Django y guarda la contraseña de forma segura (no como texto plano).</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">views.py</p>
+        <hr>
+        <pre><code>from django.contrib.auth import login
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.shortcuts import redirect, render
+
+def registro(request):
+    form = UserCreationForm(
+        request.POST if request.method == "POST" else None
+    )
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        return redirect("iniciar_sesion")
+    return render(request, "usuarios/registro.html", {"form": form})
+
+def iniciar_sesion(request):
+    form = AuthenticationForm(
+        request,
+        data=request.POST if request.method == "POST" else None
+    )
+    if request.method == "POST" and form.is_valid():
+        login(request, form.get_user())
+        return redirect("/")
+    return render(request, "usuarios/iniciar_sesion.html", {"form": form})</code></pre>
+    </div>
+    <p>Cuando el formulario de registro recibe una petición <code>POST</code> válida, <code>save()</code>
+        crea el usuario; si hay errores, el formulario vuelve a mostrarlos en la página. El formulario de
+        inicio de sesión recibe también el objeto <code>request</code>, valida las credenciales y,
+        después, <code>login()</code> inicia la sesión del usuario. <code>form.get_user()</code> solo se
+        usa después de comprobar que el formulario es válido. Por tanto, <code>AuthenticationForm</code>
+        no crea cuentas: autentica usuarios ya existentes.</p>
+    <p>En las plantillas <code>usuarios/registro.html</code> y
+        <code>usuarios/iniciar_sesion.html</code>, ambos formularios se pueden mostrar de forma sencilla
+        con <code>form.as_p</code>. No olvides incluir el token CSRF en los formularios enviados mediante
+        <code>POST</code>:</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">registro.html e iniciar_sesion.html</p>
+        <hr>
+        <pre><code>&lt;form method="post"&gt;
+    {% csrf_token %}
+    {{ form.as_p }}
+    &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+    <details class="activity-panel">
+        <summary>Tarea 3 - Creación de usuarios</summary>
+        <p>Implementa el registro y el inicio de sesión en tu proyecto Django y comprueba su funcionamiento:</p>
+        <ol>
+            <li>Aplica las migraciones y crea un superusuario con <code>python manage.py createsuperuser</code>.
+                Inicia el servidor, entra en <code>/admin/</code> y comprueba que puedes acceder al panel.</li>
+            <li>Crea las rutas y vistas para registrar usuarios e iniciar sesión. Usa
+                <code>UserCreationForm</code> para el registro y <code>AuthenticationForm</code> junto con
+                <code>login()</code> para autenticar e iniciar la sesión.</li>
+            <li>Crea las plantillas de registro e inicio de sesión. Muestra los campos del formulario con
+                <code>form.as_p</code> e incluye <code>{% csrf_token %}</code> en cada formulario enviado
+                con el método <code>POST</code>.</li>
+            <li>Si un formulario no es válido, vuelve a mostrarlo para que la persona pueda
+                corregirlos; no redirijas como si el registro o el acceso hubieran tenido éxito.</li>
+            <li>Prueba el flujo completo: registra una cuenta nueva, inicia sesión con ella, verifica que
+                unas credenciales incorrectas muestran un error.</li>
+        </ol>
+    </details>
+    <h3><em>03.</em> Acceso Restringido</h3>
+    <p>Algunas vistas solo deben estar disponibles para usuarios que hayan iniciado sesión. Django
+        proporciona el decorador <code>@login_required</code>: si una persona no autenticada intenta
+        acceder a la vista, se la redirige al formulario de inicio de sesión. Importa el decorador y
+        colócalo justo encima de la función que quieres proteger:</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">views.py</p>
+        <hr>
+        <pre><code>from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+
+@login_required
+def mi_perfil(request):
+    return render(request, "usuarios/mi_perfil.html")</code></pre>
+    </div>
+    <p>Por defecto, Django redirige a <code>/accounts/login/</code>. Si nuestra página de inicio de
+        sesión está en otra ruta, podemos indicarla en <code>settings.py</code> (también se puede usar
+        el nombre de una ruta):</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">settings.py</p>
+        <hr>
+        <pre><code>LOGIN_URL = "iniciar_sesion"</code></pre>
+    </div>
+    <p>La redirección incluye un parámetro <code>next</code> con la dirección que el usuario intentaba
+        visitar. Después de iniciar sesión, la vista de acceso puede usar ese parámetro para devolverlo
+        a la página solicitada; la vista estándar <code>LoginView</code> de Django ya contempla este
+        comportamiento.</p>
+    <p>Para restringir una vista a quienes tengan un permiso concreto, usa
+        <code>@permission_required</code>. El permiso se escribe como
+        <code>"nombre_de_aplicación.codigo_del_permiso"</code>. Django crea permisos por modelo, como
+        <code>view_user</code>, <code>add_user</code>, <code>change_user</code> y
+        <code>delete_user</code>; se asignan a usuarios o grupos desde el panel de administración.</p>
+    <div class="code-block">
+        <p style="font-weight: bold;">views.py</p>
+        <hr>
+        <pre><code>from django.contrib.auth.decorators import permission_required
+from django.shortcuts import render
+
+@permission_required("auth.change_user", raise_exception=True)
+def gestionar_usuarios(request):
+    return render(request, "usuarios/gestionar.html")</code></pre>
+    </div>
+    <p>En el ejemplo, <code>auth</code> es la aplicación del sistema de autenticación de Django y
+        <code>change_user</code> es el permiso para modificar usuarios. Si la persona no ha iniciado
+        sesión, Django la envía a la página de acceso; si ya inició sesión pero no tiene el permiso,
+        <code>raise_exception=True</code> responde con un error 403 (acceso prohibido). Sin esa opción,
+        también se redirige a la página de acceso. Para exigir varios permisos, pásalos como una tupla;
+        por defecto, el usuario debe tenerlos todos.</p>
+    <details class="activity-panel">
+        <summary>Tarea 4 - Gestión de usuarios con permisos</summary>
+        <p>La vista obtiene todos los usuarios con <code>User.objects.all()</code> y los envía a la plantilla
+        mediante el contexto. En el HTML podemos recorrerlos para crear las opciones de un formulario.
+        El método <code>POST</code> y el token CSRF son importantes si el formulario va a realizar una
+        acción que modifica datos:</p>
+    </div>
+        <ol>
+            <li>Crea una vista para gestionar usuarios y protégela con <code>@login_required</code>
+                <code>@permission_required("auth.delete_user", raise_exception=True)</code>.</li>
+            <li>Concede el permiso <code>auth.delete_user</code> a un usuario o grupo desde el panel de
+                administración. Comprueba que una cuenta sin ese permiso no puede acceder y que una
+                cuenta con el permiso sí puede.</li>
+            <li>Obtén todos los usuarios y muéstralos en un formulario que permita seleccionar uno.</li>
+            <div class="code-block">
+        <p style="font-weight: bold;">views.py</p>
+        <hr>
+        <pre><code>from django.contrib.auth.decorators import permission_required
+from django.shortcuts import render
+from django.contrib.auth.models import User
+
+@login_required
+@permission_required("auth.change_user", raise_exception=True)
+def gestionar_usuarios(request):
+    lista_usuarios = User.objects.get_all()
+    return render(request, "usuarios/gestionar.html", {'lista_usuarios': lista_usuarios})</code></pre>
+    </div>
+    <div class="code-block">
+        <p style="font-weight: bold;">usuarios/gestionar.html</p>
+        <hr>
+        <pre><code>&lt;form method="post"&gt;
+    {% csrf_token %}
+    &lt;label for="usuario"&gt;Selecciona un usuario:&lt;/label&gt;
+    &lt;select name="usuario_id" id="usuario"&gt;
+        {% for usuario in usuarios %}
+            &lt;option value="{{ usuario.id }}"&gt;{{ usuario.username }}&lt;/option&gt;
+        {% endfor %}
+    &lt;/select&gt;
+    &lt;button type="submit"&gt;Eliminar usuario&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+                <li>Implementa la eliminación únicamente al recibir una petición <code>POST</code> válida. Puedes borrar un usuario sabiendo su id con: <code>User.objects.filter(id=id).delete()</code>.</li>
+            <li>Prueba el comportamiento tanto con una cuenta autorizada como con una cuenta sin el permiso.</li>
+        </ol>
+    </details>
 </section>
 
 <!-- UT 6 -->
