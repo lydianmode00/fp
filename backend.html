@@ -1315,7 +1315,6 @@ def gestionar_usuarios(request):
         mediante el contexto. En el HTML podemos recorrerlos para crear las opciones de un formulario.
         El método <code>POST</code> y el token CSRF son importantes si el formulario va a realizar una
         acción que modifica datos:</p>
-    </div>
         <ol>
             <li>Crea una vista para gestionar usuarios y protégela con <code>@login_required</code>
                 <code>@permission_required("auth.delete_user", raise_exception=True)</code>.</li>
