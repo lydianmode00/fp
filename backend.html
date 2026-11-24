@@ -1348,6 +1348,7 @@ def gestionar_usuarios(request):
     &lt;/select&gt;
     &lt;button type="submit"&gt;Eliminar usuario&lt;/button&gt;
 &lt;/form&gt;</code></pre>
+    </div>
 
                 <li>Implementa la eliminación únicamente al recibir una petición <code>POST</code> válida. Puedes borrar un usuario sabiendo su id con: <code>User.objects.filter(id=id).delete()</code>.</li>
             <li>Prueba el comportamiento tanto con una cuenta autorizada como con una cuenta sin el permiso.</li>
