@@ -1332,7 +1332,7 @@ from django.contrib.auth.models import User
 @login_required
 @permission_required("auth.change_user", raise_exception=True)
 def gestionar_usuarios(request):
-    lista_usuarios = User.objects.get_all()
+    lista_usuarios = User.objects.all()
     return render(request, "usuarios/gestionar.html", {'lista_usuarios': lista_usuarios})</code></pre>
     </div>
     <div class="code-block">
@@ -1342,7 +1342,7 @@ def gestionar_usuarios(request):
     {% csrf_token %}
     &lt;label for="usuario"&gt;Selecciona un usuario:&lt;/label&gt;
     &lt;select name="usuario_id" id="usuario"&gt;
-        {% for usuario in usuarios %}
+        {% for usuario in lista_usuarios %}
             &lt;option value="{{ usuario.id }}"&gt;{{ usuario.username }}&lt;/option&gt;
         {% endfor %}
     &lt;/select&gt;
