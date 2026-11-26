@@ -884,6 +884,59 @@ autoinstall:
             <li>Prueba el archivo de autoinstalación en una máquina virtual. Asegurate de desmarcar la opción por defecto de VirtualBox de instalación desatendida (ya hemos creado un archivo, no hace falta recrearlo).</li>
             <li>Coge el archivo que has creado para Windows y pasaselo a una IA. Dile que cree un archivo con instrucciones similares para que funcione en Ubuntu. Pasaselo a otra IA diferente para que encuentre fallos que se hayan cometido. Copia en el documento la respuesta que te da cada IA. ¿Qué observas?</li>
         </ol>
+        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT2-Tarea 7">Enviar actividad por correo</a>
+    </details>
+    <h3><em>07.</em> Tecnologías de contenedores</h3>
+    <p>Un <em>contenedor</em> empaqueta una aplicación y los componentes que necesita para ejecutarse en un entorno aislado. A diferencia de una máquina virtual, normalmente comparte el núcleo del sistema operativo anfitrión y no requiere arrancar un sistema operativo invitado completo. Esto permite iniciar contenedores con rapidez y facilita reproducir entornos de trabajo. Una <em>imagen</em> es la plantilla desde la que se crea un contenedor; el contenedor es su instancia en ejecución.</p>
+    <p><em>Docker</em> es una plataforma popular para crear y ejecutar contenedores. Su motor descarga imágenes de registros, crea contenedores a partir de ellas y permite consultar, detener y eliminar esos contenedores. Los contenedores no sustituyen a las copias de seguridad: los datos guardados únicamente en la capa temporal del contenedor pueden perderse al eliminarlo.</p>
+    <details class="activity-panel">
+        <summary>Tarea 8 - Instalación de Docker y ejecución de un contenedor</summary>
+        <p>Antes de empezar, descarga Docker Desktop en tu ordenador. En función de tu sistema operativo es posible que los pasos que tengas que seguir para la instalación sean diferentes, mira siempre la documentación oficial.</p>
+        <ol>
+            <li>Una vez instalado Docker, prueba el comando <code>$ docker version</code> y <code>$ docker compose version</code>. Si no da error, puedes continuar.</li>
+            <li>Crea una carpeta para el proyecto y crea dentro un archivo llamado <code>docker-compose.yaml</code> y otro llamado <code>.env</code>.</li>
+            <li>Dentro del archivo yaml pega el siguiente contenido:.</li>
+<pre class="code-block"><code>docker-compose.yaml
+<hr>    
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: unless-stopped
+    depends_on:
+      - ollama
+    ports:
+      - "127.0.0.1:3000:8080"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - WEBUI_SECRET_KEY=ESCRIBE_AQUI_UNA_CONTRASEÑA
+    volumes:
+      - open-webui:/app/backend/data
+
+volumes:
+  ollama:
+  open-webui:</code></pre>
+            <li>Levanta ahora los contenedores con <code>$ docker compose up</code>, recuerda ejecutar este comando desde la carpeta correcta.</li>
+            <li>Si no ha habido ningún error prueba a entrar a localhost:3000. Crea una cuenta de administrador.</li>
+            <li>Haz click en tu foto de usuario, entra en ajustes, conexiones y haz click en gestionar la conexión a Ollama ("Manage").</li>
+            <li>Introduce uno de los siguientes modelos según las especificaciones de tu dispositivo:</li>
+            <ul>
+                <li><code><em>llama3.2:3b</em></code> Si tu ordenador es de bajas especificaciones. Este modelo consume aproximadamente 2GB de RAM</li>
+                <li><code><em>qwen3:8b</em></code> Para ordenadores de gama media sin gráfica. Este modelo consume aproximadamente 6GB de RAM</li>
+                <li><code><em>gemma4:12b</em></code> Para ordenadores de gama media con gráfica. Este modelo consume aproximadamente 8GB de RAM. Acepta imagenes como entrada.</li>
+                <li><code><em>gpt-oss:20b</em></code> Para ordenadores de gama alta con gráfica. Este modelo consume aproximadamente 16GB de RAM. Razonamiento avanzado con procesado gráfico.</li>
+            </ul>
+        </ol>
+        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT2-Tarea 8 - Docker">Enviar actividades por correo</a>
     </details>
 </section>
 
@@ -959,7 +1012,7 @@ autoinstall:
             </tbody>
         </table>
     </div>
-    <details class="activity-panel"><summary>Tarea: organización y características de los sistemas de archivos</summary>
+    <details class="activity-panel"><summary>Tarea 1 - Organización y características de los sistemas de archivos</summary>
         <p>Responde con tus propias palabras a las siguientes cuestiones. Para los límites de capacidad, indica las unidades utilizadas y consulta fuentes fiables: pueden variar según la versión, la implementación y el sistema operativo.</p>
         <ol>
             <li>¿Cuál es la diferencia entre el árbol de directorios de Linux y el de Windows? Explica cómo se representan la raíz y las distintas unidades o particiones, y qué aspecto tienen sus rutas.</li>
@@ -978,7 +1031,7 @@ autoinstall:
             </li>
         </ol>
         <p>Presenta los límites de capacidad en una tabla comparativa e incluye las fuentes consultadas.</p>
-        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SOM-UT1-SISTEMAS-ARCHIVOS">Enviar actividad por correo</a>
+        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT3-Tarea 1">Enviar actividad por correo</a>
     </details>
     <p>La compatibilidad no es igual en todos los sistemas operativos: por ejemplo, Windows no ofrece soporte nativo completo para ext4 ni APFS, y macOS puede leer NTFS normalmente, pero no escribir en él de forma nativa. Para una unidad que se vaya a usar en varios sistemas, exFAT suele ser una opción práctica, siempre que no se necesiten permisos avanzados ni journaling.</p>
     <h3><em>02.</em> Journaling: registro para recuperar el sistema de archivos</h3>
@@ -994,6 +1047,19 @@ autoinstall:
     </ul>
     <p>Los nombres exactos y los modos disponibles cambian según NTFS, ext4, XFS, Btrfs u otros sistemas. Además, el diario no evita todos los problemas: no sustituye las copias de seguridad, no garantiza que los datos se hayan escrito correctamente si existe un hardware defectuoso y no protege frente a borrados accidentales, malware o fallos físicos de un disco. Una SSD o unidad USB puede perder información si falla su electrónica; incluso con journaling, conviene mantener copias externas y comprobar periódicamente el estado del almacenamiento.</p>
     <p>Durante una operación normal, el diario ocupa espacio y puede aumentar ligeramente el número de escrituras. Sin embargo, gracias a él, después de un reinicio brusco el sistema puede realizar una recuperación dirigida en lugar de revisar todo el volumen. Procesos como <code>fsync</code>, las llamadas de confirmación o la política de caché de escritura influyen también en cuándo quedan persistidos los datos; cerrar un archivo no siempre significa que el mismo instante haya sido escrito físicamente en el medio.</p>
+    <details class="activity-panel">
+        <summary>Tarea 2 - Journaling y recuperación</summary>
+        <ol>
+            <li>Explica con tus propias palabras qué es el journaling y qué problema intenta resolver.</li>
+            <li>Dibuja o describe el proceso que sigue una operación escrita en el diario: preparación, registro, aplicación y confirmación.</li>
+            <li>Compara journaling de metadatos, journaling completo y journaling ordenado. Indica una ventaja y una limitación de cada uno.</li>
+            <li>Consulta la documentación oficial de NTFS, ext4 y Btrfs e indica qué sistemas utilizan journaling y cuáles son sus modos o características principales.</li>
+            <li>Explica por qué cerrar un archivo no siempre garantiza que sus datos hayan alcanzado el medio físico.</li>
+            <li>Razona por qué el journaling no sustituye una copia de seguridad y qué riesgos siguen existiendo.</li>
+        </ol>
+        <p>Entrega un documento breve con tus respuestas, un esquema del proceso y las fuentes oficiales consultadas.</p>
+        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT3-Tarea 2">Enviar actividad por correo</a>
+    </details>
     <h3><em>03.</em> Jerarquía de archivos y directorios</h3>
     <p>La <em>jerarquía</em> es la forma estructurada de organizar archivos y directorios dentro de un sistema de almacenamiento. Los directorios pueden contener archivos y otros directorios, llamados subdirectorios, formando un árbol con una base común: el directorio raíz. Cada elemento ocupa una posición dentro de ese árbol y se identifica mediante una ruta. Esta organización permite localizar información, separar responsabilidades, establecer permisos y mostrar el contenido de distintas unidades como un conjunto lógico.</p>
     <p>Una ruta puede ser <em>absoluta</em> o <em>relativa</em>. La ruta absoluta comienza en la raíz del sistema y describe desde ella todo el recorrido hasta el elemento: por ejemplo, <code>/home/ana/proyectos</code> o <code>C:\Users\Ana\Documentos</code>. La ruta relativa comienza en el directorio de trabajo actual y utiliza nombres o atajos: <code>documentos/informe.pdf</code> indica que el archivo está dentro de <code>documentos</code>, desde la ubicación actual. Los símbolos <code>.</code> y <code>..</code> representan respectivamente el directorio actual y el directorio padre.</p>
@@ -1014,6 +1080,19 @@ autoinstall:
     <h4>Una estructura coherente y segura</h4>
     <p>Una buena organización comienza por nombres claros, evitando caracteres confusos o descripciones genéricas como «nuevo_documento_final». Conviene separar documentos personales, datos de aplicación, configuraciones, copias de seguridad y temporales. Los permisos deben limitar el acceso a los directorios sensibles, y las rutas usadas en scripts deberían comprobarse para no depender de directorios improvisados.</p>
     <p>Antes de inicializar, particionar o formatear una unidad hay que verificar el nombre, el tamaño y el identificador del disco. Estas operaciones pueden eliminar datos, cambiar el arranque o hacer que un volumen deje de estar disponible. Siempre conviene comprobar que se está trabajando sobre la unidad correcta y que existen copias de seguridad recientes. Eliminar un directorio no siempre debe significar borrar físicamente todos sus bloques de inmediato: el sistema puede marcar primero el espacio como libre y reutilizarlo posteriormente.</p>
+    <details class="activity-panel">
+        <summary>Tarea 3 - Jerarquía, rutas y unidades</summary>
+        <ol>
+            <li>Dibuja un esquema de la jerarquía de Linux y otro de Windows. Incluye la raíz, la carpeta personal, una carpeta de documentos y una unidad o partición adicional.</li>
+            <li>Explica en qué se diferencian las rutas absolutas y las relativas. Añade dos ejemplos de cada tipo en Linux y dos en Windows.</li>
+            <li>Convierte las rutas relativas propuestas a rutas absolutas y explica qué representan <code>.</code> y <code>..</code>.</li>
+            <li>Describe la diferencia entre disco, partición, sistema de archivos, volumen y punto de montaje.</li>
+            <li>Explica cómo se representa una unidad extraíble en Linux y en Windows.</li>
+            <li>Propón una estructura de directorios organizada para proyectos, documentos personales, configuraciones, copias de seguridad y archivos temporales.</li>
+        </ol>
+        <p>Entrega los esquemas, ejemplos de rutas y una breve explicación de las precauciones necesarias antes de particionar o formatear una unidad.</p>
+        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT3-Tarea 3">Enviar actividad por correo</a>
+    </details>
     <h3><em>04.</em> Navegación por el sistema de archivos</h3>
     <p>Navegar por el sistema de archivos consiste en localizar elementos, desplazarse entre directorios y conocer dónde se está trabajando. La navegación puede realizarse desde un entorno gráfico mediante ventanas, iconos y menús, o desde una terminal mediante comandos y rutas escritas. Ambos métodos ofrecen las mismas capacidades fundamentales, pero la línea de comandos resulta especialmente útil para búsquedas complejas, procesos automatizados y administración remota.</p>
     <h4>Navegación gráfica</h4>
@@ -1104,6 +1183,25 @@ autoinstall:
     <p>La orden <code>find</code> permite buscar en Linux con criterios de nombre, tipo, tamaño o fecha, y puede ejecutar acciones sobre los resultados. Las búsquedas recursivas pueden tardar mucho si incluyen rutas como <code>/</code> o una unidad con millones de archivos. En PowerShell conviene empezar en la carpeta concreta y usar filtros antes de recorrer el sistema completo. En Windows, el comando <code>where</code> también permite localizar un ejecutable disponible en las rutas configuradas por la variable <code>PATH</code>.</p>
     <p>Los comodines representan patrones: por ejemplo, <code>*</code> sustituye cualquier secuencia de caracteres y <code>?</code> sustituye un solo carácter. Las comillas pueden ser necesarias para evitar que la terminal interprete los símbolos antes de que lleguen a la aplicación. Comprueba siempre la ruta utilizada al ejecutar operaciones destructivas como eliminar o mover; en Linux, una ruta mal escrita con permisos elevados puede afectar a archivos críticos.</p>
     <p>En resumen, el entorno gráfico facilita la comprensión visual de la jerarquía y es adecuado para muchas tareas cotidianas. La línea de comandos ofrece precisión, búsqueda avanzada y automatización. El alumnado debe conocer ambos métodos y saber elegir el más seguro y adecuado para cada operación.</p>
+    <details class="activity-panel">
+        <summary>Tarea 4 - Navegación gráfica y por terminal</summary>
+        <p>Realiza la práctica en una máquina virtual o dentro de una carpeta exclusiva llamada <code>practica_ut3</code>. No ejecutes borrados ni cambios fuera de esa carpeta.</p>
+        <h4>Parte A: Entorno gráfico</h4>
+        <ol>
+            <li>Crea en Linux y Windows una carpeta <code>practica_ut3</code> con tres subdirectorios y dos archivos de texto.</li>
+            <li>Localiza los archivos con el gestor de archivos, consulta sus propiedades y activa los elementos ocultos si están disponibles.</li>
+            <li>Copia o mueve un archivo entre las carpetas creadas y explica qué observas al arrastrar elementos entre ubicaciones.</li>
+        </ol>
+        <h4>Parte B: Terminal</h4>
+        <ol>
+            <li>En Linux utiliza <code>pwd</code>, <code>ls -la</code>, <code>cd</code>, <code>find</code> y <code>grep</code>. En Windows PowerShell utiliza <code>Get-Location</code>, <code>Get-ChildItem</code>, <code>Set-Location</code>, <code>Get-ChildItem -Recurse</code> y <code>Select-String</code>.</li>
+            <li>Muestra el directorio actual y recorre toda la estructura creada.</li>
+            <li>Realiza una búsqueda por nombre y una búsqueda de texto dentro de los archivos.</li>
+            <li>Guarda las órdenes utilizadas y explica qué hace cada una y qué resultado devuelve.</li>
+        </ol>
+        <p>Entrega capturas numeradas, las órdenes utilizadas y una comparación breve entre navegación gráfica y por terminal. Incluye cuándo conviene utilizar cada método y las precauciones tomadas.</p>
+        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT3-Tarea 4">Enviar actividad por correo</a>
+    </details>
     <h3><em>05.</em> Particiones y unidades lógicas</h3>
     <p>Una <em>partición</em> es una sección definida dentro de un disco. Permite separar sistemas operativos, datos y zonas de recuperación, o asignar un volumen a una tabla de archivos concreta. La <em>tabla de particiones</em> describe qué regiones utiliza el disco. Los sistemas actuales suelen emplear GPT, mientras que MBR conserva compatibilidad con equipos antiguos y esquemas de arranque heredados.</p>
     <p>Una partición primaria puede contener directamente un sistema de archivos. MBR también utiliza particiones extendidas para crear varias <em>unidades lógicas</em> dentro de ellas. GPT no necesita las particiones extendidas ni las unidades lógicas: permite crear directamente muchas particiones. Formatear una partición crea el sistema de archivos que organizará sus datos; en Windows puede asignarse una letra de unidad y en Linux puede montarse en un directorio.</p>
@@ -1156,7 +1254,7 @@ autoinstall:
         </table>
     </div>
     <details class="activity-panel">
-        <summary>Actividad - Práctica segura de particiones en máquinas virtuales</summary>
+        <summary>Tarea 5 - Práctica segura de particiones en máquinas virtuales</summary>
         <p>Realiza la actividad exclusivamente con discos virtuales nuevos y de prueba. Crea una instantánea antes de comenzar y no añadas ni utilices discos físicos del equipo anfitrión. Confirma el número, el tamaño y el nombre del disco antes de cualquier operación destructiva.</p>
         <h4>Parte A: Windows en máquina virtual</h4>
         <ol>
@@ -1181,7 +1279,7 @@ autoinstall:
             <li>Entrega un informe con una tabla que compare los resultados gráficos y por línea de comandos en Windows y Ubuntu, las capturas solicitadas y las dudas o errores encontrados.</li>
         </ol>
         <p>La práctica no debe borrarse ni finaliza hasta haber restaurado o comprobado las instantáneas. Si se eliminan particiones o se pierde acceso a los datos, utiliza únicamente el disco virtual de prueba y documenta qué operación produjo el resultado.</p>
-        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT3-Particiones-unidades-logicas">Enviar actividad por correo</a>
+        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SSII-UT3-Tarea 5">Enviar actividad por correo</a>
     </details>
 </section>
 
