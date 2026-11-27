@@ -1915,6 +1915,190 @@
                         de error y consulta con el docente antes de cambiar opciones de seguridad o firmware del
                         equipo.</p>
                 </details>
+                <h3><em>02. </em>Opciones de configuración</h3>
+                <p>Después de crear una máquina virtual en VirtualBox, se pueden ajustar sus recursos y funciones en
+                    el apartado <em>Configuración</em>. Las opciones deben adaptarse al sistema operativo invitado y a
+                    los recursos disponibles en el equipo anfitrión. No es recomendable asignar todos los recursos del
+                    anfitrión a la máquina virtual.</p>
+                <div class="table-scroll" role="region" aria-label="Parámetros principales de configuración de VirtualBox" tabindex="0">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Opción</th>
+                                <th>Parámetros principales</th>
+                                <th>Función</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><em>General</em></td>
+                                <td>Nombre, ruta de almacenamiento, tipo y versión del sistema operativo, portapapeles
+                                    compartido y arrastrar y soltar</td>
+                                <td>Identifica la máquina y define funciones básicas de interacción con el anfitrión.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><em>Sistema</em></td>
+                                <td>Memoria base, procesadores, orden de arranque, EFI y aceleración</td>
+                                <td>Configura los recursos de CPU y RAM, el modo de arranque y la virtualización
+                                    disponible.</td>
+                            </tr>
+                            <tr>
+                                <td><em>Pantalla</em></td>
+                                <td>Memoria de vídeo, controlador gráfico y aceleración 3D</td>
+                                <td>Determina la resolución y el rendimiento de la interfaz gráfica del invitado.</td>
+                            </tr>
+                            <tr>
+                                <td><em>Almacenamiento</em></td>
+                                <td>Controladores de discos, discos duros virtuales, unidades ópticas y discos duros
+                                    removibles</td>
+                                <td>Conecta los medios y controla dónde se guardan los datos del sistema invitado.</td>
+                            </tr>
+                            <tr>
+                                <td><em>Red</em></td>
+                                <td>Adaptadores y modos NAT, adaptador puente, red interna, host-only o NAT Network
+                                </td>
+                                <td>Define cómo se comunica la máquina virtual con el anfitrión y con otras máquinas o
+                                    redes.</td>
+                            </tr>
+                            <tr>
+                                <td><em>USB</em></td>
+                                <td>Versión USB y filtros de dispositivos</td>
+                                <td>Permite conectar dispositivos USB físicos al sistema invitado.</td>
+                            </tr>
+                            <tr>
+                                <td><em>Carpetas compartidas</em></td>
+                                <td>Ruta del anfitrión, punto de montaje y opción de carpeta permanente</td>
+                                <td>Hace accesible una carpeta del anfitrión desde la máquina virtual.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Sistema y recursos</h4>
+                <p>La <em>memoria base</em> indica la cantidad de RAM que tendrá disponible la máquina virtual. Los
+                    <em>procesadores</em> indican el número de núcleos asignados y el <em>orden de arranque</em>
+                    determina si VirtualBox prueba primero el disco duro, la unidad óptica o la red. Estos valores
+                    pueden modificarse después, siempre que la máquina esté apagada.</p>
+                <p>En <em>Habilitación y aceleración</em> se pueden activar opciones relacionadas con el procesador y
+                    las extensiones de virtualización del equipo. Algunas de ellas dependen de que estén habilitadas en
+                    la BIOS o UEFI del anfitrión. La opción EFI puede ser necesaria para determinados sistemas
+                    operativos modernos, pero no debe activarse sin motivo si no se indica en la instalación.</p>
+                <h4>Almacenamiento</h4>
+                <p>VirtualBox organiza los discos mediante controladores. Los formatos más habituales son <em>VDI</em>,
+                    <em>VMDK</em> y <em>VHD</em>. Un disco <em>reservado dinámicamente</em> ocupa inicialmente menos
+                    espacio y crece hasta el tamaño máximo definido; un disco de <em>tamaño fijo</em> reserva desde el
+                    principio todo el espacio, por lo que puede ocuparlo más rápidamente. La unidad óptica se utiliza
+                    normalmente para conectar la imagen ISO del sistema operativo.</p>
+                <h4>Red</h4>
+                <ul>
+                    <li><em>NAT:</em> permite que la máquina virtual acceda a Internet y usa una red privada gestionada
+                        por VirtualBox.</li>
+                    <li><em>Adaptador puente:</em> conecta la máquina virtual directamente a la red física y puede
+                        hacer que aparezca como otro equipo en esa red.</li>
+                    <li><em>Red interna:</em> permite comunicarse únicamente con otras máquinas virtuales configuradas
+                        en la misma red interna.</li>
+                    <li><em>Host-only:</em> permite la comunicación entre el anfitrión y las máquinas virtuales, sin
+                        acceso directo a redes externas salvo que se configure otro adaptador.</li>
+                </ul>
+                <p>Es habitual combinar distintos adaptadores: uno con NAT para tener Internet y otro con red host-only
+                    para administrar la máquina sin exponerla directamente a la red física.</p>
+                <h4>Copias de seguridad y estados guardados</h4>
+                <p>Una <em>instantánea</em> guarda el estado de la máquina virtual en un momento concreto: configuración,
+                    disco y, si se desea, memoria. Permite volver a ese punto después de realizar cambios o pruebas.
+                    Las instantáneas no sustituyen las copias de seguridad, porque suelen mantenerse dentro del mismo
+                    equipo y pueden consumir mucho espacio.</p>
+                <p>El estado <em>guardado</em> conserva el estado actual de la máquina para retomarlo más tarde, de
+                    forma similar a poner el equipo en suspensión. El apagado normal permite que el sistema operativo
+                    invitado cierre sus programas y servicios correctamente.</p>
+                <details class="activity-panel">
+                    <summary>Tarea 2 - Instalación desatendida de Windows</summary>
+                    <p>Crea una máquina virtual e instala Windows mediante un archivo de
+                        <em>autoinstalación</em> generado con la herramienta
+                        <a class="in-text-link"
+                            href="https://schneegans.de/windows/unattend-generator/"
+                            target="_blank" rel="noopener noreferrer">Windows Unattend File Generator de Christoph Schneegans</a>.
+                        El archivo <code>unattend.xml</code> permitirá que Windows se configure automáticamente durante
+                        la instalación.</p>
+                    <ol>
+                        <li>Descarga desde la página oficial de Microsoft una imagen ISO de Windows 10 o Windows 11.
+                            Comprueba la arquitectura, la edición y el idioma antes de descargarla.</li>
+                        <li>Abre el generador de <code>autounattend.xml</code>. Configura al menos el idioma y la región,
+                            la edición de Windows, la creación de una cuenta local, el nombre del equipo, las
+                            opciones de privacidad, el bloatware y el script .cmd para resolver automáticamente .</li>
+                        <li>Genera y descarga el archivo <code>autounattend.xml</code>.</li>
+                        <li>Descarga e instala el programa AnyBurn. Ejecuta la opción "Editar la imagen" y añade el archivo 
+                            XML a la raíz de la imagen. Guarda la imagen como nueva imagen o sobrescribiendo a la antigua.</li>
+                        <li>Crea una nueva máquina virtual en VirtualBox. En el asistente, marca el tipo y la versión
+                            correctos de Windows, asigna memoria y procesadores suficientes y crea un disco duro
+                            virtual. En el apartado <em>Almacenamiento</em>, selecciona la ISO de Windows como unidad
+                            óptica.</li>
+                        <li>Inicia la máquina virtual y deja que Windows Setup realice la instalación. No introduzcas
+                            manualmente datos que hayas incluido en el archivo de autoinstalación.</li>
+                        <li>Una vez instalado Windows, inicia sesión con la cuenta creada por el generador y accede a
+                            <code>Configuración &gt; Sistema &gt; Acerca de</code>. Comprueba la edición, la versión
+                            y las características del sistema.</li>
+                    </ol>
+                    <p>Entrega una captura de la máquina virtual ya iniciada, otra con las opciones generales de
+                        VirtualBox y una breve explicación indicando qué configuración desatendida aplicaste y qué
+                        problemas encontraste. No uses contraseñas reales ni datos personales en el archivo de
+                        instalación.</p>
+                    <a class="button button-primary"
+                        href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SOM-UT2-Tarea 2 - Instalación desatendida de Windows">Enviar
+                        actividades por correo</a>
+                </details>
+                <h3><em>03.</em> Contenedores</h3>
+                <p>Un <em>contenedor</em> empaqueta una aplicación y los componentes que necesita para ejecutarse en un entorno aislado. A diferencia de una máquina virtual, normalmente comparte el núcleo del sistema operativo anfitrión y no requiere arrancar un sistema operativo invitado completo. Esto permite iniciar contenedores con rapidez y facilita reproducir entornos de trabajo. Una <em>imagen</em> es la plantilla desde la que se crea un contenedor; el contenedor es su instancia en ejecución.</p>
+    <p><em>Docker</em> es una plataforma popular para crear y ejecutar contenedores. Su motor descarga imágenes de registros, crea contenedores a partir de ellas y permite consultar, detener y eliminar esos contenedores. Los contenedores no sustituyen a las copias de seguridad: los datos guardados únicamente en la capa temporal del contenedor pueden perderse al eliminarlo.</p>
+    <details class="activity-panel">
+
+        <summary>Tarea 3 - Instalación de Docker y ejecución de un contenedor</summary>
+        <p>Antes de empezar, descarga Docker Desktop en tu ordenador. En función de tu sistema operativo es posible que los pasos que tengas que seguir para la instalación sean diferentes, mira siempre la documentación oficial.</p>
+        <ol>
+            <li>Una vez instalado Docker, prueba el comando <code>$ docker version</code> y <code>$ docker compose version</code>. Si no da error, puedes continuar.</li>
+            <li>Crea una carpeta para el proyecto y crea dentro un archivo llamado <code>docker-compose.yaml</code> y otro llamado <code>.env</code>.</li>
+            <li>Dentro del archivo yaml pega el siguiente contenido:.</li>
+<pre class="code-block"><code>docker-compose.yaml
+<hr>    
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: unless-stopped
+    depends_on:
+      - ollama
+    ports:
+      - "127.0.0.1:3000:8080"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - WEBUI_SECRET_KEY=ESCRIBE_AQUI_UNA_CONTRASEÑA
+    volumes:
+      - open-webui:/app/backend/data
+
+volumes:
+  ollama:
+  open-webui:</code></pre>
+            <li>Levanta ahora los contenedores con <code>$ docker compose up</code>, recuerda ejecutar este comando desde la carpeta correcta.</li>
+            <li>Si no ha habido ningún error prueba a entrar a localhost:3000. Crea una cuenta de administrador.</li>
+            <li>Haz click en tu foto de usuario, entra en ajustes, conexiones y haz click en gestionar la conexión a Ollama ("Manage").</li>
+            <li>Introduce uno de los siguientes modelos según las especificaciones de tu dispositivo:</li>
+            <ul>
+                <li><code><em>llama3.2:3b</em></code> Si tu ordenador es de bajas especificaciones. Este modelo consume aproximadamente 2GB de RAM</li>
+                <li><code><em>qwen3:8b</em></code> Para ordenadores de gama media sin gráfica. Este modelo consume aproximadamente 6GB de RAM</li>
+                <li><code><em>gemma4:12b</em></code> Para ordenadores de gama media con gráfica. Este modelo consume aproximadamente 8GB de RAM. Acepta imagenes como entrada.</li>
+                <li><code><em>gpt-oss:20b</em></code> Para ordenadores de gama alta con gráfica. Este modelo consume aproximadamente 16GB de RAM. Razonamiento avanzado con procesado gráfico.</li>
+            </ul>
+        </ol>
+        <a class="button button-primary" href="mailto:lydia.garceran@colegiomiralmonte.es?subject=SOM-UT2-Tarea 8 - Docker">Enviar actividades por correo</a>
+    </details>
             </section>
 
             <!-- UT 3 -->
